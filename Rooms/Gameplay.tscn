@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd147onvpx8hs"]
 
-[ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Player.tscn" id="1_inlal"]
+[ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inlal"]

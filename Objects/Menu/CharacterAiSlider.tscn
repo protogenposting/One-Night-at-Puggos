@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://drb7xj3kdlxnf"]
+
+[ext_resource type="Script" uid="uid://bla4wk7upmoqb" path="res://Objects/Menu/character_ai_slider.gd" id="1_b2vqp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2vqp"]
+font_size = 26
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 21
+shadow_color = Color(0, 0, 0, 0.34509805)
+shadow_offset = Vector2(-0.195, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkj78"]
+font_size = 38
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.4745098)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 3
+anchor_left = -0.11100001
+anchor_top = -0.19800001
+anchor_right = 0.11100001
+anchor_bottom = 0.19800001
+offset_left = 63.87201
+offset_top = 64.304016
+offset_right = -63.87201
+offset_bottom = -64.304016
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b2vqp")
+
+[node name="CharacterAiSlider" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CharacterAiSlider"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_right = 192.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_b2vqp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AILabel" type="Label" parent="CharacterAiSlider"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_hkj78")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CharacterAiSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.87500006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 20.0
