@@ -13,7 +13,7 @@ texture = SubResource("ViewportTexture_xml2b")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 134.0
-offset_top = 84.0
-offset_right = 194.0
-offset_bottom = 153.0
+offset_left = 119.0
+offset_top = 64.0
+offset_right = 179.0
+offset_bottom = 133.0
