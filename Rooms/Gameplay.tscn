@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=7 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
+[ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inlal"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -52,13 +53,36 @@ size = Vector3(1.12939, 4.33581, 1.20584)
 [node name="Cameras" type="SubViewport" parent="." groups=["Gameplay"]]
 
 [node name="Camera3D" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.8698482, 0, 0.49331954, 0, 1, 0, -0.49331954, 0, 0.8698482, -6.4591837, 0, -11.273851)
+transform = Transform3D(-0.7287894, 0, -0.6847379, 0, 1, 0, 0.6847379, 0, -0.7287894, -9.121152, 0, -10.2719755)
+
+[node name="Pebble" parent="Cameras/Camera3D" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7287894, 0, 0.6847379, 0, 1, 0, -0.6847379, 0, -0.7287894, -0.5334997, 0, -4.5147085)
+character = 1
 
 [node name="Camera3D2" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.53651917, 0, -0.84388804, 0, 1, 0, 0.84388804, 0, 0.53651917, 1.8002291, 0, -11.273851)
+transform = Transform3D(-0.99784636, 0, -0.0655947, 0, 1, 0, 0.0655947, 0, -0.99784636, -1.614543, 0, -15.273943)
+
+[node name="Pebble" parent="Cameras/Camera3D2" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
+character = 1
+id = 1
 
 [node name="Camera3D3" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.5535369, 0, 0.8328247, 0, 1, 0, -0.8328247, 0, -0.5535369, 1.8002291, 0, -14.9489)
+transform = Transform3D(-0.7930876, 0, 0.60910755, 0, 1, 0, -0.60910755, 0, -0.7930876, 11.56132, 0, -10.2719755)
+
+[node name="Pebble" parent="Cameras/Camera3D3" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
+character = 1
+id = 1
 
 [node name="Camera3D4" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.73831415, 0, -0.67445695, 0, 1, 0, 0.67445695, 0, -0.73831415, -6.270009, 0, -14.9489)
+transform = Transform3D(0.23755038, 0, 0.9713752, 0, 1, 0, -0.9713752, 0, 0.23755038, 12.478322, 0, -18.249166)
+
+[node name="Camera3D5" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-0.09317008, 0, -0.9956503, 0, 1, 0, 0.9956503, 0, -0.09317008, -17.749584, 0, -18.249166)
+
+[node name="Camera3D6" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-0.09317008, 0, -0.9956503, 0, 1, 0, 0.9956503, 0, -0.09317008, -17.749584, 0, -5.1377506)
+
+[node name="Camera3D7" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.582577, 0, -0.8127756, 0, 1, 0, 0.8127756, 0, 0.582577, -12.294263, 0, -0.8668914)
