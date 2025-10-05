@@ -52,4 +52,13 @@ size = Vector3(1.12939, 4.33581, 1.20584)
 [node name="Cameras" type="SubViewport" parent="." groups=["Gameplay"]]
 
 [node name="Camera3D" type="Camera3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4063034, 0, 0)
+transform = Transform3D(0.8698482, 0, 0.49331954, 0, 1, 0, -0.49331954, 0, 0.8698482, -6.4591837, 0, -11.273851)
+
+[node name="Camera3D2" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.53651917, 0, -0.84388804, 0, 1, 0, 0.84388804, 0, 0.53651917, 1.8002291, 0, -11.273851)
+
+[node name="Camera3D3" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-0.5535369, 0, 0.8328247, 0, 1, 0, -0.8328247, 0, -0.5535369, 1.8002291, 0, -14.9489)
+
+[node name="Camera3D4" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-0.73831415, 0, -0.67445695, 0, 1, 0, 0.67445695, 0, -0.73831415, -6.270009, 0, -14.9489)
