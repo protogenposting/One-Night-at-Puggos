@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=12 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="3_f2nm2"]
+[ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 
 [sub_resource type="Environment" id="Environment_k2aq1"]
 background_mode = 2
@@ -47,37 +48,25 @@ environment = SubResource("Environment_k2aq1")
 
 [node name="Player" parent="." instance=ExtResource("1_inlal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+camsAreUp = false
 
-[node name="Cameras" type="SubViewport" parent="." groups=["Gameplay"]]
+[node name="Cameras" type="SubViewport" parent="." groups=["Cameras"]]
+size = Vector2i(1920, 1080)
 
 [node name="1_CENTRE" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.17651677, 0.25000006, -0.9520199, -0.022557588, 0.9659258, 0.25783423, 0.9840391, 0.066987336, -0.1648627, -25.614544, 5.9, -33.27394)
-
-[node name="Pebble" parent="Cameras/1_CENTRE" instance=ExtResource("3_blq5q")]
-transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
-character = 1
-id = 1
+transform = Transform3D(-0.17651677, 0.25000006, -0.9520199, -0.022557588, 0.9659258, 0.25783423, 0.9840391, 0.066987336, -0.1648627, -23.614544, 5.9, -33.27394)
 
 [node name="2_LEFT" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.5297313, -0.53943944, 0.6545151, 0.15999638, 0.82138336, 0.5474765, -0.8329382, -0.18529533, 0.52142084, -17.121151, 6.3, -15.271976)
 
-[node name="Pebble" parent="Cameras/2_LEFT" instance=ExtResource("3_blq5q")]
-transform = Transform3D(-0.7287894, 0, 0.6847379, 0, 1, 0, -0.6847379, 0, -0.7287894, -0.5334997, 0, -4.5147085)
-character = 1
-
 [node name="3_RIGHT" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.6622824, -0.3849314, 0.64281404, -0.07939508, 0.8170534, 0.5710694, -0.7450359, -0.4292455, 0.5105584, 30.86132, 6.2999997, -12.2719755)
-
-[node name="Pebble" parent="Cameras/3_RIGHT" instance=ExtResource("3_blq5q")]
-transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
-character = 1
-id = 1
+transform = Transform3D(0.6622824, -0.3849314, 0.64281404, -0.07939508, 0.8170534, 0.5710694, -0.7450359, -0.4292455, 0.5105584, 29.86132, 6.2999997, -13.2719755)
 
 [node name="4_VENTS" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.81979895, 0.036833666, -0.57146573, 0.21351548, 0.9063078, 0.36471546, 0.53135765, -0.4210101, 0.7351256, -38.649582, 4.8, 21.46225)
 
 [node name="5_ENTERTAINMENT" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.4225012, -0.41804215, 0.80419743, 0.03812411, 0.89469177, 0.44505417, -0.90556026, -0.1573766, 0.3939458, 5.250416, 6, -47.24917)
+transform = Transform3D(0.4225012, -0.41804215, 0.80419743, 0.03812411, 0.89469177, 0.44505417, -0.90556026, -0.1573766, 0.3939458, 4.250416, 6, -47.24917)
 
 [node name="6_REPAIRS" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.06600918, -0.2578342, 0.9639317, -0.0056821946, 0.9659258, 0.2587567, -0.99780285, -0.022557564, 0.062294904, 39.17832, 5, -59.24917)
@@ -505,3 +494,36 @@ omni_range = 34.0
 [node name="LIGHTS_REPAIR" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 6, -60)
 omni_range = 18.0
+
+[node name="SleepyPositions" type="Node3D" parent="."]
+
+[node name="CharacterPosition" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 1, -60)
+
+[node name="CharacterPosition2" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 1, -21)
+id = 1
+
+[node name="CharacterPosition3" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -34)
+id = 2
+
+[node name="CharacterPosition7" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1, -23)
+id = 3
+
+[node name="CharacterPosition4" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -18)
+id = 4
+
+[node name="CharacterPosition5" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -9)
+id = 5
+
+[node name="CharacterPosition6" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, -11)
+id = 6
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Sleepy" parent="Characters" instance=ExtResource("6_52vuk")]

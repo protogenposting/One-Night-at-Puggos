@@ -5,6 +5,8 @@ var sensitivity = 0.2
 @export var camsAreUp : bool = false
 
 func _input(event: InputEvent) -> void:
+	$Cams.push_input(event)
+	
 	if event is InputEventMouseMotion && !camsAreUp:
 		var mouseEvent : InputEventMouseMotion = event
 		
@@ -16,15 +18,17 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	if camsAreUp:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if Input.is_action_just_pressed("Cameras"):
 		camsAreUp = !camsAreUp
 		
+		$Cams/CurrentCamDisplay.camsAreUp = camsAreUp
+		
 		print(camsAreUp)
-	
-	if !camsAreUp:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	if Input.is_action_just_pressed("Fullscreen"):
 		var mode := DisplayServer.window_get_mode()

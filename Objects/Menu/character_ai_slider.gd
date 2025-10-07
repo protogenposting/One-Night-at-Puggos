@@ -13,3 +13,5 @@ func _process(delta: float) -> void:
 	settings.shadow_offset = Vector2(randf_range(-3,3), randf_range(-3,3))
 	
 	$CharacterAiSlider/AILabel.text = "%.0f" % $CharacterAiSlider/HSlider.value
+	
+	EnemyAI.enemyAiValues[enemyID] = $CharacterAiSlider/HSlider.value

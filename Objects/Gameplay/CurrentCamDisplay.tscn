@@ -1,8 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkbgfr73ycufw"]
+[gd_scene load_steps=9 format=3 uid="uid://bkbgfr73ycufw"]
 
 [ext_resource type="Script" uid="uid://cf63uikwccju2" path="res://Objects/Gameplay/CameraDisplay.gd" id="1_d0xth"]
+[ext_resource type="Texture2D" path="res://Assets/puggos.png" id="2_1ow7x"]
+[ext_resource type="Texture2D" uid="uid://c5feseuoj4f5v" path="res://Assets/CAMERA.png" id="3_oucug"]
+[ext_resource type="Script" uid="uid://di4r0nay0ji0y" path="res://Objects/Gameplay/camera_button.gd" id="4_oucug"]
+[ext_resource type="Texture2D" uid="uid://7ya25lfke6kv" path="res://Assets/CAMERA_SELECTED.png" id="5_sshr3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xml2b"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g0lc5"]
+noise_type = 0
+seed = 240
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1ow7x"]
+width = 1920
+height = 1080
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_g0lc5")
 
 [node name="CurrentCamDisplay" type="Node2D"]
 script = ExtResource("1_d0xth")
@@ -12,8 +27,114 @@ texture = SubResource("ViewportTexture_xml2b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 119.0
-offset_top = 64.0
-offset_right = 179.0
-offset_bottom = 133.0
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = 999
+offset_left = -960.0
+offset_top = -536.0
+offset_right = 960.0
+offset_bottom = 544.0
+texture = SubResource("NoiseTexture2D_1ow7x")
+
+[node name="Puggos" type="Sprite2D" parent="."]
+position = Vector2(576, 160)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_1ow7x")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 744.0
+offset_top = -103.0
+offset_right = 844.0
+offset_bottom = -3.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "6_REPAIRS"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button2" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 320.0
+offset_top = -175.0
+offset_right = 420.0
+offset_bottom = -75.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "5_ENTERTAINMENT"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button3" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 563.0
+offset_top = 46.0
+offset_right = 663.0
+offset_bottom = 146.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "1_CENTRE"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button4" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 375.0
+offset_top = 150.0
+offset_right = 475.0
+offset_bottom = 250.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "2_LEFT"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button5" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 259.0
+offset_top = 282.0
+offset_right = 359.0
+offset_bottom = 382.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button6" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 400.0
+offset_top = 447.0
+offset_right = 500.0
+offset_bottom = 547.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "4_VENTS"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
+
+[node name="Button7" type="Button" parent="." groups=["CameraButton"]]
+offset_left = 716.0
+offset_top = 150.0
+offset_right = 816.0
+offset_bottom = 250.0
+icon = ExtResource("3_oucug")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_oucug")
+cameraID = "3_RIGHT"
+onIcon = ExtResource("5_sshr3")
+offIcon = ExtResource("3_oucug")
