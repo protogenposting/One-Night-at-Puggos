@@ -1,7 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
 ::res://::1759872228
-::res://Assets/::1759864275
-puggos.png::CompressedTexture2D::1044950940026297767::1759780785::1759780963::1::::<><><>0<>0<>d78a93900ea71662e5818f249ba573ec<>res://.godot/imported/puggos.png-0f51252e63145408825e6dea50a58f75.s3tc.ctex::
+::res://Assets/::1759873582
+CAMERA.png::CompressedTexture2D::2295637871883989893::1759873582::1759873583::1::::<><><>0<>0<>cf22306d0c9c790cb4a4b64250c5556a<>res://.godot/imported/CAMERA.png-620daba7ef608ef8b80aec0b0a4fe063.ctex::
+map.png::CompressedTexture2D::7534057127741155844::1759873582::1759873583::1::::<><><>0<>0<>975c0ac41d80ba4fb24b91f5b504b806<>res://.godot/imported/map.png-ae60f075f26517d17aa23f1af6bbabe0.ctex::
 ::res://Assets/Blocking/::1759785074
 ASSET_ELEVATOR_GRID.png::CompressedTexture2D::7873905986983414462::1759780060::1759785074::1::::<><><>0<>0<>9797b1e875dde5e486722ea9253c6c0b<>res://.godot/imported/ASSET_ELEVATOR_GRID.png-48af00e91ed1c7b80719722abcd955d9.s3tc.ctex::
 ASSET_GRID.png::CompressedTexture2D::5598884906368821572::1759780060::1759780091::1::::<><><>0<>0<>38d43e7029c8f6ffaf78624155d2092e<>res://.godot/imported/ASSET_GRID.png-67185d327162ca189f346379bd024000.s3tc.ctex::

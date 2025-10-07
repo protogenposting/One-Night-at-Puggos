@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=11 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="3_f2nm2"]
-[ext_resource type="Texture2D" uid="uid://o5ggo3008fn8" path="res://Assets/puggos.png" id="5_4w8ll"]
 
 [sub_resource type="Environment" id="Environment_k2aq1"]
 background_mode = 2
@@ -457,10 +456,6 @@ material = SubResource("StandardMaterial3D_tk5m8")
 transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -31, 3, -76)
 size = Vector3(8, 2, 10)
 material = SubResource("StandardMaterial3D_tk5m8")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, -6.556708e-07, 15, 0, -15, -6.556708e-07, 80.7, -2, -9.2)
-texture = ExtResource("5_4w8ll")
 
 [node name="LIGHTS_SECURITY" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 2)
