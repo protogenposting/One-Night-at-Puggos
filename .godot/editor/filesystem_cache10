@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759782827
+::res://::1759850518
 ::res://Assets/::1759780963
 puggos.png::CompressedTexture2D::1044950940026297767::1759780785::1759780963::1::::<><><>0<>0<>d78a93900ea71662e5818f249ba573ec<>res://.godot/imported/puggos.png-0f51252e63145408825e6dea50a58f75.s3tc.ctex::
-::res://Assets/Blocking/::1759780091
+::res://Assets/Blocking/::1759785074
 ASSET_ELEVATOR_GRID.png::CompressedTexture2D::7873905986983414462::1759780060::1759785074::1::::<><><>0<>0<>9797b1e875dde5e486722ea9253c6c0b<>res://.godot/imported/ASSET_ELEVATOR_GRID.png-48af00e91ed1c7b80719722abcd955d9.s3tc.ctex::
 ASSET_GRID.png::CompressedTexture2D::5598884906368821572::1759780060::1759780091::1::::<><><>0<>0<>38d43e7029c8f6ffaf78624155d2092e<>res://.godot/imported/ASSET_GRID.png-67185d327162ca189f346379bd024000.s3tc.ctex::
 ::res://Assets/Kingsley/::1759593595
@@ -22,7 +22,7 @@ Player.tscn::PackedScene::7159075849484425202::1759691999::0::1::::<><><>0<>0<><
 ::res://Objects/Menu/::1759591087
 CharacterAiSlider.tscn::PackedScene::8356521304131750499::1759591087::0::1::::<><><>0<>0<><>::uid://bla4wk7upmoqb::::res://Objects/Menu/character_ai_slider.gd
 character_ai_slider.gd::GDScript::3160298619564077097::1759591087::0::1::::<>Control<><>0<>0<><>::
-::res://Rooms/::1759781105
+::res://Rooms/::1759795173
 gameplay.gd::GDScript::9115367465679780876::1759591087::0::1::::<>Node3D<><>0<>0<><>::
-Gameplay.tscn::PackedScene::7425321098178629388::1759781105::0::1::::<><><>0<>0<><>::uid://c8856y456xj6i::::res://Objects/Gameplay/Player.tscn<>uid://d24s1gtlcr10k::::res://Rooms/gameplay.gd<>uid://cbhs7vlfnewsd::::res://Objects/Gameplay/CharacterPosition.tscn<>uid://cl1e2002qfk7u::::res://Assets/Blocking/ASSET_GRID.png<>uid://o5ggo3008fn8::::res://Assets/puggos.png
+Gameplay.tscn::PackedScene::7425321098178629388::1759795173::0::1::::<><><>0<>0<><>::uid://c8856y456xj6i::::res://Objects/Gameplay/Player.tscn<>uid://d24s1gtlcr10k::::res://Rooms/gameplay.gd<>uid://cbhs7vlfnewsd::::res://Objects/Gameplay/CharacterPosition.tscn<>uid://cl1e2002qfk7u::::res://Assets/Blocking/ASSET_GRID.png<>uid://o5ggo3008fn8::::res://Assets/puggos.png
 MainMenu.tscn::PackedScene::2287118711144172704::1759691999::0::1::::<><><>0<>0<><>::uid://drb7xj3kdlxnf::::res://Objects/Menu/CharacterAiSlider.tscn
