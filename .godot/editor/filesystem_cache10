@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759864708
+::res://::1759872022
 ::res://Assets/::1759864275
 puggos.png::CompressedTexture2D::1044950940026297767::1759780785::1759780963::1::::<><><>0<>0<>d78a93900ea71662e5818f249ba573ec<>res://.godot/imported/puggos.png-0f51252e63145408825e6dea50a58f75.s3tc.ctex::
 ::res://Assets/Blocking/::1759785074
@@ -7,10 +7,11 @@ ASSET_ELEVATOR_GRID.png::CompressedTexture2D::7873905986983414462::1759780060::1
 ASSET_GRID.png::CompressedTexture2D::5598884906368821572::1759780060::1759780091::1::::<><><>0<>0<>38d43e7029c8f6ffaf78624155d2092e<>res://.godot/imported/ASSET_GRID.png-67185d327162ca189f346379bd024000.s3tc.ctex::
 ::res://Assets/Kingsley/::1759593595
 ScaredCunt.png::CompressedTexture2D::2000485804234708383::1759591087::1759593595::1::::<><><>0<>0<>28ff1747d47e00ead93b63ff2b23721b<>res://.godot/imported/ScaredCunt.png-7d4d017b4347457bba2d91903c33ca31.s3tc.ctex::
-::res://Assets/Slingshot/::1759870872
+::res://Assets/Slingshot/::1759872022
 BALL1.png::CompressedTexture2D::8920603597518966651::1759864491::1759864504::1::::<><><>0<>0<>d243de715a93bb703d160db79064f487<>res://.godot/imported/BALL1.png-171d8aa51b640e2b9bb92d49754d81e1.ctex::
 BALL2.png::CompressedTexture2D::7365646498472079726::1759864491::1759864509::1::::<><><>0<>0<>3cbbb006337e9f8611d73a71adcd078f<>res://.godot/imported/BALL2.png-e54518cc0aae093344b7962e77dac0e4.ctex::
 BALL3.png::CompressedTexture2D::5939038035836960495::1759864491::1759864514::1::::<><><>0<>0<>f4136d599a869498a243d196197eb5ba<>res://.godot/imported/BALL3.png-259d4009fc1ea469fa3d4b846f4fae27.ctex::
+FLASHLIGHT.png::CompressedTexture2D::7003984686925770021::1759872010::1759872023::1::::<><><>0<>0<>8df47de14c5d052f05e97a7658613e9a<>res://.godot/imported/FLASHLIGHT.png-0b29b34383ac3ce4e9eddd4208eff759.ctex::
 SLINGSHOT.png::CompressedTexture2D::8412689991205555595::1759870872::1759870872::1::::<><><>0<>0<>54c6edcc1a983390e318d7d83a7979c7<>res://.godot/imported/SLINGSHOT.png-131de5598eddec444ac64632a40f408e.ctex::
 SLOT_BALL1.png::CompressedTexture2D::6261063064103409190::1759864284::1759864468::1::::<><><>0<>0<>9182f4cd4941c5e0a4f999dacab9576e<>res://.godot/imported/SLOT_BALL1.png-d2b3a4835819aa3eececcbb54a57eb16.ctex::
 SLOT_BALL2.png.png::CompressedTexture2D::9091010795305798708::1759864284::1759864482::1::::<><><>0<>0<>49069c8d4dc12fcc76de452764af066d<>res://.godot/imported/SLOT_BALL2.png.png-7825f7ab42273207f7906f5e46178bc7.ctex::
