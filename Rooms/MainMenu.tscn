@@ -40,19 +40,14 @@ enemyName = "Sleepy"
 [node name="CharacterAiSlider2" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
 layout_mode = 2
 enemyName = "Pebble"
-
-[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
-layout_mode = 2
-
-[node name="CharacterAiSlider4" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
-layout_mode = 2
+enemyID = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 576.0
-offset_right = 704.0
-offset_bottom = 640.0
+offset_left = 832.0
+offset_top = 968.0
+offset_right = 1088.0
+offset_bottom = 1032.0
 text = "Begin."
 script = SubResource("GDScript_1auxk")
 
