@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=13 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -24,6 +24,21 @@ glow_enabled = true
 albedo_texture = ExtResource("3_f2nm2")
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52vuk"]
+albedo_color = Color(0.4745098, 0.4745098, 1, 1)
+albedo_texture = ExtResource("3_f2nm2")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk5m8"]
+albedo_color = Color(0.36078432, 0.69803923, 0.36078432, 1)
+albedo_texture = ExtResource("3_f2nm2")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5nrd"]
+albedo_color = Color(1, 0.38431373, 1, 1)
+albedo_texture = ExtResource("3_f2nm2")
+uv1_triplanar = true
+
 [node name="Gameplay" type="Node3D" groups=["Gameplay"]]
 script = ExtResource("1_vrd06")
 
@@ -31,26 +46,121 @@ script = ExtResource("1_vrd06")
 environment = SubResource("Environment_k2aq1")
 
 [node name="Player" parent="." instance=ExtResource("1_inlal")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-material_override = SubResource("StandardMaterial3D_4w8ll")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
-size = Vector3(4, 4, 4)
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, -0.5)
+size = Vector3(30, 4, 18)
+material = SubResource("StandardMaterial3D_4w8ll")
+
+[node name="Floor9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 2.5, 1.5)
+size = Vector3(2, 10, 10)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor18" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.35355338, 0, -0.35355338, 0, 0.5, 0, 0.35355338, 0, 0.35355338, -5, 2.5, -2.5)
+size = Vector3(2, 10, 12)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.3535534, 0, -0.35355335, 0, 0.5, 0, 0.35355335, 0, -0.3535534, 5, 2.5, -2.5)
+size = Vector3(2, 10, 12)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor20" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 0, 2.5, -4.5)
+size = Vector3(2, 10, 14)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -4.75, 2.5, 3.5)
+size = Vector3(2, 10, 7)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 4.75, 2.5, 3.5)
+size = Vector3(2, 10, 7)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 3.5, 2.5, 8.75)
+size = Vector3(19, 10, 2)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -3.5, 2.5, 8.75)
+size = Vector3(19, 10, 2)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 1.09278474e-07, 2.5, 10.5)
+size = Vector3(12, 10, 12)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 2.5, 1.5)
+size = Vector3(2, 10, 10)
+material = SubResource("StandardMaterial3D_52vuk")
+
+[node name="Floor7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 8.75)
+size = Vector3(16, 4, 19)
+material = SubResource("StandardMaterial3D_4w8ll")
+
+[node name="Floor8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -1, 11)
+size = Vector3(32, 4, 6)
+material = SubResource("StandardMaterial3D_tk5m8")
+
+[node name="Floor16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -18.5, -1, 0.75)
+size = Vector3(35, 4, 6)
+material = SubResource("StandardMaterial3D_tk5m8")
+
+[node name="Floor17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -17.25, -1, -9.5)
+size = Vector3(6, 4, 11)
+material = SubResource("StandardMaterial3D_tk5m8")
+
+[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11, -1, -9.25)
+size = Vector3(14, 4, 13)
+material = SubResource("StandardMaterial3D_k5nrd")
+
+[node name="Floor3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11, -1, -9.25)
+size = Vector3(14, 4, 13)
+material = SubResource("StandardMaterial3D_k5nrd")
+
+[node name="Floor5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.75, -1, -25)
+size = Vector3(21, 4, 16)
+material = SubResource("StandardMaterial3D_k5nrd")
+
+[node name="Floor6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.75, -1, -28)
+size = Vector3(33, 4, 16)
+material = SubResource("StandardMaterial3D_k5nrd")
+
+[node name="Floor4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, -16.75)
+size = Vector3(26, 4, 17)
+material = SubResource("StandardMaterial3D_k5nrd")
 
 [node name="Cameras" type="SubViewport" parent="." groups=["Gameplay"]]
 
 [node name="Camera3D" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.7287894, 0, -0.6847379, 0, 1, 0, 0.6847379, 0, -0.7287894, -9.121152, 4, -10.2719755)
+transform = Transform3D(0.85003066, 0, -0.5267333, 0, 1, 0, 0.5267333, 0, 0.85003066, -12.121152, 4, -6.2719755)
 
 [node name="Pebble" parent="Cameras/Camera3D" instance=ExtResource("3_blq5q")]
 transform = Transform3D(-0.7287894, 0, 0.6847379, 0, 1, 0, -0.6847379, 0, -0.7287894, -0.5334997, 0, -4.5147085)
 character = 1
 
 [node name="Camera3D2" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.99784636, 0, -0.0655947, 0, 1, 0, 0.0655947, 0, -0.99784636, -1.614543, 4, -15.273943)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.38545704, 4, -21.273943)
 
 [node name="Pebble" parent="Cameras/Camera3D2" instance=ExtResource("3_blq5q")]
 transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
@@ -58,7 +168,7 @@ character = 1
 id = 1
 
 [node name="Camera3D3" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.7930876, 0, 0.60910755, 0, 1, 0, -0.60910755, 0, -0.7930876, 11.56132, 4, -10.2719755)
+transform = Transform3D(0.6084151, 0, -0.7936189, 0, 1, 0, 0.7936189, 0, 0.6084151, 8.56132, 4, -6.2719755)
 
 [node name="Pebble" parent="Cameras/Camera3D3" instance=ExtResource("3_blq5q")]
 transform = Transform3D(-0.99784636, 0, 0.0655947, 0, 1, 0, -0.0655947, 0, -0.99784636, 0.34054524, 0, -2.9088907)
@@ -66,17 +176,14 @@ character = 1
 id = 1
 
 [node name="Camera3D4" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.23755038, 0, 0.9713752, 0, 1, 0, -0.9713752, 0, 0.23755038, 12.478322, 4, -18.249166)
+transform = Transform3D(0.9713752, 0, -0.23755042, 0, 1, 0, 0.23755042, 0, 0.9713752, 10.478322, 4, -21.249166)
 
 [node name="Camera3D5" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.09317008, 0, -0.9956503, 0, 1, 0, 0.9956503, 0, -0.09317008, -17.749584, 4, -18.249166)
+transform = Transform3D(0.16769786, 0, -0.9858384, 0, 1, 0, 0.9858384, 0, 0.16769788, -15.749584, 4, -26.249166)
 
 [node name="Camera3D6" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.09317008, 0, -0.9956503, 0, 1, 0, 0.9956503, 0, -0.09317008, -17.749584, 4, -5.1377506)
-
-[node name="Camera3D7" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.582577, 0, -0.8127756, 0, 1, 0, 0.8127756, 0, 0.582577, -12.294263, 4, -0.8668914)
+transform = Transform3D(0.9956503, 0, -0.093170024, 0, 1, 0, 0.093170024, 0, 0.9956503, -19.749584, 4, 11.862249)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, -3.496911e-07, 8, 0, -8, -3.496911e-07, -2, -2, 0)
+transform = Transform3D(15, 0, 0, 0, -6.556708e-07, 15, 0, -15, -6.556708e-07, -2.3, -2, -9.2)
 texture = ExtResource("5_4w8ll")
