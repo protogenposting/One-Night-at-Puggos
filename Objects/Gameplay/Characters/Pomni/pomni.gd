@@ -15,9 +15,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	button.value = progress
+	
+	
 
 func _move():
 	progress -= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.POMNI] * 2
+	
+	if progress <= 0:
+		_jumpscare()
 	
 	super()
 
