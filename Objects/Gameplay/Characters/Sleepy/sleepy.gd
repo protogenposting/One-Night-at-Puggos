@@ -1,4 +1,4 @@
-extends Sprite3D
+extends Node3D
 
 var progress : int = 0
 
@@ -6,7 +6,17 @@ var positions : Array = []
 
 @export var movementRate = 5
 
+var visualNodes : Array[Node3D]
+
 func _ready() -> void:
+	visualNodes.resize(2)
+	
+	visualNodes[0] = $Sleepy
+	
+	visualNodes[1] = $Sleepy.duplicate()
+	
+	get_tree().get_first_node_in_group("Cameras").add_child(visualNodes[1])
+	
 	positions = EnemyAI._get_all_positions(EnemyAI.ENEMIES.SLEEPY)
 	
 	print(positions)
@@ -14,7 +24,10 @@ func _ready() -> void:
 	get_tree().create_timer(movementRate).timeout.connect(_move)
 
 func _process(delta: float) -> void:
-	position = positions[progress].position
+	for i in visualNodes:
+		i.position = positions[progress].position
+		
+		print(i.position)
 
 func _move():
 	var roll = randi_range(1,20)
