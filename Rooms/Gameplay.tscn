@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=19 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -7,9 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
 [ext_resource type="Texture2D" uid="uid://dxwg5x3vs0ekm" path="res://Assets/DECOR/AAANNIE.png" id="7_tk5m8"]
+[ext_resource type="Texture2D" uid="uid://bmdpukciwjnyt" path="res://Assets/DECOR/CLOCK.png" id="8_0jm5f"]
+[ext_resource type="Texture2D" uid="uid://cydm87n05c2qn" path="res://Assets/DECOR/SHAKE.png" id="8_2pxta"]
 [ext_resource type="Texture2D" uid="uid://cp8tixldxit6w" path="res://Assets/DECOR/yaleokre.png" id="8_k5nrd"]
 [ext_resource type="Texture2D" uid="uid://cur2shk1n34hl" path="res://Assets/DECOR/WEB.png" id="9_60v3t"]
+[ext_resource type="Texture2D" uid="uid://gax06ax32vnn" path="res://Assets/DECOR/CLOCKNUMBERS1.png" id="9_agm4a"]
+[ext_resource type="Texture2D" uid="uid://28nmxgdo4cq6" path="res://Assets/DECOR/PAPERBALL.png" id="9_r3naa"]
 [ext_resource type="Texture2D" uid="uid://cup566plbjqqm" path="res://Assets/DECOR/Spider.png" id="10_rmay0"]
+[ext_resource type="Texture2D" uid="uid://bihnpk56ijcjh" path="res://Assets/DECOR/SPEAKER.png" id="12_l66n0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(9.055527, 6.9594727, 15.804199)
@@ -26,9 +31,56 @@ script = ExtResource("1_vrd06")
 [node name="Player" parent="." instance=ExtResource("1_inlal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
 
-[node name="LIGHTS_SECURITY" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 1)
-omni_range = 15.0
+[node name="LIGHTS_SECURITY" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.38973472, 0.920927, 0, -0.920927, 0.38973472, 0, 7.668746, 5.5370474)
+light_color = Color(1, 0.80266666, 0.63, 1)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = -0.1
+spot_angle = 66.81
+
+[node name="LIGHTS_SECURITY2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.668746, 0.5370474)
+light_color = Color(1, 0.80266666, 0.63, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 17.0
+
+[node name="DOORSHADE" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -22)
+light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 16.0
+light_negative = true
+shadow_enabled = true
+spot_range = 16.0
+spot_angle = 89.0
+
+[node name="DOORSHADE4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 20)
+light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
+light_negative = true
+shadow_enabled = true
+omni_range = 4.0
+
+[node name="DOORSHADE2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 16, 3, -11)
+light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 16.0
+light_negative = true
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 89.0
+
+[node name="DOORSHADE3" type="SpotLight3D" parent="."]
+transform = Transform3D(0.70710677, 0, 0.7071069, 0, 1, 0, -0.7071069, 0, 0.70710677, -16, 3, -11)
+light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 16.0
+light_negative = true
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 89.0
 
 [node name="Cameras" type="SubViewport" parent="." groups=["Cameras"]]
 own_world_3d = true
@@ -54,39 +106,45 @@ transform = Transform3D(0.06600918, -0.2578342, 0.9639317, -0.0056821946, 0.9659
 
 [node name="LIGHTS_LEFT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6, -19)
+light_color = Color(1, 0.8986667, 0.81, 1)
 omni_range = 15.0
 
 [node name="LIGHTS_RIGHT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6, -19)
+light_color = Color(1, 0.8986667, 0.81, 1)
 omni_range = 15.0
 
 [node name="LIGHTS_CENTRE" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 6, -34)
+light_color = Color(1, 0.8986667, 0.81, 1)
 omni_range = 51.0
 
 [node name="LIGHTS_CENTRE2" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 6, -34)
+light_color = Color(1, 0.8986667, 0.81, 1)
 omni_range = 51.0
 
 [node name="LIGHTS_VENTS" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 4, 21)
+light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 2.0
 omni_range = 41.0
 
 [node name="LIGHTS_ENTER_STAND" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, -57)
-light_color = Color(1, 0.94133335, 0.78, 1)
+light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 2.0
 omni_range = 60.0
 
 [node name="LIGHTS_ENTER_STAND2" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, -57)
-light_color = Color(1, 0.94133335, 0.78, 1)
+light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 2.0
 omni_range = 60.0
 
 [node name="LIGHTS_REPAIR" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 6, -60)
+light_color = Color(1, 0.8986667, 0.81, 1)
 omni_range = 18.0
 
 [node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
@@ -96,30 +154,30 @@ omni_range = 18.0
 [node name="SleepyPositions" type="Node3D" parent="."]
 
 [node name="CharacterPosition" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 26, 2, -65)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 26, 3, -65)
 
 [node name="CharacterPosition2" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 22, 2, -20)
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 22, 3, -20)
 id = 1
 
 [node name="CharacterPosition3" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 6, 2, -35)
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 6, 3, -35)
 id = 2
 
 [node name="CharacterPosition7" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -23, 2, -18)
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -23, 3, -18)
 id = 3
 
 [node name="CharacterPosition4" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -9)
 id = 4
 
 [node name="CharacterPosition5" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 9, 2, -4.4)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 9, 3, -4.4)
 id = 5
 
 [node name="CharacterPosition6" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -9, 2, -4.1)
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -9, 3, -4.1)
 id = 6
 
 [node name="Characters" type="Node3D" parent="."]
@@ -158,30 +216,77 @@ billboard = 1
 shaded = true
 texture = ExtResource("7_tk5m8")
 
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(1.2277527, 0, -0.23478381, 0, 1.25, 0, 0.23478381, 0, 1.2277527, 1.4896096, 2.0764842, 2.1263745)
+shaded = true
+texture = ExtResource("8_0jm5f")
+
+[node name="Sprite3D12" type="Sprite3D" parent="."]
+transform = Transform3D(1.2277527, 0, -0.23478381, 0, 1.25, 0, 0.23478381, 0, 1.2277527, 1.4783193, 2.0764842, 2.1279833)
+texture = ExtResource("9_agm4a")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 2.9, 2.4, -3.7)
+billboard = 1
+shaded = true
+texture = ExtResource("8_2pxta")
+
+[node name="Sprite3D14" type="Sprite3D" parent="."]
+transform = Transform3D(0.30388433, 0, -1.7234135, 0, 1.75, 0, 1.7234135, 0, 0.30388433, 5.3, 0.20000002, 2.2999997)
+shaded = true
+texture = ExtResource("9_r3naa")
+
+[node name="Sprite3D15" type="Sprite3D" parent="."]
+transform = Transform3D(0.58822614, -0.95841855, -1.3408667, 1.5942512, -0.03034072, 0.7210703, -0.41815442, -1.4639037, 0.8629215, 5.3, 0.20000002, -3.3000002)
+shaded = true
+texture = ExtResource("9_r3naa")
+
+[node name="Sprite3D11" type="Sprite3D" parent="."]
+transform = Transform3D(-1.6398433, -0.6110019, 0.009534076, -0.3236224, 0.8451852, -1.4978088, 0.51834613, -1.4052896, -0.9049742, -3.8999999, 0.20000002, -4)
+shaded = true
+texture = ExtResource("9_r3naa")
+
+[node name="Sprite3D13" type="Sprite3D" parent="."]
+transform = Transform3D(0.3202723, 1.7156646, -0.12814066, 1.2374369, -0.32027212, -1.195272, -1.1952722, 0.1281408, -1.271772, -6.6, 0.20000002, 1.8)
+shaded = true
+texture = ExtResource("9_r3naa")
+
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 0.65, 0, -0.64000005, 0, 0, -9.4, 3.2999997, 2.3)
 shaded = true
 texture = ExtResource("8_k5nrd")
 
 [node name="Sprite3D3" type="Sprite3D" parent="."]
-transform = Transform3D(1.2452438, 0.21788937, 2.1568246, -0.10894464, 2.4904869, -0.18869773, -2.1650634, 5.5879354e-08, 1.2500002, -8.6, 6.999999, -0.5)
+transform = Transform3D(0.62262195, 0.10894467, 1.0784123, -0.054472316, 1.2452434, -0.094348855, -1.0825317, 3.7252903e-08, 0.62500024, -8.6, 6.999999, -0.5)
 modulate = Color(1, 1, 1, 0.22745098)
 shaded = true
 texture = ExtResource("9_60v3t")
 
 [node name="Sprite3D4" type="Sprite3D" parent="."]
-transform = Transform3D(-0.6504107, 0.15407111, 2.408989, -0.10894465, 2.490487, -0.18869774, -2.4114516, -0.15407102, -0.64122164, 9.199999, 7.299999, 0.3)
+transform = Transform3D(-0.32520533, 0.07703554, 1.2044945, -0.054472312, 1.2452434, -0.094348855, -1.2057256, -0.07703549, -0.32061076, 9.199999, 7.299999, 0.3)
 modulate = Color(1, 1, 1, 0.22745098)
 shaded = true
 texture = ExtResource("9_60v3t")
 
 [node name="Sprite3D5" type="Sprite3D" parent="."]
-transform = Transform3D(2.7834249, 0.49267945, -1.0048951, 0.43626437, 2.0029528, 2.1904006, 1.0306408, -2.178405, 1.78671, -2.1000013, 7.0999994, 7.6000004)
+transform = Transform3D(1.3917123, 0.24633975, -0.50244755, 0.21813217, 1.0014763, 1.0952002, 0.5153204, -1.0892024, 0.8933549, -2.1000013, 7.0999994, 7.6000004)
 shaded = true
 texture = ExtResource("9_60v3t")
 
 [node name="Sprite3D6" type="Sprite3D" parent="."]
-transform = Transform3D(2.7834249, 0.49267945, -1.0048951, 0.43626437, 2.0029528, 2.1904006, 1.0306408, -2.178405, 1.78671, -2.1000013, 6.6999993, 7.6000004)
+transform = Transform3D(0.9278082, 0.1642265, -0.33496502, 0.14542145, 0.6676509, 0.7301335, 0.34354696, -0.72613496, 0.5955699, -2.1000013, 6.1999993, 6.7000003)
 billboard = 1
 shaded = true
 texture = ExtResource("10_rmay0")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.5, 7, -4)
+billboard = 1
+shaded = true
+texture = ExtResource("12_l66n0")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.5, 7, -4)
+billboard = 1
+shaded = true
+texture = ExtResource("12_l66n0")
