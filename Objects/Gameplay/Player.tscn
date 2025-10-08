@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c8856y456xj6i"]
+[gd_scene load_steps=27 format=3 uid="uid://c8856y456xj6i"]
 
 [ext_resource type="Script" uid="uid://c5pyvd503vytj" path="res://Objects/Gameplay/player.gd" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://bkbgfr73ycufw" path="res://Objects/Gameplay/CurrentCamDisplay.tscn" id="2_kpjcp"]
@@ -200,6 +200,18 @@ states/Start/position = Vector2(204, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_e80uo"), "Idle", "PullUp", SubResource("AnimationNodeStateMachineTransition_cxr5p"), "PullUp", "Idle", SubResource("AnimationNodeStateMachineTransition_tdg3f")]
 graph_offset = Vector2(-68, 26)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ilfp"]
+atlas = ExtResource("4_3ilfp")
+region = Rect2(740, 0, 148, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yla3"]
+atlas = ExtResource("4_3ilfp")
+region = Rect2(888, 0, 148, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vteyd"]
+atlas = ExtResource("4_3ilfp")
+region = Rect2(1036, 0, 148, 121)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_178h0"]
 atlas = ExtResource("4_3ilfp")
 region = Rect2(0, 0, 148, 121)
@@ -228,6 +240,30 @@ region = Rect2(1184, 0, 148, 121)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3ilfp")
+}],
+"loop": true,
+"name": &"charge1",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yla3")
+}],
+"loop": true,
+"name": &"charge2",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vteyd")
+}],
+"loop": true,
+"name": &"charge3",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_178h0")
 }, {
 "duration": 1.0,
@@ -252,12 +288,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 5.0
+"speed": 8.0
 }]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("slingshot")]
 script = ExtResource("1_xhfnw")
-camsAreUp = null
+slingshot = NodePath("Slingshot")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
@@ -269,9 +305,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("CylinderShape3D_0rwas")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-spot_range = 16.735
-spot_attenuation = -0.5
-spot_angle = 30.22
+spot_range = 43.262
+spot_attenuation = 0.52
+spot_angle = 17.6
 
 [node name="Sprite3D" type="Sprite3D" parent="Camera3D"]
 transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, -0.831941)
@@ -300,7 +336,12 @@ texture = ExtResource("3_kne1u")
 region_enabled = true
 region_rect = Rect2(306.104, 123.31, 1645.18, 1706.34)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Slingshot" type="AnimatedSprite2D" parent="." groups=["Player"]]
+position = Vector2(387, 834.00006)
+scale = Vector2(4.4008265, 4.4008265)
 sprite_frames = SubResource("SpriteFrames_0yla3")
 animation = &"shoot"
-frame_progress = 0.41683495
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
