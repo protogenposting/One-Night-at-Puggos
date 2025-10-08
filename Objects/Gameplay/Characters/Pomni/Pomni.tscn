@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cijl1rchtpts"]
+
+[ext_resource type="Script" uid="uid://bc0h5dohrbufi" path="res://Objects/Gameplay/Characters/Pomni/pomni.gd" id="1_j5d0n"]
+[ext_resource type="Texture2D" uid="uid://rghvp3ige5k1" path="res://Objects/Gameplay/Characters/Pomni/pomni.webp" id="2_dbaad"]
+[ext_resource type="AudioStream" uid="uid://b8evgn75v2nsq" path="res://Objects/Gameplay/Characters/Pomni/song1.mp3" id="2_nwapt"]
+[ext_resource type="AudioStream" uid="uid://bwwbhir4sxgkk" path="res://Objects/Gameplay/Characters/Pomni/song2.mp3" id="3_hpch5"]
+[ext_resource type="AudioStream" uid="uid://5b3jvtca5djq" path="res://Objects/Gameplay/Characters/Pomni/song3.mp3" id="4_uvqx3"]
+
+[sub_resource type="GDScript" id="GDScript_q6w7v"]
+script/source = "extends Button
+
+var camID : int = 6
+
+var gameplay : Node
+
+var player : Node
+
+var songID = 0
+
+var value = 0
+
+@export var songs : Array[AudioStream]
+
+func _ready():
+	gameplay = get_tree().get_first_node_in_group(\"Gameplay\")
+	
+	player = get_tree().get_first_node_in_group(\"Player\")
+	
+	_change_song()
+
+func _process(delta: float) -> void:
+	if gameplay.camID == camID && player.camsAreUp:
+		visible = true
+		
+		$Song.volume_linear = 1
+	else:
+		visible = false
+		
+		$Song.volume_linear = 0
+	
+	$ProgressBar.value = value
+
+func _change_song():
+	$Song.stream = songs[songID]
+	
+	$Song.play(0)
+"
+
+[node name="Pomni" type="Node3D"]
+script = ExtResource("1_j5d0n")
+movementRate = 2
+enemy = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -884.0
+offset_top = 211.0
+offset_right = -452.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 32
+text = "Change Song"
+script = SubResource("GDScript_q6w7v")
+songs = Array[AudioStream]([ExtResource("2_nwapt"), ExtResource("3_hpch5"), ExtResource("4_uvqx3")])
+
+[node name="Song" type="AudioStreamPlayer" parent="Button"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Button"]
+layout_mode = 0
+offset_top = -37.0
+offset_right = 432.0
+offset_bottom = -10.0
+max_value = 300.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+texture = ExtResource("2_dbaad")

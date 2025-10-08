@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c8856y456xj6i"]
+[gd_scene load_steps=39 format=3 uid="uid://c8856y456xj6i"]
 
 [ext_resource type="Script" uid="uid://c5pyvd503vytj" path="res://Objects/Gameplay/player.gd" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://bkbgfr73ycufw" path="res://Objects/Gameplay/CurrentCamDisplay.tscn" id="2_kpjcp"]
@@ -403,6 +403,60 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ro3es"]
+resource_name = "Shake"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1594, 866.00006), Vector2(1594, 700), Vector2(1594, 866.00006)]
+}
+
+[sub_resource type="Animation" id="Animation_vo0td"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1594, 866.00006)]
+}
+
+[sub_resource type="Animation" id="Animation_hfxaj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1594, 866.00006)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfpbj"]
+_data = {
+&"Idle": SubResource("Animation_vo0td"),
+&"RESET": SubResource("Animation_hfxaj"),
+&"Shake": SubResource("Animation_ro3es")
+}
+
 [sub_resource type="Animation" id="Animation_6qvu4"]
 length = 0.001
 tracks/0/type = "value"
@@ -497,6 +551,12 @@ position = Vector2(1594, 866.00006)
 scale = Vector2(4.4008265, 4.4008265)
 sprite_frames = SubResource("SpriteFrames_hy8ra")
 animation = &"shake"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Light"]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_qfpbj")
+}
 
 [node name="Area3D" type="Area3D" parent="."]
 

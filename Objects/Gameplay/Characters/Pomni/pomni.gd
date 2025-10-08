@@ -1,0 +1,32 @@
+extends "res://Objects/Gameplay/Characters/animatronic.gd"
+
+var button
+
+func _ready() -> void:
+	super()
+	
+	button = $Button
+	
+	$Button.reparent(get_tree().get_first_node_in_group("CamDisplay"))
+	
+	button.pressed.connect(_reset)
+	
+	progress = 300
+
+func _process(delta: float) -> void:
+	button.value = progress
+
+func _move():
+	progress -= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.POMNI] * 2
+	
+	super()
+
+func _reset():
+	progress = 300
+	
+	button.songID += 1
+	
+	if button.songID > 2:
+		button.songID = 0
+	
+	button._change_song()

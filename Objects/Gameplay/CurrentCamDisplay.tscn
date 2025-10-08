@@ -106,6 +106,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("4_oucug")
+cameraID = "7_POMNI"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 

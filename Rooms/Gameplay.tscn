@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=12 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
 [ext_resource type="PackedScene" uid="uid://c6g6ekq7skhxh" path="res://Rooms/Map.tscn" id="3_4w8ll"]
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
+[ext_resource type="PackedScene" uid="uid://cijl1rchtpts" path="res://Objects/Gameplay/Characters/Pomni/Pomni.tscn" id="3_k5nrd"]
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 [ext_resource type="PackedScene" uid="uid://bgfbjixt63hhq" path="res://Objects/Gameplay/Characters/Prototype/Prototype.tscn" id="6_k5nrd"]
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
@@ -102,6 +103,10 @@ fov = 105.8
 transform = Transform3D(-0.6588776, -0.1982669, 0.72565186, -0.005682181, 0.9659259, 0.25875667, -0.7522288, 0.1663657, -0.63755345, 38.17832, 6, -66.24917)
 fov = 87.9
 
+[node name="7_POMNI" type="Camera3D" parent="Cameras/Cams"]
+transform = Transform3D(-0.6588776, -0.1982669, 0.72565186, -0.005682181, 0.9659259, 0.25875667, -0.7522288, 0.1663657, -0.63755345, -26.821678, 12, 9.750832)
+fov = 87.9
+
 [node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
 
 [node name="LIGHTS_LEFT" type="OmniLight3D" parent="Cameras"]
@@ -152,6 +157,9 @@ light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 3.0
 omni_range = 18.0
 
+[node name="Pomni" parent="Cameras" instance=ExtResource("3_k5nrd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 10, 33)
+
 [node name="CSGCombiner3D" parent="." instance=ExtResource("3_4w8ll")]
 
 [node name="SleepyPositions" type="Node3D" parent="."]
@@ -172,15 +180,15 @@ transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -23, 3, 
 id = 3
 
 [node name="CharacterPosition4" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -25)
 id = 4
 
 [node name="CharacterPosition5" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 9, 3, -4.4)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 19, 3, -14.4)
 id = 5
 
 [node name="CharacterPosition6" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -9, 3, -4.1)
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -20, 3, -14.1)
 id = 6
 
 [node name="Characters" type="Node3D" parent="."]

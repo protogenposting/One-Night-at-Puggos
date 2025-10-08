@@ -2,7 +2,8 @@ extends Node
 
 enum ENEMIES{
 	SLEEPY,
-	PROTOTYPE
+	PROTOTYPE,
+	POMNI,
 }
 
 var enemyAiValues : Array = []

@@ -37,6 +37,8 @@ func _input(event: InputEvent) -> void:
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x,deg_to_rad(-70),deg_to_rad(70))
 
 func _ready() -> void:
+	$Light.play("off")
+	
 	slingshot.play("default")
 	
 	flash.connect(_on_flash)
@@ -90,11 +92,22 @@ func _process(delta: float) -> void:
 		
 		if flashLightShouldShake:
 			$Light.play("shake")
+			
+			$Light/AnimationPlayer.play("Shake")
+			
 			if flashlightHoldTime > 1:
 				flashLightShouldShake = false
 				
 				flashlightHoldTime = -2
+				
+				$Light/AnimationPlayer.play("Idle")
+				
+				$Light.play("off")
+				
+				flashlightIsOn = false
 	elif Input.is_action_just_released("Flashlight"):
+		$Light/AnimationPlayer.play("Idle")
+		
 		if !flashLightShouldShake:
 			print(flashlightHoldTime)
 			
@@ -129,6 +142,8 @@ func _reset_slingshot():
 
 func _on_flash():
 	$Flash/AnimationPlayer.play("flash")
+	
+	$Light.play("shake")
 	
 	flashLightShouldShake = true
 

@@ -42,6 +42,11 @@ layout_mode = 2
 enemyName = "Prototype"
 enemyID = 1
 
+[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Pomni"
+enemyID = 2
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 832.0
