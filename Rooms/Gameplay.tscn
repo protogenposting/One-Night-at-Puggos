@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
-[ext_resource type="PackedScene" uid="uid://c6g6ekq7skhxh" path="res://Rooms/Map.tscn" id="3_4w8ll"]
+[ext_resource type="PackedScene" path="res://Rooms/Map.tscn" id="3_4w8ll"]
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 
@@ -12,6 +12,10 @@ script = ExtResource("1_vrd06")
 [node name="Player" parent="." instance=ExtResource("1_inlal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
 camsAreUp = false
+
+[node name="LIGHTS_SECURITY" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 2)
+omni_range = 15.0
 
 [node name="Cameras" type="SubViewport" parent="." groups=["Cameras"]]
 own_world_3d = true
@@ -34,10 +38,6 @@ transform = Transform3D(0.4225012, -0.41804215, 0.80419743, 0.03812411, 0.894691
 
 [node name="6_REPAIRS" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.06600918, -0.2578342, 0.9639317, -0.0056821946, 0.9659258, 0.2587567, -0.99780285, -0.022557564, 0.062294904, 39.17832, 5, -59.24917)
-
-[node name="LIGHTS_SECURITY" type="OmniLight3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 2)
-omni_range = 9.0
 
 [node name="LIGHTS_LEFT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6, -19)

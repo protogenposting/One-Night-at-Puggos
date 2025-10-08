@@ -1,1 +1,8 @@
 res://Rooms/Gameplay.tscn
+res://GLOBALS/enemy_ai.gd
+res://Objects/Gameplay/CameraDisplay.gd
+res://Objects/Gameplay/CurrentCamDisplay.tscn
+res://Objects/Gameplay/player.gd
+res://Objects/Menu/character_ai_slider.gd
+res://Rooms/gameplay.gd
+res://Objects/Gameplay/Player.tscn
