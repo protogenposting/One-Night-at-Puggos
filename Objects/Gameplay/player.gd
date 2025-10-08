@@ -45,6 +45,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if camsAreUp:
+		flashlightIsOn = false
+		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -86,44 +88,54 @@ func _process(delta: float) -> void:
 			
 			if currentHallway != -1:
 				shotSlingshot.emit(chargeLevel, currentHallway)
-	
-	if Input.is_action_pressed("Flashlight"):
-		flashlightHoldTime += delta
 		
-		if flashLightShouldShake:
-			$Light.play("shake")
+		if Input.is_action_pressed("Flashlight"):
+			flashlightHoldTime += delta
 			
-			$Light/AnimationPlayer.play("Shake")
-			
-			if flashlightHoldTime > 1:
-				flashLightShouldShake = false
+			if flashLightShouldShake:
+				$Light.play("shake")
 				
-				flashlightHoldTime = -2
+				$Light/AnimationPlayer.play("Shake")
 				
-				$Light/AnimationPlayer.play("Idle")
-				
-				$Light.play("off")
-				
-				flashlightIsOn = false
-	elif Input.is_action_just_released("Flashlight"):
-		$Light/AnimationPlayer.play("Idle")
-		
-		if !flashLightShouldShake:
-			print(flashlightHoldTime)
-			
-			if flashlightHoldTime > 0.75:
-				flash.emit()
-				
-				flashlightIsOn = false
-			else:
-				flashlightIsOn = !flashlightIsOn
-				
-				if flashlightIsOn:
-					$Light.play("on")
-				else:
+				if flashlightHoldTime > 1:
+					flashLightShouldShake = false
+					
+					flashlightHoldTime = -2
+					
+					$Light/AnimationPlayer.play("Idle")
+					
 					$Light.play("off")
-		
-		flashlightHoldTime = 0
+					
+					flashlightIsOn = false
+			elif flashlightHoldTime > 0:
+				var multiplier = min(flashlightHoldTime / 0.75, 1) * 10
+				
+				$Light.offset = Vector2(randf_range(-multiplier,multiplier),randf_range(-multiplier,multiplier))
+				
+				if flashlightHoldTime >= 0.75 && !$FlashlightCharged.playing:
+					$FlashlightCharged.play()
+
+		elif Input.is_action_just_released("Flashlight"):
+			$Light/AnimationPlayer.play("Idle")
+			
+			$Light.offset = Vector2.ZERO
+			
+			if !flashLightShouldShake:
+				print(flashlightHoldTime)
+				
+				if flashlightHoldTime > 0.75:
+					flash.emit()
+					
+					flashlightIsOn = false
+				else:
+					flashlightIsOn = !flashlightIsOn
+					
+					if flashlightIsOn:
+						$Light.play("on")
+					else:
+						$Light.play("off")
+			
+			flashlightHoldTime = 0
 	
 	if flashlightIsOn:
 		$Camera3D/SpotLight3D.visible = true

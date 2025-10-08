@@ -26,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
 
 [node name="LIGHTS_SECURITY" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.38973472, 0.920927, 0, -0.920927, 0.38973472, 0, 7.668746, 5.5370474)
+visible = false
 light_color = Color(1, 0.80266666, 0.63, 1)
 light_energy = 2.0
 shadow_enabled = true
@@ -168,7 +169,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 10, 33)
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 37, 3, -57)
 
 [node name="CharacterPosition2" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 22, 3, -20)
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 22, 3, -24)
 id = 1
 
 [node name="CharacterPosition3" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
@@ -176,19 +177,19 @@ transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588
 id = 2
 
 [node name="CharacterPosition7" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -23, 3, -18)
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -31, 3, -18)
 id = 3
 
 [node name="CharacterPosition4" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12)
 id = 4
 
 [node name="CharacterPosition5" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 19, 3, -14.4)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 16, 3, -11.4)
 id = 5
 
 [node name="CharacterPosition6" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -20, 3, -14.1)
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -13, 3, -8.1)
 id = 6
 
 [node name="Characters" type="Node3D" parent="."]
