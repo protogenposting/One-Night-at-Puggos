@@ -6,6 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
 [node name="Sleepy" type="Node3D" node_paths=PackedStringArray("visuals")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.25, 0)
 script = ExtResource("1_wx5e5")
 visuals = NodePath("Sleepy")
 

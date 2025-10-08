@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gin75fmemxud"
-path.s3tc="res://.godot/imported/FUCK.png-3e61254fe66c70ea8bcfc8dbf519eaae.s3tc.ctex"
+uid="uid://dnb7dre2gfkiu"
+path.s3tc="res://.godot/imported/BSR.png-62e623d2083d52eec43bcefd2acc9d6c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/DECOR/FUCK.png"
-dest_files=["res://.godot/imported/FUCK.png-3e61254fe66c70ea8bcfc8dbf519eaae.s3tc.ctex"]
+source_file="res://Assets/DECOR/BSR.png"
+dest_files=["res://.godot/imported/BSR.png-62e623d2083d52eec43bcefd2acc9d6c.s3tc.ctex"]
 
 [params]
 

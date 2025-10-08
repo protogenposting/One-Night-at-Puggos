@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=10 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -6,15 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
-[ext_resource type="Texture2D" uid="uid://dxwg5x3vs0ekm" path="res://Assets/DECOR/AAANNIE.png" id="7_tk5m8"]
-[ext_resource type="Texture2D" uid="uid://bmdpukciwjnyt" path="res://Assets/DECOR/CLOCK.png" id="8_0jm5f"]
-[ext_resource type="Texture2D" uid="uid://cydm87n05c2qn" path="res://Assets/DECOR/SHAKE.png" id="8_2pxta"]
-[ext_resource type="Texture2D" uid="uid://cp8tixldxit6w" path="res://Assets/DECOR/yaleokre.png" id="8_k5nrd"]
-[ext_resource type="Texture2D" uid="uid://cur2shk1n34hl" path="res://Assets/DECOR/WEB.png" id="9_60v3t"]
-[ext_resource type="Texture2D" uid="uid://gax06ax32vnn" path="res://Assets/DECOR/CLOCKNUMBERS1.png" id="9_agm4a"]
-[ext_resource type="Texture2D" uid="uid://28nmxgdo4cq6" path="res://Assets/DECOR/PAPERBALL.png" id="9_r3naa"]
-[ext_resource type="Texture2D" uid="uid://cup566plbjqqm" path="res://Assets/DECOR/Spider.png" id="10_rmay0"]
-[ext_resource type="Texture2D" uid="uid://bihnpk56ijcjh" path="res://Assets/DECOR/SPEAKER.png" id="12_l66n0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(9.055527, 6.9594727, 15.804199)
@@ -87,10 +78,12 @@ own_world_3d = true
 size = Vector2i(1920, 1080)
 
 [node name="1_CENTRE" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.17651677, 0.25000006, -0.9520199, -0.022557588, 0.9659258, 0.25783423, 0.9840391, 0.066987336, -0.1648627, -23.614544, 5.9, -33.27394)
+transform = Transform3D(-0.80670714, 0.496109, -0.32109094, 0.14224432, 0.69038457, 0.7093208, 0.57357657, 0.52654076, -0.6275068, -11.614543, 7.0000005, -40.07394)
+fov = 99.8
 
 [node name="2_LEFT" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.5297313, -0.53943944, 0.6545151, 0.15999638, 0.82138336, 0.5474765, -0.8329382, -0.18529533, 0.52142084, -17.121151, 6.3, -15.271976)
+transform = Transform3D(0.8660254, -0.25000003, 0.43301266, -0.12940952, 0.7244444, 0.6770772, -0.4829629, -0.64240205, 0.59503484, -20.92115, 6.3, -12.971977)
+fov = 108.8
 
 [node name="3_RIGHT" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.6622824, -0.3849314, 0.64281404, -0.07939508, 0.8170534, 0.5710694, -0.7450359, -0.4292455, 0.5105584, 29.86132, 6.2999997, -13.2719755)
@@ -100,51 +93,58 @@ transform = Transform3D(0.81979895, 0.036833666, -0.57146573, 0.21351548, 0.9063
 
 [node name="5_ENTERTAINMENT" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.4225012, -0.41804215, 0.80419743, 0.03812411, 0.89469177, 0.44505417, -0.90556026, -0.1573766, 0.3939458, 4.250416, 6, -47.24917)
+fov = 105.8
 
 [node name="6_REPAIRS" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.06600918, -0.2578342, 0.9639317, -0.0056821946, 0.9659258, 0.2587567, -0.99780285, -0.022557564, 0.062294904, 39.17832, 5, -59.24917)
+transform = Transform3D(-0.6588776, -0.1982669, 0.7256518, -0.005682181, 0.9659259, 0.2587567, -0.7522288, 0.1663657, -0.6375536, 38.17832, 6, -66.24917)
+fov = 87.9
 
 [node name="LIGHTS_LEFT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6, -19)
 light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
 omni_range = 15.0
 
 [node name="LIGHTS_RIGHT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6, -19)
 light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
 omni_range = 15.0
 
 [node name="LIGHTS_CENTRE" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 6, -34)
 light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
 omni_range = 51.0
 
 [node name="LIGHTS_CENTRE2" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 6, -34)
 light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
 omni_range = 51.0
 
 [node name="LIGHTS_VENTS" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 4, 21)
 light_color = Color(1, 0.8986667, 0.81, 1)
-light_energy = 2.0
+light_energy = 3.0
 omni_range = 41.0
 
 [node name="LIGHTS_ENTER_STAND" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, -57)
 light_color = Color(1, 0.8986667, 0.81, 1)
-light_energy = 2.0
+light_energy = 3.0
 omni_range = 60.0
 
 [node name="LIGHTS_ENTER_STAND2" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, -57)
 light_color = Color(1, 0.8986667, 0.81, 1)
-light_energy = 2.0
+light_energy = 3.0
 omni_range = 60.0
 
 [node name="LIGHTS_REPAIR" type="OmniLight3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 6, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5, -62)
 light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
 omni_range = 18.0
 
 [node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
@@ -154,7 +154,7 @@ omni_range = 18.0
 [node name="SleepyPositions" type="Node3D" parent="."]
 
 [node name="CharacterPosition" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 26, 3, -65)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 37, 3, -57)
 
 [node name="CharacterPosition2" parent="SleepyPositions" instance=ExtResource("3_blq5q")]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 22, 3, -20)
@@ -209,84 +209,3 @@ hallwayID = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(0.9999754, 0, 0, 0, 1, 0, 0, 0, 0.9999754, 0.48225856, 2.5935059, -10.071344)
 shape = SubResource("BoxShape3D_k5nrd")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 1.9, 2.5)
-billboard = 1
-shaded = true
-texture = ExtResource("7_tk5m8")
-
-[node name="Sprite3D10" type="Sprite3D" parent="."]
-transform = Transform3D(1.2277527, 0, -0.23478381, 0, 1.25, 0, 0.23478381, 0, 1.2277527, 1.4896096, 2.0764842, 2.1263745)
-shaded = true
-texture = ExtResource("8_0jm5f")
-
-[node name="Sprite3D12" type="Sprite3D" parent="."]
-transform = Transform3D(1.2277527, 0, -0.23478381, 0, 1.25, 0, 0.23478381, 0, 1.2277527, 1.4783193, 2.0764842, 2.1279833)
-texture = ExtResource("9_agm4a")
-
-[node name="Sprite3D7" type="Sprite3D" parent="."]
-transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 2.9, 2.4, -3.7)
-billboard = 1
-shaded = true
-texture = ExtResource("8_2pxta")
-
-[node name="Sprite3D14" type="Sprite3D" parent="."]
-transform = Transform3D(0.30388433, 0, -1.7234135, 0, 1.75, 0, 1.7234135, 0, 0.30388433, 5.3, 0.20000002, 2.2999997)
-shaded = true
-texture = ExtResource("9_r3naa")
-
-[node name="Sprite3D15" type="Sprite3D" parent="."]
-transform = Transform3D(0.58822614, -0.95841855, -1.3408667, 1.5942512, -0.03034072, 0.7210703, -0.41815442, -1.4639037, 0.8629215, 5.3, 0.20000002, -3.3000002)
-shaded = true
-texture = ExtResource("9_r3naa")
-
-[node name="Sprite3D11" type="Sprite3D" parent="."]
-transform = Transform3D(-1.6398433, -0.6110019, 0.009534076, -0.3236224, 0.8451852, -1.4978088, 0.51834613, -1.4052896, -0.9049742, -3.8999999, 0.20000002, -4)
-shaded = true
-texture = ExtResource("9_r3naa")
-
-[node name="Sprite3D13" type="Sprite3D" parent="."]
-transform = Transform3D(0.3202723, 1.7156646, -0.12814066, 1.2374369, -0.32027212, -1.195272, -1.1952722, 0.1281408, -1.271772, -6.6, 0.20000002, 1.8)
-shaded = true
-texture = ExtResource("9_r3naa")
-
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0, 0, 1, 0, 0.65, 0, -0.64000005, 0, 0, -9.4, 3.2999997, 2.3)
-shaded = true
-texture = ExtResource("8_k5nrd")
-
-[node name="Sprite3D3" type="Sprite3D" parent="."]
-transform = Transform3D(0.62262195, 0.10894467, 1.0784123, -0.054472316, 1.2452434, -0.094348855, -1.0825317, 3.7252903e-08, 0.62500024, -8.6, 6.999999, -0.5)
-modulate = Color(1, 1, 1, 0.22745098)
-shaded = true
-texture = ExtResource("9_60v3t")
-
-[node name="Sprite3D4" type="Sprite3D" parent="."]
-transform = Transform3D(-0.32520533, 0.07703554, 1.2044945, -0.054472312, 1.2452434, -0.094348855, -1.2057256, -0.07703549, -0.32061076, 9.199999, 7.299999, 0.3)
-modulate = Color(1, 1, 1, 0.22745098)
-shaded = true
-texture = ExtResource("9_60v3t")
-
-[node name="Sprite3D5" type="Sprite3D" parent="."]
-transform = Transform3D(1.3917123, 0.24633975, -0.50244755, 0.21813217, 1.0014763, 1.0952002, 0.5153204, -1.0892024, 0.8933549, -2.1000013, 7.0999994, 7.6000004)
-shaded = true
-texture = ExtResource("9_60v3t")
-
-[node name="Sprite3D6" type="Sprite3D" parent="."]
-transform = Transform3D(0.9278082, 0.1642265, -0.33496502, 0.14542145, 0.6676509, 0.7301335, 0.34354696, -0.72613496, 0.5955699, -2.1000013, 6.1999993, 6.7000003)
-billboard = 1
-shaded = true
-texture = ExtResource("10_rmay0")
-
-[node name="Sprite3D8" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.5, 7, -4)
-billboard = 1
-shaded = true
-texture = ExtResource("12_l66n0")
-
-[node name="Sprite3D9" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.5, 7, -4)
-billboard = 1
-shaded = true
-texture = ExtResource("12_l66n0")
