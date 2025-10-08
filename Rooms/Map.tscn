@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c6g6ekq7skhxh"]
+[gd_scene load_steps=43 format=3 uid="uid://c6g6ekq7skhxh"]
 
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="1_7ixeb"]
 [ext_resource type="Texture2D" uid="uid://biqcpau1fj70" path="res://Assets/Blocking/ASSET_GRID_CARPET.png" id="1_gp30h"]
@@ -21,7 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://bmcny2xfddtoo" path="res://Assets/DECOR/STRING.png" id="18_cljtv"]
 [ext_resource type="Texture2D" uid="uid://dbu7w34f6e2d3" path="res://Assets/DECOR/SHRUB.png" id="18_d8rkd"]
 [ext_resource type="Texture2D" uid="uid://xx2d5yfngb6d" path="res://Assets/DECOR/BUSH.png" id="18_jxrgc"]
+[ext_resource type="Texture2D" uid="uid://c6p2yfie8b21j" path="res://Assets/DECOR/TEETH2.png" id="21_gjhfo"]
 [ext_resource type="Texture2D" uid="uid://cocnceul46hal" path="res://Assets/DECOR/TOOLBOX.png" id="22_1j2ns"]
+[ext_resource type="Texture2D" uid="uid://blfauct56h6hc" path="res://Assets/DECOR/TEETH.png" id="22_fuu7u"]
 [ext_resource type="Texture2D" uid="uid://bimb87j3ilemm" path="res://Assets/DECOR/PLATE.png" id="22_nkds2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt4ob"]
@@ -872,6 +874,32 @@ transform = Transform3D(2.7668748, 0, 2.4514341, 0, 2.9999995, 0, -3.922295, 0, 
 modulate = Color(0.5508, 0.71928, 0.81, 1)
 shaded = true
 texture = ExtResource("18_jxrgc")
+
+[node name="TEETH" type="Sprite3D" parent="."]
+transform = Transform3D(4.4, 0, 0, 0, 2.8, 0, 0, 0, 4, -21, 6.7999997, -25.96913)
+modulate = Color(0.5508, 0.71928, 0.81, 1)
+shaded = true
+texture = ExtResource("21_gjhfo")
+
+[node name="TEETH4" type="Sprite3D" parent="."]
+transform = Transform3D(4.4, 0, 0, 0, 2.8, 0, 0, 0, 4, -21, 6.7999997, -27.010742)
+modulate = Color(0.5508, 0.71928, 0.81, 1)
+shaded = true
+texture = ExtResource("21_gjhfo")
+
+[node name="TEETH2" type="Sprite3D" parent="."]
+transform = Transform3D(4.4, 0, 0, 0, 2.8, 0, 0, 0, 4, -21, 0.39810562, -26.56913)
+flip_v = true
+modulate = Color(0.5508, 0.71928, 0.81, 1)
+shaded = true
+texture = ExtResource("22_fuu7u")
+
+[node name="TEETH3" type="Sprite3D" parent="."]
+transform = Transform3D(4.4, 0, 0, 0, -2.8, -3.496911e-07, 0, 2.4478376e-07, -3.9999998, -21, 5.0981054, -26.56913)
+flip_v = true
+modulate = Color(0.5508, 0.71928, 0.81, 1)
+shaded = true
+texture = ExtResource("22_fuu7u")
 
 [node name="AAANNIEPLUSH" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 1.9, 2.5)
