@@ -1,4 +1,4 @@
-extends "res://Objects/Gameplay/Characters/animatronic.gd"
+extends "res://Objects/Gameplay/Characters/visual_animatronic.gd"
 
 func _ready() -> void:
 	super()
@@ -6,10 +6,6 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 	
 	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
-
-func _process(delta: float) -> void:
-	for i in visualNodes:
-		i.position = positions[progress].position
 
 func _move():
 	var roll = randi_range(1,20)

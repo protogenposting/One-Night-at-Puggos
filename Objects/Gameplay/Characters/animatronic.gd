@@ -6,6 +6,8 @@ var positions : Array = []
 
 @export var movementRate = 5
 
+@export var enemy : EnemyAI.ENEMIES
+
 var visualNodes : Array[Node3D]
 
 var currentHallway : int = -1
@@ -15,18 +17,6 @@ var currentHallway : int = -1
 @onready var timer : Timer = $Timer
 
 func _ready() -> void:
-	visualNodes.resize(2)
-	
-	visualNodes[0] = visuals
-	
-	visualNodes[1] = visuals.duplicate()
-	
-	get_tree().get_first_node_in_group("Cameras").add_child(visualNodes[1])
-	
-	positions = EnemyAI._get_all_positions(EnemyAI.ENEMIES.SLEEPY)
-	
-	print(positions)
-	
 	timer.start(movementRate)
 	
 	timer.timeout.connect(_move)

@@ -7,9 +7,7 @@ extends Button
 @export var offIcon : Texture2D
 
 func _ready() -> void:
-	var gameplay = get_tree().get_first_node_in_group("Gameplay")
-	
-	var viewport = gameplay.get_node("Cameras")
+	var viewport = get_tree().get_first_node_in_group("Cameras")
 	
 	var iterator = 0
 	

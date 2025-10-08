@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=11 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
 [ext_resource type="PackedScene" uid="uid://c6g6ekq7skhxh" path="res://Rooms/Map.tscn" id="3_4w8ll"]
 [ext_resource type="PackedScene" uid="uid://cbhs7vlfnewsd" path="res://Objects/Gameplay/CharacterPosition.tscn" id="3_blq5q"]
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
+[ext_resource type="PackedScene" uid="uid://bgfbjixt63hhq" path="res://Objects/Gameplay/Characters/Prototype/Prototype.tscn" id="6_k5nrd"]
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
@@ -73,31 +74,35 @@ shadow_enabled = true
 spot_range = 30.0
 spot_angle = 89.0
 
-[node name="Cameras" type="SubViewport" parent="." groups=["Cameras"]]
+[node name="Cameras" type="SubViewport" parent="."]
 own_world_3d = true
 size = Vector2i(1920, 1080)
 
-[node name="1_CENTRE" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.80670714, 0.496109, -0.32109094, 0.14224432, 0.69038457, 0.7093208, 0.57357657, 0.52654076, -0.6275068, -11.614543, 7.0000005, -40.07394)
+[node name="Cams" type="Node3D" parent="Cameras" groups=["Cameras"]]
+
+[node name="1_CENTRE" type="Camera3D" parent="Cameras/Cams"]
+transform = Transform3D(-0.8067072, 0.496109, -0.32109103, 0.14224434, 0.69038457, 0.70932066, 0.5735766, 0.5265407, -0.62750685, -11.614543, 7.0000005, -40.07394)
 fov = 99.8
 
-[node name="2_LEFT" type="Camera3D" parent="Cameras"]
+[node name="2_LEFT" type="Camera3D" parent="Cameras/Cams"]
 transform = Transform3D(0.8660254, -0.25000003, 0.43301266, -0.12940952, 0.7244444, 0.6770772, -0.4829629, -0.64240205, 0.59503484, -20.92115, 6.3, -12.971977)
 fov = 108.8
 
-[node name="3_RIGHT" type="Camera3D" parent="Cameras"]
+[node name="3_RIGHT" type="Camera3D" parent="Cameras/Cams"]
 transform = Transform3D(0.6622824, -0.3849314, 0.64281404, -0.07939508, 0.8170534, 0.5710694, -0.7450359, -0.4292455, 0.5105584, 29.86132, 6.2999997, -13.2719755)
 
-[node name="4_VENTS" type="Camera3D" parent="Cameras"]
+[node name="4_VENTS" type="Camera3D" parent="Cameras/Cams"]
 transform = Transform3D(0.81979895, 0.036833666, -0.57146573, 0.21351548, 0.9063078, 0.36471546, 0.53135765, -0.4210101, 0.7351256, -38.649582, 4.8, 21.46225)
 
-[node name="5_ENTERTAINMENT" type="Camera3D" parent="Cameras"]
+[node name="5_ENTERTAINMENT" type="Camera3D" parent="Cameras/Cams"]
 transform = Transform3D(0.4225012, -0.41804215, 0.80419743, 0.03812411, 0.89469177, 0.44505417, -0.90556026, -0.1573766, 0.3939458, 4.250416, 6, -47.24917)
 fov = 105.8
 
-[node name="6_REPAIRS" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.6588776, -0.1982669, 0.7256518, -0.005682181, 0.9659259, 0.2587567, -0.7522288, 0.1663657, -0.6375536, 38.17832, 6, -66.24917)
+[node name="6_REPAIRS" type="Camera3D" parent="Cameras/Cams"]
+transform = Transform3D(-0.6588776, -0.1982669, 0.72565186, -0.005682181, 0.9659259, 0.25875667, -0.7522288, 0.1663657, -0.63755345, 38.17832, 6, -66.24917)
 fov = 87.9
+
+[node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
 
 [node name="LIGHTS_LEFT" type="OmniLight3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6, -19)
@@ -147,8 +152,6 @@ light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 3.0
 omni_range = 18.0
 
-[node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
-
 [node name="CSGCombiner3D" parent="." instance=ExtResource("3_4w8ll")]
 
 [node name="SleepyPositions" type="Node3D" parent="."]
@@ -183,6 +186,8 @@ id = 6
 [node name="Characters" type="Node3D" parent="."]
 
 [node name="Sleepy" parent="Characters" instance=ExtResource("6_52vuk")]
+
+[node name="Prototype" parent="Characters" instance=ExtResource("6_k5nrd")]
 
 [node name="Area3D" type="Area3D" parent="." groups=["Hallway"]]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -8, 0, -2.655516)

@@ -43,7 +43,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if camsAreUp:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 		
 		if flashLightShouldShake:
 			$Light.play("shake")
-			if flashlightHoldTime > 2:
+			if flashlightHoldTime > 1:
 				flashLightShouldShake = false
 				
 				flashlightHoldTime = -2
@@ -137,7 +137,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		currentHallway = area.hallwayID
 		
 		print(currentHallway)
-
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):

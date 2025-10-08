@@ -7,7 +7,7 @@ var camID : int = 0
 var cameras : Array[Node]
 
 func _ready() -> void:
-	cameras = $Cameras.get_children()
+	cameras = $Cameras/Cams.get_children()
 	
 	currentCamera = cameras[camID]
 	

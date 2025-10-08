@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgfbjixt63hhq"]
+
+[ext_resource type="Script" uid="uid://dts3ih4ybhpl4" path="res://Objects/Gameplay/Characters/Prototype/prototype.gd" id="1_3ubwf"]
+[ext_resource type="Script" uid="uid://1qwjrhketfok" path="res://Objects/Gameplay/Characters/Prototype/panel.gd" id="2_nu4hj"]
+[ext_resource type="AudioStream" uid="uid://bi2x7ed6ux7jl" path="res://Objects/Gameplay/Characters/Prototype/Arrive.ogg" id="3_rg71w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aj4tb"]
+font_size = 47
+
+[node name="Prototype" type="Node3D"]
+script = ExtResource("1_3ubwf")
+movementRate = 11
+enemy = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 576.0
+offset_bottom = 312.0
+script = ExtResource("2_nu4hj")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 256.0
+offset_right = 392.0
+offset_bottom = 311.0
+text = "Ok"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 144.0
+text = "Click hjere to not dies"
+label_settings = SubResource("LabelSettings_aj4tb")
+horizontal_alignment = 1
+
+[node name="Arrive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rg71w")
