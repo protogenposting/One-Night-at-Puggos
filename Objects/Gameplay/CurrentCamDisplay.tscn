@@ -18,7 +18,7 @@ height = 1080
 generate_mipmaps = false
 noise = SubResource("FastNoiseLite_g0lc5")
 
-[node name="CurrentCamDisplay" type="Node2D"]
+[node name="CurrentCamDisplay" type="Node2D" groups=["CamDisplay"]]
 script = ExtResource("1_d0xth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

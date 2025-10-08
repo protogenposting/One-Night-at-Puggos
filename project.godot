@@ -35,6 +35,7 @@ Cameras=""
 CameraButton=""
 Hallway=""
 Player=""
+CamDisplay=""
 
 [input]
 
