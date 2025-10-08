@@ -1,5 +1,10 @@
 extends "res://Objects/Gameplay/Characters/animatronic.gd"
 
+func _ready() -> void:
+	super()
+	
+	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
+
 func _process(delta: float) -> void:
 	for i in visualNodes:
 		i.position = positions[progress].position
@@ -17,12 +22,16 @@ func _move():
 				progress = [1,3,4].pick_random()
 			3:
 				progress = 6
+			_:
+				_jumpscare()
 		
 		print("moved to " + str(progress))
 	
 	super()
 
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
+	print(hallwayID)
+	
 	if hallwayID == currentHallway:
 		_jumpscare()
 

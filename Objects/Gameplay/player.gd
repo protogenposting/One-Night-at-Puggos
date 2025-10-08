@@ -12,6 +12,8 @@ var canShoot : bool = true
 
 signal shotSlingshot(slingshotTier : int, hallwayID : int)
 
+var currentHallway : int = -1
+
 func _input(event: InputEvent) -> void:
 	$Cams.push_input(event)
 	
@@ -52,13 +54,23 @@ func _process(delta: float) -> void:
 	elif slingshotCharge > 0 && Input.is_action_just_released("Click"):
 		slingshot.play("shoot")
 		
-		shotSlingshot.emit()
+		var chargeLevel = 0
+		
+		if slingshotCharge >= 1:
+			chargeLevel = 3
+		elif slingshotCharge >= 0.5:
+			chargeLevel = 2
+		else:
+			chargeLevel = 1
 		
 		canShoot = false
 		
 		slingshotCharge = 0
 		
 		get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
+		
+		if currentHallway != -1:
+			shotSlingshot.emit(chargeLevel, currentHallway)
 	
 	if Input.is_action_just_pressed("Fullscreen"):
 		var mode := DisplayServer.window_get_mode()
@@ -72,8 +84,12 @@ func _reset_slingshot():
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
+	if area.is_in_group("Hallway"):
+		currentHallway = area.hallwayID
+		
+		print(currentHallway)
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	pass # Replace with function body.
+	if area.is_in_group("Hallway"):
+		currentHallway = -1

@@ -12,6 +12,8 @@ var currentHallway : int = -1
 
 @export var visuals : Node3D
 
+@onready var timer = $Timer
+
 func _ready() -> void:
 	visualNodes.resize(2)
 	
@@ -25,10 +27,14 @@ func _ready() -> void:
 	
 	print(positions)
 	
-	get_tree().create_timer(movementRate).timeout.connect(_move)
+	timer.start(movementRate)
+	
+	timer.timeout.connect(_move)
 
 func _move():
-	get_tree().create_timer(movementRate).timeout.connect(_move)
+	timer.start(movementRate)
 
 func _jumpscare():
-	pass
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	get_tree().change_scene_to_file("res://Rooms/MainMenu.tscn")
