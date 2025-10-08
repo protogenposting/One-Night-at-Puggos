@@ -5,11 +5,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("visuals")]
+[node name="Sleepy" type="Node3D" node_paths=PackedStringArray("visuals")]
 script = ExtResource("1_wx5e5")
 visuals = NodePath("Sleepy")
 
 [node name="Sleepy" type="Sprite3D" parent="."]
+billboard = 2
 shaded = true
 texture = ExtResource("1_igq1s")
 

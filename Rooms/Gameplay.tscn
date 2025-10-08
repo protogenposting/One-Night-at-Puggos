@@ -21,6 +21,7 @@ script = ExtResource("1_vrd06")
 
 [node name="Player" parent="." instance=ExtResource("1_inlal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+camsAreUp = false
 
 [node name="LIGHTS_SECURITY" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 2)

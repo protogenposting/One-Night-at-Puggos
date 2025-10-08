@@ -12,7 +12,7 @@ var currentHallway : int = -1
 
 @export var visuals : Node3D
 
-@onready var timer = $Timer
+@onready var timer : Timer = $Timer
 
 func _ready() -> void:
 	visualNodes.resize(2)

@@ -4,6 +4,8 @@ func _ready() -> void:
 	super()
 	
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
+	
+	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
 
 func _process(delta: float) -> void:
 	for i in visualNodes:
@@ -42,3 +44,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
 		currentHallway = -1
+
+func _reset():
+	progress = 0
+	
+	timer.stop()
+	
+	timer.start(8)
