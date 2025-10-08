@@ -455,8 +455,8 @@ shape = SubResource("CylinderShape3D_0rwas")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
 spot_range = 43.262
-spot_attenuation = 0.52
-spot_angle = 17.6
+spot_attenuation = -0.5
+spot_angle = 19.148487
 
 [node name="Sprite3D" type="Sprite3D" parent="Camera3D"]
 transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, -0.831941)
@@ -502,7 +502,7 @@ animation = &"shake"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 
 [node name="Flash" type="OmniLight3D" parent="."]
-light_energy = 0.0
+light_energy = 3.773
 omni_range = 270.958
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Flash"]
