@@ -139,7 +139,7 @@ light_energy = 3.0
 omni_range = 17.0
 
 [node name="Pomni" parent="Cameras" instance=ExtResource("3_k5nrd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, -62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 2.2932866, -62)
 
 [node name="CSGCombiner3D" parent="." instance=ExtResource("3_4w8ll")]
 
