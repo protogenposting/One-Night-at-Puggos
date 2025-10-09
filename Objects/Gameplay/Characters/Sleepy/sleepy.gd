@@ -8,7 +8,7 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
 
 func _move():
-	var roll = randi_range(1,20)
+	var roll = randi_range(1,19)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.SLEEPY]:
 		match(progress):
@@ -24,6 +24,8 @@ func _move():
 				_jumpscare()
 		
 		print("moved to " + str(progress))
+	
+	print(movementRate)
 	
 	super()
 

@@ -10,9 +10,9 @@ func _ready() -> void:
 func _move():
 	var roll = randi_range(1,20)
 	
-	$Puggo/AudioStreamPlayer3D.play()
-	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PUGGO]:
+		$Puggo/AudioStreamPlayer3D.play()
+		
 		match(progress):
 			0:
 				progress = 1
