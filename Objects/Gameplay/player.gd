@@ -184,6 +184,8 @@ func _reset_slingshot():
 	slingshot.play("default")
 
 func _on_flash():
+	$FlashlightTrigger.play()
+	
 	$Flash/AnimationPlayer.play("flash")
 	
 	$Light.play("shake")

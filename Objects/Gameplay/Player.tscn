@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c8856y456xj6i"]
+[gd_scene load_steps=43 format=3 uid="uid://c8856y456xj6i"]
 
 [ext_resource type="Script" uid="uid://c5pyvd503vytj" path="res://Objects/Gameplay/player.gd" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://bkbgfr73ycufw" path="res://Objects/Gameplay/CurrentCamDisplay.tscn" id="2_kpjcp"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtomvubyse1fm" path="res://Assets/Slingshot/SLINGSHOT.png" id="4_3ilfp"]
 [ext_resource type="Texture2D" uid="uid://c611us2hmwlsf" path="res://Assets/Slingshot/FLASHLIGHT.png" id="5_178h0"]
 [ext_resource type="Texture2D" uid="uid://d0dhbj38oqt20" path="res://Assets/Slingshot/BALL1.png" id="5_ro3es"]
-[ext_resource type="AudioStream" uid="uid://b6ynrxa7bsrq0" path="res://Audio/FlashlightCharged.ogg" id="6_6qvu4"]
+[ext_resource type="AudioStream" uid="uid://dt8ml22r3gn8w" path="res://Audio/ITEMS/Flashlight_Trigger.wav" id="8_hfxaj"]
 [ext_resource type="Texture2D" uid="uid://cqu6daucmou6r" path="res://Assets/Slingshot/BALL3.png" id="8_vo0td"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0rwas"]
@@ -461,6 +461,8 @@ _data = {
 &"flash": SubResource("Animation_178h0")
 }
 
+[sub_resource type="AudioStream" id="AudioStream_ro3es"]
+
 [node name="Player" type="Node3D" node_paths=PackedStringArray("slingshot") groups=["Player"]]
 script = ExtResource("1_xhfnw")
 slingshot = NodePath("Slingshot")
@@ -572,13 +574,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_ro3es")
 }
 
-[node name="FlashlightCharged" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_6qvu4")
-
 [node name="Crosshair" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("8_vo0td")
+
+[node name="FlashlightCharged" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_ro3es")
+
+[node name="FlashlightTrigger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hfxaj")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
