@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=14 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bih4hs3qjmnq7" path="res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn" id="6_52vuk"]
 [ext_resource type="PackedScene" uid="uid://bgfbjixt63hhq" path="res://Objects/Gameplay/Characters/Prototype/Prototype.tscn" id="6_k5nrd"]
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
+[ext_resource type="PackedScene" uid="uid://b074annqk8inb" path="res://Objects/Gameplay/Characters/Puggo/Puggo.tscn" id="8_60v3t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(9.055527, 6.9594727, 15.804199)
@@ -17,6 +18,9 @@ size = Vector3(9.055527, 6.9594727, 15.296875)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5nrd"]
 size = Vector3(9.055527, 6.9594727, 21.805298)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60v3t"]
+size = Vector3(3, 1, 1)
 
 [node name="Gameplay" type="Node3D" groups=["Gameplay"]]
 script = ExtResource("1_vrd06")
@@ -192,11 +196,44 @@ id = 5
 transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -13, 3, -8.1)
 id = 6
 
+[node name="PuggoPositions" type="Node3D" parent="."]
+
+[node name="CharacterPosition" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -18, 2, -57)
+character = 3
+
+[node name="CharacterPosition2" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 2, -47)
+character = 3
+id = 1
+
+[node name="CharacterPosition3" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 2, -39)
+character = 3
+id = 2
+
+[node name="CharacterPosition4" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 2, -31)
+character = 3
+id = 3
+
+[node name="CharacterPosition5" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 2, -26)
+character = 3
+id = 4
+
+[node name="CharacterPosition6" parent="PuggoPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 2, -9)
+character = 3
+id = 5
+
 [node name="Characters" type="Node3D" parent="."]
 
 [node name="Sleepy" parent="Characters" instance=ExtResource("6_52vuk")]
 
 [node name="Prototype" parent="Characters" instance=ExtResource("6_k5nrd")]
+
+[node name="Puggo" parent="Characters" instance=ExtResource("8_60v3t")]
 
 [node name="Area3D" type="Area3D" parent="." groups=["Hallway"]]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -8, 0, -2.655516)
@@ -223,3 +260,15 @@ hallwayID = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(0.9999754, 0, 0, 0, 1, 0, 0, 0, 0.9999754, 0.48225856, 2.5935059, -10.071344)
 shape = SubResource("BoxShape3D_k5nrd")
+
+[node name="Area3D4" type="Area3D" parent="." groups=["AmmoBox", "Hallway"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.35139656, 0, -0.97999144)
+script = ExtResource("6_tk5m8")
+hallwayID = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(0.99994415, 0, 0, 0, 1, 0, 0, 0, 0.99994415, 2.5100236, 1.6137695, 8.330947)
+shape = SubResource("BoxShape3D_60v3t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D4/CollisionShape3D"]
+size = Vector3(3, 1, 1)

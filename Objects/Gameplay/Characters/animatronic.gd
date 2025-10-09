@@ -27,4 +27,6 @@ func _move():
 func _jumpscare():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+	print("KILLED BY " + str(enemy))
+	
 	get_tree().change_scene_to_file("res://Rooms/MainMenu.tscn")

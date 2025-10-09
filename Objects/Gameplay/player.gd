@@ -12,6 +12,10 @@ var canShoot : bool = true
 
 var currentHallway : int = -1
 
+var ammo = 5
+
+var ammoBoxSelected : bool = false
+
 var battery = 100
 
 var flashlightHoldTime : float = 0
@@ -48,8 +52,12 @@ func _process(delta: float) -> void:
 		flashlightIsOn = false
 		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+		$Crosshair.visible = false
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		$Crosshair.visible = true
 	
 	if Input.is_action_just_pressed("Cameras"):
 		camsAreUp = !camsAreUp
@@ -58,36 +66,56 @@ func _process(delta: float) -> void:
 		
 		print(camsAreUp)
 	
+	if ammoBoxSelected && Input.is_action_pressed("Click"):
+		ammo = 5
+		
+		canShoot = false
+		
+		get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
+	
+	var index = 0
+	
+	for i in $Slingshot/GridContainer.get_children():
+		if index >= ammo:
+			i.visible = false
+		else:
+			i.visible = true
+		
+		index += 1
+	
 	if !camsAreUp:
-		if Input.is_action_pressed("Click") && canShoot:
-			slingshotCharge += delta
-			
-			if slingshotCharge >= 1:
-				slingshot.play("charge3")
-			elif slingshotCharge >= 0.5:
-				slingshot.play("charge2")
-			else:
-				slingshot.play("charge1")
-		elif slingshotCharge > 0 && Input.is_action_just_released("Click"):
-			slingshot.play("shoot")
-			
-			var chargeLevel = 0
-			
-			if slingshotCharge >= 1:
-				chargeLevel = 3
-			elif slingshotCharge >= 0.5:
-				chargeLevel = 2
-			else:
-				chargeLevel = 1
-			
-			canShoot = false
-			
-			slingshotCharge = 0
-			
-			get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
-			
-			if currentHallway != -1:
-				shotSlingshot.emit(chargeLevel, currentHallway)
+		if ammo > 0 && !ammoBoxSelected:
+			if Input.is_action_pressed("Click") && canShoot:
+				slingshotCharge += delta
+				
+				if slingshotCharge >= 1:
+					slingshot.play("charge3")
+				elif slingshotCharge >= 0.5:
+					slingshot.play("charge2")
+				else:
+					slingshot.play("charge1")
+			elif slingshotCharge > 0 && Input.is_action_just_released("Click"):
+				slingshot.play("shoot")
+				
+				var chargeLevel = 0
+				
+				if slingshotCharge >= 1:
+					chargeLevel = 3
+				elif slingshotCharge >= 0.5:
+					chargeLevel = 2
+				else:
+					chargeLevel = 1
+				
+				canShoot = false
+				
+				slingshotCharge = 0
+				
+				ammo -= 1
+				
+				get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
+				
+				if currentHallway != -1:
+					shotSlingshot.emit(chargeLevel, currentHallway)
 		
 		if Input.is_action_pressed("Flashlight"):
 			flashlightHoldTime += delta
@@ -97,7 +125,7 @@ func _process(delta: float) -> void:
 				
 				$Light/AnimationPlayer.play("Shake")
 				
-				if flashlightHoldTime > 1:
+				if flashlightHoldTime > 0.75:
 					flashLightShouldShake = false
 					
 					flashlightHoldTime = -2
@@ -164,7 +192,13 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		currentHallway = area.hallwayID
 		
 		print(currentHallway)
+	
+	if area.is_in_group("AmmoBox"):
+		ammoBoxSelected = true
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
 		currentHallway = -1
+	
+	if area.is_in_group("AmmoBox"):
+		ammoBoxSelected = false

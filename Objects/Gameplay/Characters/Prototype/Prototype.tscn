@@ -9,7 +9,7 @@ font_size = 47
 
 [node name="Prototype" type="Node3D"]
 script = ExtResource("1_3ubwf")
-movementRate = 11
+movementRate = 7
 enemy = 1
 
 [node name="Timer" type="Timer" parent="."]
@@ -38,3 +38,4 @@ horizontal_alignment = 1
 
 [node name="Arrive" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_rg71w")
+volume_db = -17.174
