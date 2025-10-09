@@ -1,13 +1,22 @@
 extends "res://Objects/Gameplay/Characters/visual_animatronic.gd"
 
+var baseMovement : int
+
 func _ready() -> void:
 	super()
 	
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 	
 	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
+	
+	baseMovement = movementRate
 
 func _move():
+	if currentHallway != -1:
+		movementRate = baseMovement
+	else:
+		movementRate = baseMovement * 3
+	
 	var roll = randi_range(1,19)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.SLEEPY]:
