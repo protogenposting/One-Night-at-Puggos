@@ -62,6 +62,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Cameras"):
 		camsAreUp = !camsAreUp
 		
+		if camsAreUp:
+			$Cams/CurrentCamDisplay._open()
+		
 		$Cams/CurrentCamDisplay.camsAreUp = camsAreUp
 		
 		print(camsAreUp)

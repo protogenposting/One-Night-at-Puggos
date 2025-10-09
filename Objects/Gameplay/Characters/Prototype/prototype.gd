@@ -7,7 +7,11 @@ func _move():
 	var roll = randi_range(1,20)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PROTOTYPE]:
+		print("progress: " + str(progress))
+		
 		if progress == 1:
+			print("PROTOTYPE KILL")
+			
 			_jumpscare()
 		else:
 			$Arrive.play()
@@ -18,26 +22,34 @@ func _move():
 			
 			var display = get_tree().get_first_node_in_group("CamDisplay")
 			
+			var gameplay = get_tree().get_first_node_in_group("Gameplay")
+			
 			var newPanel : Panel = $Panel.duplicate()
 			
-			newPanel.camID = randi_range(0,get_tree().get_first_node_in_group("Cameras").get_child_count() - 2)
-			
-			print(newPanel.camID)
+			newPanel.camID = randi_range(0,6)
 			
 			display.add_child(newPanel)
 			
 			newPanel.position = Vector2(randf_range(-70,70),randf_range(-70,70))
 			
-			newPanel.get_node("Button").pressed.connect(_reset.bind(newPanel))
-			
 			newPanel.z_index = 998
 			
-			print(newPanel.position)
+			var newIndicator : Sprite2D = $Indicator.duplicate()
+			
+			newIndicator.isInPlayer = false
+			
+			gameplay.add_child(newIndicator)
+			
+			newIndicator.z_index = 998
+			
+			newPanel.get_node("Button").pressed.connect(_reset.bind(newPanel,newIndicator))
 	
 	super()
 
-func _reset(button):
+func _reset(button,indicator):
 	button.queue_free()
+	
+	indicator.queue_free()
 	
 	progress = 0
 	

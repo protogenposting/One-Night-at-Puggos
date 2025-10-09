@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkbgfr73ycufw"]
+[gd_scene load_steps=12 format=3 uid="uid://bkbgfr73ycufw"]
 
 [ext_resource type="Script" uid="uid://cf63uikwccju2" path="res://Objects/Gameplay/CameraDisplay.gd" id="1_d0xth"]
 [ext_resource type="Texture2D" uid="uid://c5feseuoj4f5v" path="res://Assets/CAMERA.png" id="3_oucug"]
@@ -18,8 +18,62 @@ height = 1080
 generate_mipmaps = false
 noise = SubResource("FastNoiseLite_g0lc5")
 
-[node name="CurrentCamDisplay" type="Node2D" groups=["CamDisplay"]]
+[sub_resource type="Animation" id="Animation_oucug"]
+resource_name = "move"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:targetColor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sshr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:targetColor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y4g0f"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:targetColor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.13333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4g0f"]
+_data = {
+&"RESET": SubResource("Animation_sshr3"),
+&"move": SubResource("Animation_oucug"),
+&"start": SubResource("Animation_y4g0f")
+}
+
+[node name="CurrentCamDisplay" type="Node2D" node_paths=PackedStringArray("animator") groups=["CamDisplay"]]
 script = ExtResource("1_d0xth")
+animator = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("ViewportTexture_xml2b")
@@ -137,3 +191,8 @@ script = ExtResource("4_oucug")
 cameraID = "3_RIGHT"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y4g0f")
+}

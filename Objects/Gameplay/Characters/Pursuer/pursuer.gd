@@ -1,50 +1,40 @@
 extends "res://Objects/Gameplay/Characters/visual_animatronic.gd"
 
-var baseMovement : int
-
 func _ready() -> void:
 	super()
 	
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
-	
-	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
-	
-	baseMovement = movementRate
 
 func _move():
-	if currentHallway != -1:
-		movementRate = baseMovement
-	else:
-		movementRate = baseMovement * 3
+	var roll = randi_range(1,20)
 	
-	var roll = randi_range(1,19)
-	
-	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.SLEEPY]:
+	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PURSUER]:
 		_flash()
 		
 		match(progress):
 			0:
-				progress = [1,2].pick_random()
+				progress = 1
 			1:
-				progress = 5
+				progress = 2
 			2:
-				progress = [1,3,4].pick_random()
+				progress = [3,4].pick_random()
 			3:
 				progress = 6
+				$SpriteParent/Pursuer/sfx.play()
+			4:
+				progress = 5
+				$SpriteParent/Pursuer/sfx.play()
 			_:
 				_jumpscare()
-		
-		print("moved to " + str(progress))
-	
-	print(movementRate)
 	
 	super()
 
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
-	print(hallwayID)
+	print(currentHallway)
 	
 	if hallwayID == currentHallway:
-		_jumpscare()
+		if slingshotTier >= 2:
+			_reset()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
@@ -59,4 +49,4 @@ func _reset():
 	
 	timer.stop()
 	
-	timer.start(8)
+	timer.start(1)

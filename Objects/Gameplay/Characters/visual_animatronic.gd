@@ -18,3 +18,6 @@ func _ready():
 func _process(delta: float) -> void:
 	for i in visualNodes:
 		i.position = positions[progress].position
+
+func _move():
+	super()

@@ -5,6 +5,7 @@ enum ENEMIES{
 	PROTOTYPE,
 	POMNI,
 	PUGGO,
+	PURSUER
 }
 
 var enemyAiValues : Array = []

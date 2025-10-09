@@ -49,7 +49,7 @@ func _change_song():
 [node name="Pomni" type="Node3D"]
 script = ExtResource("1_j5d0n")
 movementRate = 2
-enemy = 1
+enemy = 2
 
 [node name="Timer" type="Timer" parent="."]
 

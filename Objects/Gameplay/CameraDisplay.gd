@@ -4,6 +4,8 @@ var isOpen = false
 
 @export var targetColor : Color
 
+@export var animator : AnimationPlayer
+
 @onready var colorRect : TextureRect = $TextureRect
 
 var camsAreUp : bool
@@ -28,3 +30,8 @@ func _process(delta: float) -> void:
 
 func _change_cam(id):
 	gameplay.camID = id
+	
+	$AnimationPlayer.play("move")
+
+func _open():
+	$AnimationPlayer.play("start")

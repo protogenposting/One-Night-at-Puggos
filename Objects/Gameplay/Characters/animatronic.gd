@@ -30,3 +30,8 @@ func _jumpscare():
 	print("KILLED BY " + str(enemy))
 	
 	get_tree().change_scene_to_file("res://Rooms/MainMenu.tscn")
+
+func _flash():
+	var display = get_tree().get_first_node_in_group("CamDisplay")
+	
+	display.animator.play("move")
