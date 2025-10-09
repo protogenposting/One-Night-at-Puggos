@@ -1,9 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
 ::res://::1760036593
-::res://Assets/::1760036582
+::res://Assets/::1760038988
 CAMERA.png::CompressedTexture2D::6889103819197584989::1759873848::1760036582::1::::<><><>0<>0<>7bd15e86d82b02506dab8334aaa38d50<>res://.godot/imported/CAMERA.png-620daba7ef608ef8b80aec0b0a4fe063.ctex::
 CAMERA_SELECTED.png::CompressedTexture2D::2295637871883989893::1759873817::1760036582::1::::<><><>0<>0<>e8a8af5ca3265358a36f8d4801b6efcc<>res://.godot/imported/CAMERA_SELECTED.png-4eb96e393443fd21eb792f3e1dbf8dff.ctex::
 map.png::CompressedTexture2D::7534057127741155844::1759873848::1760036582::1::::<><><>0<>0<>975c0ac41d80ba4fb24b91f5b504b806<>res://.godot/imported/map.png-ae60f075f26517d17aa23f1af6bbabe0.ctex::
+MASK.png::CompressedTexture2D::529352726356309919::1760038987::1760038988::1::::<><><>0<>0<>7a0479d4536b604eec74e6816c3599e6<>res://.godot/imported/MASK.png-2c92e1fadff0e8fe428cd4d9f1af9264.ctex::
 ::res://Assets/Blocking/::1760036582
 ASSET_GRID.png::CompressedTexture2D::5598884906368821572::1759780060::1760036582::1::::<><><>0<>0<>38d43e7029c8f6ffaf78624155d2092e<>res://.godot/imported/ASSET_GRID.png-67185d327162ca189f346379bd024000.s3tc.ctex::
 ASSET_GRID_CARPET.png::CompressedTexture2D::87679697936497221::1759896895::1760036582::1::::<><><>0<>0<>a3d5a3ca854ba579c90d69f29c1a06d1<>res://.godot/imported/ASSET_GRID_CARPET.png-8532ef0a674edc64d831ade540da19ae.s3tc.ctex::
@@ -53,7 +54,7 @@ SLOT_EMPTY.png::CompressedTexture2D::3058680871576420104::1759864284::1760036582
 ::res://Audio/::1760038329
 Death_Sound.wav::AudioStreamWAV::1616135030076704340::1760025200::1760037040::1::::<><><>0<>0<>413c0d8c4d31d51e2865826cd7b31566<>res://.godot/imported/Death_Sound.wav-00f21dbac10398b7140f170fe9a6a464.sample::
 PhoneCall.wav::AudioStreamWAV::5429628429810557025::1759591087::1760036583::1::::<><><>0<>0<>cd414d446a556973560985ada7c87687<>res://.godot/imported/PhoneCall.wav-a957d0bd6ab1845761cdd6614897a055.sample::
-::res://Audio/C00lkidd/::1760038758
+::res://Audio/C00lkidd/::1760038761
 C00kidd_Charging.wav::AudioStreamWAV::818065541989447532::1760038524::1760038761::1::::<><><>0<>0<>c07677257d108c47782c9199cbe8ce40<>res://.godot/imported/C00kidd_Charging.wav-f25413a3f664a042aacfd67bc3b61efd.sample::
 C00kidd_Gameover.wav::AudioStreamWAV::9059194444287233806::1760038758::1760038761::1::::<><><>0<>0<>6dd3fef05024559c4affa6c726ac5929<>res://.godot/imported/C00kidd_Gameover.wav-ad9016a048f2307d426cf27eb00aca23.sample::
 C00kidd_KillFail.wav::AudioStreamWAV::2641893226444114856::1760038594::1760038761::1::::<><><>0<>0<>df47337b49a533844074a09e673c33af<>res://.godot/imported/C00kidd_KillFail.wav-c7282687e36ff1ff6c92b4b5a0a5209c.sample::
@@ -64,8 +65,8 @@ C00kidd_Ready.wav::AudioStreamWAV::942727685261103270::1760038378::1760038761::1
 Camera_ScreenEnter.wav::AudioStreamWAV::5904088895543730484::1760036215::1760037040::1::::<><><>0<>0<>0c7bcdc4220a2aa7add2440c826f2fd5<>res://.godot/imported/Camera_ScreenEnter.wav-1a7cae029969404bb6b41d24fb43aa9d.sample::
 Camera_ScreenExit.wav::AudioStreamWAV::2420239712330888329::1760035385::1760037040::1::::<><><>0<>0<>cb83c0513d7293682b46c0b26035db14<>res://.godot/imported/Camera_ScreenExit.wav-75d265ee180fd71e9f27c7a120ea5054.sample::
 Camera_ScreenSwitch.wav::AudioStreamWAV::5624644794217841556::1760025256::1760037040::1::::<><><>0<>0<>b8cffaf82272e83d5d5b7b09104ada9d<>res://.godot/imported/Camera_ScreenSwitch.wav-b93f89daa90d22316cc0b5523be1cac8.sample::
-::res://Audio/ITEMS/::1760038335
-Flashlight_Charge.wav::AudioStreamWAV::2731695050537431647::1760037035::1760038761::1::::<><><>0<>0<>1e435a249e807d38730afaeb3e3becb7<>res://.godot/imported/Flashlight_Charge.wav-a1269061dc95a24f71a9fa9e80952755.sample::
+::res://Audio/ITEMS/::1760038991
+Flashlight_Charge.wav::AudioStreamWAV::2731695050537431647::1760037035::1760038994::1::::<><><>0<>0<>1e435a249e807d38730afaeb3e3becb7<>res://.godot/imported/Flashlight_Charge.wav-a1269061dc95a24f71a9fa9e80952755.sample::
 Flashlight_Trigger.wav::AudioStreamWAV::8561724254382287228::1760035589::1760037040::1::::<><><>0<>0<>95f92d90646eb5d0dedb7ef3a32b2f67<>res://.godot/imported/Flashlight_Trigger.wav-694d4ffc3e4586e5dc3a06fa3ebc3961.sample::
 Sling_Charge.wav::AudioStreamWAV::8654975853215221015::1760035998::1760037040::1::::<><><>0<>0<>b0994c4d6987bd3f304efd4073494b94<>res://.godot/imported/Sling_Charge.wav-bde9e7cb03a67e59fc9ac4833d31034c.sample::
 Sling_Reload.wav::AudioStreamWAV::7614484806964944333::1760025644::1760037040::1::::<><><>0<>0<>bca7ece29b138934773fb55263ed1dc7<>res://.godot/imported/Sling_Reload.wav-be5f4da5ec2fdf35921aebfe8f9c8673.sample::
