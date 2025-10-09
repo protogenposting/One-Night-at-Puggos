@@ -1,24 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://b074annqk8inb"]
 
 [ext_resource type="Script" uid="uid://brmqtgffmbwsg" path="res://Objects/Gameplay/Characters/Puggo/puggo.gd" id="1_xwcbg"]
-[ext_resource type="Texture2D" uid="uid://donjv2g72ento" path="res://Objects/Gameplay/Characters/Puggo/fuck.webp" id="2_s3wdb"]
+[ext_resource type="Texture2D" uid="uid://cc4ovmuv3u1e8" path="res://Objects/Gameplay/Characters/Puggo/PUGGO.png" id="2_qwerg"]
 [ext_resource type="AudioStream" uid="uid://da270txwd0exv" path="res://Objects/Gameplay/Characters/Puggo/move.ogg" id="3_qwerg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
 [node name="Puggo" type="Node3D" node_paths=PackedStringArray("visuals")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.25, 0)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 2.3000002, 0)
 script = ExtResource("1_xwcbg")
 movementRate = 12
 enemy = 3
 visuals = NodePath("Puggo")
 
 [node name="Puggo" type="Sprite3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 pixel_size = 0.003
 billboard = 2
 shaded = true
-texture = ExtResource("2_s3wdb")
+texture = ExtResource("2_qwerg")
 
 [node name="Area3D" type="Area3D" parent="Puggo"]
 collision_layer = 8
