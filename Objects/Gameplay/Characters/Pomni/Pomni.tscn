@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cijl1rchtpts"]
 
 [ext_resource type="Script" uid="uid://bc0h5dohrbufi" path="res://Objects/Gameplay/Characters/Pomni/pomni.gd" id="1_j5d0n"]
-[ext_resource type="Texture2D" uid="uid://rghvp3ige5k1" path="res://Objects/Gameplay/Characters/Pomni/pomni.webp" id="2_dbaad"]
 [ext_resource type="AudioStream" uid="uid://b8evgn75v2nsq" path="res://Objects/Gameplay/Characters/Pomni/song1.mp3" id="2_nwapt"]
 [ext_resource type="AudioStream" uid="uid://bwwbhir4sxgkk" path="res://Objects/Gameplay/Characters/Pomni/song2.mp3" id="3_hpch5"]
 [ext_resource type="AudioStream" uid="uid://5b3jvtca5djq" path="res://Objects/Gameplay/Characters/Pomni/song3.mp3" id="4_uvqx3"]
@@ -46,6 +45,9 @@ func _change_song():
 	$Song.play(0)
 "
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gi3ob"]
+load_path = "res://.godot/imported/POMNI.png-bce6ed368fc3b8f3efd848732402878d.s3tc.ctex"
+
 [node name="Pomni" type="Node3D"]
 script = ExtResource("1_j5d0n")
 movementRate = 2
@@ -73,5 +75,6 @@ offset_bottom = -10.0
 max_value = 300.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 2
-texture = ExtResource("2_dbaad")
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.6999999, 0)
+billboard = 1
+texture = SubResource("CompressedTexture2D_gi3ob")

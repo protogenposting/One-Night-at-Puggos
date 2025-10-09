@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://c6g6ekq7skhxh"]
+[gd_scene load_steps=45 format=3 uid="uid://c6g6ekq7skhxh"]
 
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="1_7ixeb"]
 [ext_resource type="Texture2D" uid="uid://biqcpau1fj70" path="res://Assets/Blocking/ASSET_GRID_CARPET.png" id="1_gp30h"]
 [ext_resource type="Texture2D" uid="uid://byh8x80ow45ha" path="res://Assets/Blocking/ASSET_GRID_STARSHOW.png" id="2_orhnp"]
 [ext_resource type="Texture2D" uid="uid://g0vysc28yhra" path="res://Assets/Blocking/ASSET_GRID_WOOD.png" id="3_4nnrw"]
+[ext_resource type="Texture2D" uid="uid://d0x3axjx66fy3" path="res://Assets/Blocking/ASSET_GRID_PILLOW.png" id="3_fuu7u"]
 [ext_resource type="Texture2D" uid="uid://clama6waihn8m" path="res://Assets/Blocking/ASSET_GRID_CRATE.png" id="3_g53nf"]
 [ext_resource type="Texture2D" uid="uid://bnqmo6gp6fgny" path="res://Assets/Blocking/ASSET_GRID_CONCRETE.png" id="3_nirsn"]
 [ext_resource type="Texture2D" uid="uid://de0g7ycjnerja" path="res://Assets/Blocking/ASSET_GRID_METAL.png" id="4_clndw"]
@@ -47,6 +48,11 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gp30h"]
 albedo_texture = ExtResource("4_clndw")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kaq5"]
+albedo_texture = ExtResource("3_fuu7u")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_visq0"]
@@ -151,6 +157,11 @@ material = SubResource("StandardMaterial3D_bo5a5")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 30.5, 8.25, -60)
 size = Vector3(38, 1, 32)
 material = SubResource("StandardMaterial3D_gp30h")
+
+[node name="ROOF7" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 57.5, 8.25, -60)
+size = Vector3(40, 1, 40)
+material = SubResource("StandardMaterial3D_1kaq5")
 
 [node name="ROOF6" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, -7.999997, 8.25, -52)
@@ -396,6 +407,31 @@ material = SubResource("StandardMaterial3D_gp30h")
 transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 30, 4, -52.5)
 size = Vector3(2, 16, 36)
 material = SubResource("StandardMaterial3D_gp30h")
+
+[node name="FLOOR7" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 57.5, -1, -60)
+size = Vector3(40, 4, 40)
+material = SubResource("StandardMaterial3D_1kaq5")
+
+[node name="REPAIR_WALL6" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 48, 4, -60)
+size = Vector3(40, 16, 2)
+material = SubResource("StandardMaterial3D_1kaq5")
+
+[node name="REPAIR_WALL8" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 67, 4, -60)
+size = Vector3(40, 16, 2)
+material = SubResource("StandardMaterial3D_1kaq5")
+
+[node name="REPAIR_WALL7" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 57.5, 4, -69.5)
+size = Vector3(2, 16, 36)
+material = SubResource("StandardMaterial3D_1kaq5")
+
+[node name="REPAIR_WALL9" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 57.5, 4, -50.5)
+size = Vector3(2, 16, 36)
+material = SubResource("StandardMaterial3D_1kaq5")
 
 [node name="DOORCUTS2" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 29.000002, 3.5, -39.5)

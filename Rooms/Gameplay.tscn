@@ -79,7 +79,7 @@ transform = Transform3D(-0.6588776, -0.1982669, 0.72565186, -0.005682181, 0.9659
 fov = 87.9
 
 [node name="7_POMNI" type="Camera3D" parent="Cameras/Cams"]
-transform = Transform3D(-0.6588776, -0.1982669, 0.72565186, -0.005682181, 0.9659259, 0.25875667, -0.7522288, 0.1663657, -0.63755345, -26.821678, 12, 9.750832)
+transform = Transform3D(0.63495624, 0.44151112, -0.6339546, 0.024670124, 0.8085957, 0.5878472, 0.77215403, -0.38889706, 0.5025308, 49.17832, 7, -57.24917)
 fov = 87.9
 
 [node name="map" parent="Cameras" instance=ExtResource("3_4w8ll")]
@@ -132,8 +132,14 @@ light_color = Color(1, 0.8986667, 0.81, 1)
 light_energy = 3.0
 omni_range = 18.0
 
+[node name="LIGHTS_POMNIROOM" type="OmniLight3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.5, 4, -60)
+light_color = Color(1, 0.8986667, 0.81, 1)
+light_energy = 3.0
+omni_range = 17.0
+
 [node name="Pomni" parent="Cameras" instance=ExtResource("3_k5nrd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 10, 33)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, -62)
 
 [node name="CSGCombiner3D" parent="." instance=ExtResource("3_4w8ll")]
 
