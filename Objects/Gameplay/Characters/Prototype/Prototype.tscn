@@ -24,13 +24,13 @@ func _toggle():
 	get_tree().create_timer(0.5).timeout.connect(_toggle)
 "
 
-[sub_resource type="Animation" id="Animation_srblt"]
+[sub_resource type="Animation" id="Animation_i7nle"]
 resource_name = "default"
 length = 4.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Panel")
+tracks/0/path = NodePath("PrototypeJumpscare/Panel")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -980,7 +980,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y7qu1"]
 _data = {
-&"default": SubResource("Animation_srblt")
+&"default": SubResource("Animation_i7nle")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7nle"]
@@ -1016,7 +1016,7 @@ font_size = 36
 
 [node name="Prototype" type="Node3D" node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_3ubwf")
-jumpscare = NodePath("AnimationPlayer")
+jumpscare = NodePath("PrototypeJumpscare")
 movementRate = 7
 enemy = 1
 
@@ -1054,13 +1054,13 @@ script = SubResource("GDScript_i7nle")
 stream = ExtResource("3_rg71w")
 volume_db = -17.174
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="PrototypeJumpscare" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_y7qu1")
 }
 
-[node name="Panel" type="Panel" parent="AnimationPlayer"]
+[node name="Panel" type="Panel" parent="PrototypeJumpscare"]
 z_index = 4096
 anchors_preset = -1
 anchor_right = 0.26700002
@@ -1070,7 +1070,7 @@ offset_bottom = 0.44000244
 theme_override_styles/panel = SubResource("StyleBoxFlat_i7nle")
 script = SubResource("GDScript_srblt")
 
-[node name="Label" type="Label" parent="AnimationPlayer/Panel"]
+[node name="Label" type="Label" parent="PrototypeJumpscare/Panel"]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 146.0
@@ -1079,7 +1079,7 @@ label_settings = SubResource("LabelSettings_imcxq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="AnimationPlayer/Panel"]
+[node name="Button" type="Button" parent="PrototypeJumpscare/Panel"]
 layout_mode = 0
 offset_left = 192.0
 offset_top = 203.0
@@ -1087,7 +1087,7 @@ offset_right = 320.0
 offset_bottom = 258.0
 text = "Ok"
 
-[node name="PopUp" type="AudioStreamPlayer" parent="AnimationPlayer/Panel"]
+[node name="PopUp" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel"]
 stream = ExtResource("5_i7nle")
 volume_db = -17.175
 max_polyphony = 5
