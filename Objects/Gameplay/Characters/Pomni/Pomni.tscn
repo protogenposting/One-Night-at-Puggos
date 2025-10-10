@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cijl1rchtpts"]
+[gd_scene load_steps=12 format=3 uid="uid://cijl1rchtpts"]
 
 [ext_resource type="Script" uid="uid://bc0h5dohrbufi" path="res://Objects/Gameplay/Characters/Pomni/pomni.gd" id="1_j5d0n"]
 [ext_resource type="AudioStream" uid="uid://b8evgn75v2nsq" path="res://Objects/Gameplay/Characters/Pomni/song1.mp3" id="2_nwapt"]
 [ext_resource type="AudioStream" uid="uid://bwwbhir4sxgkk" path="res://Objects/Gameplay/Characters/Pomni/song2.mp3" id="3_hpch5"]
 [ext_resource type="AudioStream" uid="uid://5b3jvtca5djq" path="res://Objects/Gameplay/Characters/Pomni/song3.mp3" id="4_uvqx3"]
 [ext_resource type="Texture2D" uid="uid://jqlrxhfgcon1" path="res://Objects/Gameplay/Characters/Pomni/POMNI.jpg" id="5_nwapt"]
+[ext_resource type="Texture2D" uid="uid://4v7uygo0dvu7" path="res://Objects/Gameplay/Characters/Pomni/pomni.webp" id="6_hpch5"]
+[ext_resource type="AudioStream" uid="uid://xa4rjbs63yxw" path="res://Audio/Death_Sound.wav" id="7_uvqx3"]
 
 [sub_resource type="GDScript" id="GDScript_q6w7v"]
 script/source = "extends Button
@@ -46,8 +48,118 @@ func _change_song():
 	$Song.play(0)
 "
 
-[node name="Pomni" type="Node3D"]
+[sub_resource type="Animation" id="Animation_ul4y5"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jumpscare/Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 11.80715238974164]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jumpscare/DeathSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jumpscare/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Jumpscare/Sprite2D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(956.00006, 535), Vector2(956.00006, 535), Vector2(1073, 1803)]
+}
+
+[sub_resource type="Animation" id="Animation_qp3wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jumpscare/DeathSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jumpscare/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jumpscare/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Jumpscare/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe07g"]
+_data = {
+&"RESET": SubResource("Animation_qp3wi"),
+&"default": SubResource("Animation_ul4y5")
+}
+
+[node name="Pomni" type="Node3D" node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_j5d0n")
+jumpscare = NodePath("Jumpscare")
 movementRate = 2
 enemy = 2
 
@@ -76,3 +188,18 @@ max_value = 300.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.6999999, 0)
 billboard = 1
 texture = ExtResource("5_nwapt")
+
+[node name="Jumpscare" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_oe07g")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Jumpscare"]
+z_index = 4096
+position = Vector2(1073, 1803)
+rotation = 11.807153
+texture = ExtResource("6_hpch5")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Jumpscare"]
+stream = ExtResource("7_uvqx3")

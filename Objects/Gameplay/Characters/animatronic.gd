@@ -4,6 +4,8 @@ var progress : int = 0
 
 var positions : Array = []
 
+@export var jumpscare : AnimationPlayer
+
 @export var movementRate = 5
 
 @export var enemy : EnemyAI.ENEMIES
@@ -17,6 +19,13 @@ var currentHallway : int = -1
 @onready var timer : Timer = $Timer
 
 func _ready() -> void:
+	if jumpscare != null:
+		for i in jumpscare.get_children():
+			if i.get("visible") != null:
+				i.visible = false
+		
+		jumpscare.reparent.call_deferred(get_tree().get_first_node_in_group("Gameplay"))
+	
 	timer.start(movementRate)
 	
 	timer.timeout.connect(_move)
@@ -25,9 +34,25 @@ func _move():
 	timer.start(movementRate)
 
 func _jumpscare():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if EnemyAI.playerKilled:
+		return
+	
+	timer.stop()
+	
+	for i in jumpscare.get_children():
+		if i.get("visible") != null:
+			i.visible = true
 	
 	print("KILLED BY " + str(enemy))
+	
+	jumpscare.play("default")
+	
+	jumpscare.animation_finished.connect(_return)
+	
+	EnemyAI.playerKilled = true
+
+func _return(animation):
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	get_tree().change_scene_to_file("res://Rooms/MainMenu.tscn")
 

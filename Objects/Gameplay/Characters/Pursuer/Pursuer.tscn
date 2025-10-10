@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb8f4hatlsgr"]
+[gd_scene load_steps=7 format=3 uid="uid://bb8f4hatlsgr"]
 
 [ext_resource type="Script" uid="uid://nkqnikm3mtve" path="res://Objects/Gameplay/Characters/Pursuer/pursuer.gd" id="1_dn6e1"]
 [ext_resource type="Texture2D" uid="uid://bksfppa48gfsf" path="res://Objects/Gameplay/Characters/Pursuer/freshmeat.webp" id="2_wki8r"]
@@ -6,8 +6,17 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
-[node name="Pursuer" type="Node3D" node_paths=PackedStringArray("visuals")]
+[sub_resource type="Animation" id="Animation_dn6e1"]
+resource_name = "default"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
+_data = {
+&"default": SubResource("Animation_dn6e1")
+}
+
+[node name="Pursuer" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_dn6e1")
+jumpscare = NodePath("AnimationPlayer")
 movementRate = 4
 enemy = 4
 visuals = NodePath("SpriteParent")
@@ -31,6 +40,11 @@ shape = SubResource("BoxShape3D_igq1s")
 stream = ExtResource("3_dn6e1")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wki8r")
+}
 
 [connection signal="area_entered" from="SpriteParent/Pursuer/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="SpriteParent/Pursuer/Area3D" to="." method="_on_area_3d_area_exited"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgfbjixt63hhq"]
+[gd_scene load_steps=13 format=3 uid="uid://bgfbjixt63hhq"]
 
 [ext_resource type="Script" uid="uid://dts3ih4ybhpl4" path="res://Objects/Gameplay/Characters/Prototype/prototype.gd" id="1_3ubwf"]
 [ext_resource type="Script" uid="uid://1qwjrhketfok" path="res://Objects/Gameplay/Characters/Prototype/panel.gd" id="2_nu4hj"]
 [ext_resource type="AudioStream" uid="uid://bi2x7ed6ux7jl" path="res://Objects/Gameplay/Characters/Prototype/Arrive.ogg" id="3_rg71w"]
 [ext_resource type="Texture2D" uid="uid://d0dhbj38oqt20" path="res://Assets/Slingshot/BALL1.png" id="3_u7177"]
+[ext_resource type="AudioStream" uid="uid://bw0fje6fu8kt0" path="res://Objects/Gameplay/Characters/Prototype/Pop-Up.ogg" id="5_i7nle"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aj4tb"]
 font_size = 47
@@ -23,8 +24,999 @@ func _toggle():
 	get_tree().create_timer(0.5).timeout.connect(_toggle)
 "
 
-[node name="Prototype" type="Node3D"]
+[sub_resource type="Animation" id="Animation_srblt"]
+resource_name = "default"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Panel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.000501, 1.3584623, 1.4001428, 1.4405973, 1.4700189, 1.4969885, 1.5337654, 1.5705422, 1.6000001, 1.6146744, 1.631837, 1.6526772, 1.6808728, 1.7, 1.7115202, 1.7333335, 1.748297, 1.7666668, 1.8000001, 1.8333334, 1.853724, 1.8733383, 1.8990821, 1.9211482, 1.9333334, 1.9530215, 1.9666668, 1.9885725, 2, 2.0192287, 2.0416803, 2.0609093, 2.082135, 2.1013637, 2.1115565, 2.1307852, 2.1385262, 2.157755, 2.175303, 2.194532, 2.21208, 2.2313085, 2.2415378, 2.2562122, 2.2607665, 2.2733746, 2.2754407, 2.2926035, 2.2942147, 2.3134437, 2.3224106, 2.3415377, 2.341639, 2.3530579, 2.3607664, 2.3722866, 2.3748713, 2.3898346, 2.3940997, 2.4082046, 2.4090633, 2.427433, 2.4415379, 2.4607663, 2.4748712, 2.4940996, 2.4952617, 2.5144904, 2.514876, 2.5341048, 2.5406199, 2.5598483, 2.562686, 2.574871, 2.5819144, 2.5940998, 2.5945592, 2.6082044, 2.613788, 2.6274333, 2.6301103, 2.6415377, 2.6493387, 2.6607664, 2.6763427, 2.684324, 2.6877704, 2.6957517, 2.7069988, 2.7149801, 2.7294507, 2.737432, 2.7486796, 2.756661, 2.769905, 2.7778864, 2.789134, 2.7971153, 2.799327, 2.8073082, 2.8185554, 2.8262963, 2.8265367, 2.8342776, 2.8455253, 2.8535066, 2.8630733, 2.8710546, 2.8823023, 2.8902836, 2.8998504, 2.9078317, 2.9190788, 2.9270601, 2.929308, 2.9372892, 2.9439826, 2.9485369, 2.951964, 2.9565182, 2.961145, 2.963211, 2.9691262, 2.9711924, 2.9803739, 2.981985, 2.9883552, 2.9899664, 3.001214, 3.0091953, 3.010181, 3.0181623, 3.0293078, 3.0294094, 3.0372891, 3.0373907, 3.0408282, 3.0485368, 3.0488095, 3.056518, 3.0600567, 3.0626416, 3.068038, 3.070623, 3.0776048, 3.08187, 3.085586, 3.0898514, 3.095975, 3.0968337, 3.1039562, 3.104815, 3.1152034, 3.1231847, 3.1293082, 3.1372895, 3.1485367, 3.156518, 3.1626415, 3.1706228, 3.18187, 3.183032, 3.1898513, 3.1910133, 3.2022605, 3.2026463, 3.2102418, 3.2106276, 3.2218752, 3.2283902, 3.2298565, 3.2363715, 3.2476187, 3.2504563, 3.2556, 3.2584376, 3.2626414, 3.2696848, 3.2706227, 3.277666, 3.28187, 3.2823296, 3.2898512, 3.2903109, 3.2959747, 3.301558, 3.303956, 3.3095393, 3.3152037, 3.3178806, 3.323185, 3.325862, 3.329308, 3.337109, 3.3372893, 3.3450904, 3.3485365, 3.3565178, 3.362721, 3.3741484, 3.3933773, 3.4132683, 3.4158287, 3.424696, 3.4350576, 3.4439244, 3.4562836, 3.4663763, 3.475512, 3.4856052, 3.485705, 3.5049338, 3.5068307, 3.5126748, 3.5260596, 3.5319033, 3.5362525, 3.5494514, 3.555481, 3.563222, 3.5686803, 3.5824509, 3.5862284, 3.599999, 3.6054568, 3.6156864, 3.619228, 3.6303606, 3.6349149, 3.636776, 3.647523, 3.649589, 3.6560044, 3.6662335, 3.6667519, 3.668363, 3.6809082, 3.6854625, 3.687592, 3.696559, 3.6980705, 3.7001367, 3.7156863, 3.7157874, 3.7172995, 3.7189107, 3.7272062, 3.7349148, 3.7381396, 3.7464352, 3.7471066, 3.7490196, 3.7639832, 3.7662334, 3.766335, 3.768248, 3.7777538, 3.782353, 3.7832117, 3.7854624, 3.7969823, 3.7995672, 3.8015814, 3.8145304, 3.8156862, 3.8187957, 3.8329005, 3.8337593, 3.8349147, 3.8490195, 3.852129, 3.8662338, 3.868248, 3.86941, 3.8854623, 3.888639, 3.8890243, 3.8995671, 3.9082532, 3.9147682, 3.9187956, 3.9199576, 3.9339967, 3.9368343, 3.939186, 3.9395719, 3.9490194, 3.9560628, 3.9588008, 3.9653158, 3.9682484, 3.9687076, 3.9823527, 3.9845443, 3.987382, 3.9879365, 3.999567, 4.0015817, 4.0042586, 4.0066104, 4.015686, 4.0187955, 4.019255, 4.023487, 4.0329003, 4.034915, 4.0384836, 4.0521293, 4.054806, 4.0662336, 4.0740347, 4.085462),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}, {
+"args": [],
+"method": &"_clone"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7qu1"]
+_data = {
+&"default": SubResource("Animation_srblt")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7nle"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_srblt"]
+script/source = "extends Panel
+
+var isCloned : bool = false
+
+func _ready() -> void:
+	position = Vector2(randf_range(0,1920),randf_range(0,1080))
+	
+	if isCloned:
+		$PopUp.play()
+
+func _process(delta: float) -> void:
+	if !isCloned:
+		visible = false
+
+func _clone():
+	var child = self.duplicate()
+	
+	child.isCloned = true
+	
+	add_sibling(child)
+	
+	child.visible = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_imcxq"]
+font_size = 36
+
+[node name="Prototype" type="Node3D" node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_3ubwf")
+jumpscare = NodePath("AnimationPlayer")
 movementRate = 7
 enemy = 1
 
@@ -61,3 +1053,41 @@ script = SubResource("GDScript_i7nle")
 [node name="Arrive" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_rg71w")
 volume_db = -17.174
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_y7qu1")
+}
+
+[node name="Panel" type="Panel" parent="AnimationPlayer"]
+z_index = 4096
+anchors_preset = -1
+anchor_right = 0.26700002
+anchor_bottom = 0.257
+offset_right = -0.64001465
+offset_bottom = 0.44000244
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7nle")
+script = SubResource("GDScript_srblt")
+
+[node name="Label" type="Label" parent="AnimationPlayer/Panel"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 146.0
+text = "Sorry, an error occured."
+label_settings = SubResource("LabelSettings_imcxq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="AnimationPlayer/Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 203.0
+offset_right = 320.0
+offset_bottom = 258.0
+text = "Ok"
+
+[node name="PopUp" type="AudioStreamPlayer" parent="AnimationPlayer/Panel"]
+stream = ExtResource("5_i7nle")
+volume_db = -17.175
+max_polyphony = 5

@@ -29,6 +29,9 @@ signal flash
 signal shotSlingshot(slingshotTier : int, hallwayID : int)
 
 func _input(event: InputEvent) -> void:
+	if EnemyAI.playerKilled:
+		return
+	
 	$Cams.push_input(event)
 	
 	if event is InputEventMouseMotion && !camsAreUp:
@@ -41,6 +44,8 @@ func _input(event: InputEvent) -> void:
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x,deg_to_rad(-70),deg_to_rad(70))
 
 func _ready() -> void:
+	EnemyAI.playerKilled = false
+	
 	$Light.play("off")
 	
 	slingshot.play("default")
@@ -48,6 +53,9 @@ func _ready() -> void:
 	flash.connect(_on_flash)
 
 func _process(delta: float) -> void:
+	if EnemyAI.playerKilled:
+		return
+	
 	if camsAreUp:
 		flashlightIsOn = false
 		

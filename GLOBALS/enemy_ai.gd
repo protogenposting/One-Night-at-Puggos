@@ -8,6 +8,8 @@ enum ENEMIES{
 	PURSUER
 }
 
+var playerKilled : bool = false
+
 var enemyAiValues : Array = []
 
 func _ready() -> void:
