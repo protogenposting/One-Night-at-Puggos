@@ -5,8 +5,6 @@ var baseMovement : int
 func _ready() -> void:
 	super()
 	
-	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
-	
 	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
 	
 	baseMovement = movementRate
@@ -40,12 +38,6 @@ func _move():
 	print(movementRate)
 	
 	super()
-
-func _slingshot_shot(slingshotTier : int, hallwayID : int):
-	print(hallwayID)
-	
-	if hallwayID == currentHallway:
-		_jumpscare()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
