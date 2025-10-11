@@ -7,7 +7,7 @@ script/source = "extends Button
 func _on_pressed() -> void:
 	EnemyAI.nightScaling = true
 	
-	get_tree().change_scene_to_file(\"res://Rooms/Gameplay.tscn\")
+	EnemyAI._start()
 "
 
 [sub_resource type="GDScript" id="GDScript_1auxk"]
@@ -17,7 +17,7 @@ script/source = "extends Button
 func _on_pressed() -> void:
 	EnemyAI.nightScaling = false
 	
-	get_tree().change_scene_to_file(\"res://Rooms/CustomNight.tscn\")
+	EnemyAI._start()
 "
 
 [node name="c00lkidd" type="Control"]

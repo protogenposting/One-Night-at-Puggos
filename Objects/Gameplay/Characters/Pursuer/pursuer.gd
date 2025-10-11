@@ -1,5 +1,7 @@
 extends "res://Objects/Gameplay/Characters/visual_animatronic.gd"
 
+var health = 4
+
 func _ready() -> void:
 	super()
 	
@@ -21,9 +23,11 @@ func _move():
 			3:
 				progress = 6
 				$SpriteParent/Pursuer/sfx.play()
+				health = 4
 			4:
 				progress = 5
 				$SpriteParent/Pursuer/sfx.play()
+				health = 4
 			_:
 				_jumpscare()
 	
@@ -33,7 +37,9 @@ func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	print(currentHallway)
 	
 	if hallwayID == currentHallway:
-		if slingshotTier >= 2:
+		health -= slingshotTier
+		
+		if health <= 0:
 			_reset()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
