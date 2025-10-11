@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func _move():
 	progress -= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.POMNI] * 2
 	
-	if progress <= 0:
+	if progress <= 0 && alive:
 		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
 		
 		button.queue_free()
