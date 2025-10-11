@@ -16,7 +16,7 @@ var ammo = 5
 
 var ammoBoxSelected : bool = false
 
-var battery = 100
+var battery : float = 100
 
 var flashlightHoldTime : float = 0
 
@@ -60,6 +60,8 @@ func _process(delta: float) -> void:
 	
 	if camsAreUp:
 		flashlightIsOn = false
+		
+		battery -= delta * 0.01
 		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
@@ -132,7 +134,7 @@ func _process(delta: float) -> void:
 				if currentHallway != -1:
 					shotSlingshot.emit(chargeLevel, currentHallway)
 		
-		if Input.is_action_pressed("Flashlight") && !maskUp:
+		if Input.is_action_pressed("Flashlight") && !maskUp && battery > 0:
 			flashlightHoldTime += delta
 			
 			if flashLightShouldShake:
@@ -169,6 +171,8 @@ func _process(delta: float) -> void:
 				if flashlightHoldTime > 0.75:
 					flash.emit()
 					
+					battery -= 5
+					
 					flashlightIsOn = false
 				else:
 					flashlightIsOn = !flashlightIsOn
@@ -185,7 +189,14 @@ func _process(delta: float) -> void:
 			
 			flashlightIsOn = false
 	
+	if battery <= 0:
+		flashlightIsOn = false
+		
+		flashlightHoldTime = 0
+	
 	if flashlightIsOn:
+		battery -= delta * 0.01
+		
 		$Camera3D/SpotLight3D.visible = true
 	else:
 		$Camera3D/SpotLight3D.visible = false
