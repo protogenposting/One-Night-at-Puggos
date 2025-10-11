@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c6g6ekq7skhxh"]
+[gd_scene load_steps=49 format=3 uid="uid://c6g6ekq7skhxh"]
 
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="1_7ixeb"]
 [ext_resource type="Texture2D" uid="uid://biqcpau1fj70" path="res://Assets/Blocking/ASSET_GRID_CARPET.png" id="1_gp30h"]
@@ -136,6 +136,18 @@ viewport_path = NodePath("CLOCK2/SubViewport")
 [sub_resource type="LabelSettings" id="LabelSettings_gjhfo"]
 font_size = 21
 
+[sub_resource type="GDScript" id="GDScript_fuu7u"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	var min = floor(EnemyAI.time / 60.0)
+	var sec = int(round(EnemyAI.time)) % 60
+	text = \"%02d : %02d\" % [min, sec]
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fuu7u"]
+viewport_path = NodePath("AAANNIEPLUSH/Sprite3D/SubViewport2")
+
 [sub_resource type="GDScript" id="GDScript_gjhfo"]
 script/source = "extends Label
 
@@ -147,9 +159,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	text = str(int(player.battery)) + \"%\"
 "
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_fuu7u"]
-viewport_path = NodePath("AAANNIEPLUSH/Sprite3D/SubViewport2")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D"]
 
@@ -696,7 +705,7 @@ offset_right = 90.19
 offset_bottom = 89.354996
 text = "12:00"
 label_settings = SubResource("LabelSettings_gjhfo")
-script = SubResource("GDScript_gjhfo")
+script = SubResource("GDScript_fuu7u")
 
 [node name="DRINK" type="Sprite3D" parent="."]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 2.9, 2.4, -3.6999998)
