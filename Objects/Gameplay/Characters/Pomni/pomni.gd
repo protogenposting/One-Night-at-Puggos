@@ -2,6 +2,8 @@ extends "res://Objects/Gameplay/Characters/animatronic.gd"
 
 var button
 
+var alive = true
+
 func _ready() -> void:
 	super()
 	
@@ -14,7 +16,8 @@ func _ready() -> void:
 	progress = 300
 
 func _process(delta: float) -> void:
-	button.value = progress
+	if alive:
+		button.value = progress
 
 func _move():
 	progress -= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.POMNI] * 2
@@ -23,6 +26,8 @@ func _move():
 		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
 		
 		button.queue_free()
+		
+		alive = false
 	else:
 		super()
 
