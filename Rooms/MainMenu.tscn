@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp07ulj888x7l"]
+[gd_scene load_steps=5 format=3 uid="uid://cp07ulj888x7l"]
+
+[ext_resource type="Script" uid="uid://dkj3pit2u4bi4" path="res://Rooms/button_2.gd" id="1_1auxk"]
 
 [sub_resource type="GDScript" id="GDScript_xsd1b"]
 script/source = "extends Button
@@ -15,10 +17,13 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	EnemyAI.nightScaling = false
+	EnemyAI.nightScaling = true
 	
 	get_tree().change_scene_to_file(\"res://Objects/Menu/CustomNight.tscn\")
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_xsd1b"]
+font_size = 22
 
 [node name="c00lkidd" type="Control"]
 layout_mode = 3
@@ -32,7 +37,7 @@ theme_override_font_sizes/font_size = 67
 text = "Start"
 script = SubResource("GDScript_xsd1b")
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button3" type="Button" parent="."]
 layout_mode = 0
 offset_top = 136.0
 offset_right = 283.0
@@ -40,5 +45,35 @@ offset_bottom = 197.0
 text = "Custom Night"
 script = SubResource("GDScript_1auxk")
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 283.0
+offset_bottom = 258.0
+text = "How To Play"
+script = ExtResource("1_1auxk")
+
+[node name="Label" type="Label" parent="Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.3890002
+anchor_top = -2.7210002
+anchor_right = 2.5300002
+anchor_bottom = -2.344
+offset_left = -0.08703613
+offset_top = -0.018981934
+offset_right = 0.0099487305
+offset_bottom = -0.015991211
+text = "Press left mouse button to charge slingshot and shoot (dont shoot sleepy)
+
+Press Right mouse button to toggle flashlight and charge a flash (removes sleepy)
+
+Press Space to open cameras
+
+Press shift to use the mask (blocks c00lkidd)"
+label_settings = SubResource("LabelSettings_xsd1b")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

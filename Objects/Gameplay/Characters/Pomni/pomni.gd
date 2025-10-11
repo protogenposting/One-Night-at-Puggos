@@ -25,6 +25,8 @@ func _move():
 	if progress <= 0 && alive:
 		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
 		
+		$Sprite3D.pixel_size = 0.02
+		
 		button.queue_free()
 		
 		alive = false
