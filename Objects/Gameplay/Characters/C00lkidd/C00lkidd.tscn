@@ -1,0 +1,181 @@
+[gd_scene load_steps=15 format=3 uid="uid://ceuq3ml6cqcrv"]
+
+[ext_resource type="Script" uid="uid://df507slxuvp42" path="res://Objects/Gameplay/Characters/C00lkidd/c00lkidd.gd" id="1_7gijv"]
+[ext_resource type="Texture2D" uid="uid://06wget7wnmea" path="res://Objects/Gameplay/Characters/C00lkidd/c00l.webp" id="2_d1x70"]
+[ext_resource type="AudioStream" uid="uid://lwjojp66byk7" path="res://Audio/C00lkidd/C00kidd_Charging.wav" id="3_glgrt"]
+[ext_resource type="AudioStream" uid="uid://nowt737v2dso" path="res://Audio/C00lkidd/C00kidd_Ready.wav" id="4_h2w85"]
+[ext_resource type="AudioStream" uid="uid://db42tp7y45yku" path="res://Audio/C00lkidd/C00kidd_Preparing.wav" id="5_utxkc"]
+[ext_resource type="AudioStream" uid="uid://jjlxenx5o40p" path="res://Audio/C00lkidd/C00kidd_Killhit.wav" id="6_8a0up"]
+[ext_resource type="AudioStream" uid="uid://bdv0uily0wy7i" path="res://Audio/C00lkidd/C00kidd_KillFail.wav" id="7_2d1qa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
+
+[sub_resource type="Animation" id="Animation_cvulh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y6tvf"]
+resource_name = "attack"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.033334, 9.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -100), Vector3(0, 0, -100), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("C00KiddPreparing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("C00KiddReady")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.833333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_kill_check"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("C00KiddCharging")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_glgrt"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vaoi2"]
+_data = {
+&"RESET": SubResource("Animation_cvulh"),
+&"attack": SubResource("Animation_y6tvf"),
+&"idle": SubResource("Animation_glgrt")
+}
+
+[sub_resource type="Animation" id="Animation_dn6e1"]
+resource_name = "default"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
+_data = {
+&"default": SubResource("Animation_dn6e1")
+}
+
+[node name="c00lkidd" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
+script = ExtResource("1_7gijv")
+jumpscare = NodePath("Jumpscare")
+movementRate = 20
+enemy = 5
+visuals = NodePath("SpriteParent")
+
+[node name="SpriteParent" type="Node3D" parent="."]
+
+[node name="c00lkidd" type="Sprite3D" parent="SpriteParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+pixel_size = 0.0035
+billboard = 2
+shaded = true
+texture = ExtResource("2_d1x70")
+
+[node name="Area3D" type="Area3D" parent="SpriteParent/c00lkidd"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteParent/c00lkidd/Area3D"]
+shape = SubResource("BoxShape3D_igq1s")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vaoi2")
+}
+autoplay = "idle"
+
+[node name="Jumpscare" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wki8r")
+}
+
+[node name="C00KiddCharging" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_glgrt")
+
+[node name="C00KiddReady" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_h2w85")
+
+[node name="C00KiddPreparing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_utxkc")
+
+[node name="C00KiddKillhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8a0up")
+
+[node name="C00KiddKillFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2d1qa")
+
+[connection signal="area_entered" from="SpriteParent/c00lkidd/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="SpriteParent/c00lkidd/Area3D" to="." method="_on_area_3d_area_exited"]

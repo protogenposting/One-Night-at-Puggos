@@ -24,6 +24,8 @@ var flashlightIsOn : bool = false
 
 var flashLightShouldShake : bool = false
 
+var maskUp : bool = false
+
 signal flash
 
 signal shotSlingshot(slingshotTier : int, hallwayID : int)
@@ -67,7 +69,7 @@ func _process(delta: float) -> void:
 		
 		$Crosshair.visible = true
 	
-	if Input.is_action_just_pressed("Cameras"):
+	if Input.is_action_just_pressed("Cameras") && !maskUp:
 		camsAreUp = !camsAreUp
 		
 		if camsAreUp:
@@ -95,7 +97,7 @@ func _process(delta: float) -> void:
 		index += 1
 	
 	if !camsAreUp:
-		if ammo > 0 && !ammoBoxSelected:
+		if ammo > 0 && !ammoBoxSelected && !maskUp:
 			if Input.is_action_pressed("Click") && canShoot:
 				slingshotCharge += delta
 				
@@ -128,7 +130,7 @@ func _process(delta: float) -> void:
 				if currentHallway != -1:
 					shotSlingshot.emit(chargeLevel, currentHallway)
 		
-		if Input.is_action_pressed("Flashlight"):
+		if Input.is_action_pressed("Flashlight") && !maskUp:
 			flashlightHoldTime += delta
 			
 			if flashLightShouldShake:
@@ -175,6 +177,11 @@ func _process(delta: float) -> void:
 						$Light.play("off")
 			
 			flashlightHoldTime = 0
+		
+		if Input.is_action_just_pressed("Mask"):
+			maskUp = !maskUp
+			
+			flashlightIsOn = false
 	
 	if flashlightIsOn:
 		$Camera3D/SpotLight3D.visible = true

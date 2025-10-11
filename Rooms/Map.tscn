@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c6g6ekq7skhxh"]
+[gd_scene load_steps=47 format=3 uid="uid://c6g6ekq7skhxh"]
 
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="1_7ixeb"]
 [ext_resource type="Texture2D" uid="uid://biqcpau1fj70" path="res://Assets/Blocking/ASSET_GRID_CARPET.png" id="1_gp30h"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dnb7dre2gfkiu" path="res://Assets/DECOR/BSR.png" id="9_bo5a5"]
 [ext_resource type="Texture2D" uid="uid://bmdpukciwjnyt" path="res://Assets/DECOR/CLOCK.png" id="10_d8rkd"]
 [ext_resource type="Texture2D" uid="uid://gin75fmemxud" path="res://Assets/DECOR/FUCK.png" id="10_lkben"]
-[ext_resource type="Texture2D" uid="uid://gax06ax32vnn" path="res://Assets/DECOR/CLOCKNUMBERS1.png" id="11_cljtv"]
 [ext_resource type="Texture2D" uid="uid://cydm87n05c2qn" path="res://Assets/DECOR/SHAKE.png" id="12_nkds2"]
 [ext_resource type="Texture2D" uid="uid://28nmxgdo4cq6" path="res://Assets/DECOR/PAPERBALL.png" id="13_1j2ns"]
 [ext_resource type="Texture2D" uid="uid://cp8tixldxit6w" path="res://Assets/DECOR/yaleokre.png" id="14_rx58r"]
@@ -130,6 +129,21 @@ fog_mode = 1
 fog_density = 1.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gjhfo"]
+viewport_path = NodePath("CLOCK2/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjhfo"]
+font_size = 21
+
+[sub_resource type="GDScript" id="GDScript_gjhfo"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	var min = floor(EnemyAI.time / 60.0)
+	var sec = int(round(EnemyAI.time)) % 60
+	text = \"%02d : %02d\" % [min, sec]
+"
 
 [node name="CSGCombiner3D" type="CSGCombiner3D"]
 
@@ -662,7 +676,21 @@ texture = ExtResource("10_d8rkd")
 
 [node name="CLOCK2" type="Sprite3D" parent="."]
 transform = Transform3D(1.2277527, 0, -0.23478381, 0, 1.25, 0, 0.23478381, 0, 1.2277527, 1.4783193, 2.0764842, 2.1279833)
-texture = ExtResource("11_cljtv")
+texture = SubResource("ViewportTexture_gjhfo")
+
+[node name="SubViewport" type="SubViewport" parent="CLOCK2"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(120, 96)
+
+[node name="Label" type="Label" parent="CLOCK2/SubViewport"]
+offset_left = 36.19
+offset_top = 59.355
+offset_right = 90.19
+offset_bottom = 89.354996
+text = "12:00"
+label_settings = SubResource("LabelSettings_gjhfo")
+script = SubResource("GDScript_gjhfo")
 
 [node name="DRINK" type="Sprite3D" parent="."]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 2.9, 2.4, -3.6999998)

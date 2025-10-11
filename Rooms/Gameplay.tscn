@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=18 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://cmed23elrd3w2" path="res://Rooms/hallway.gd" id="6_tk5m8"]
 [ext_resource type="PackedScene" uid="uid://b074annqk8inb" path="res://Objects/Gameplay/Characters/Puggo/Puggo.tscn" id="8_60v3t"]
 [ext_resource type="PackedScene" uid="uid://bb8f4hatlsgr" path="res://Objects/Gameplay/Characters/Pursuer/Pursuer.tscn" id="9_rmay0"]
+[ext_resource type="PackedScene" uid="uid://5ha1bkq5yd5w" path="res://Objects/Gameplay/Characters/Mabel/Mabel.tscn" id="10_2pxta"]
+[ext_resource type="PackedScene" uid="uid://ceuq3ml6cqcrv" path="res://Objects/Gameplay/Characters/C00lkidd/C00lkidd.tscn" id="11_l66n0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(3.998806, 6.9594727, 15.804199)
@@ -240,6 +242,57 @@ transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7
 character = 4
 id = 6
 
+[node name="MabelPositions" type="Node3D" parent="."]
+
+[node name="CharacterPosition" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -28.354591, 0.8730928, -23.917097)
+character = 5
+
+[node name="CharacterPosition2" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -37.313717, 2.132916, 19.801983)
+character = 5
+id = 1
+
+[node name="CharacterPosition3" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -30.456879, 2.132916, 19.801983)
+character = 5
+id = 2
+
+[node name="CharacterPosition4" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -14.828899, 2.132916, 19.801983)
+character = 5
+id = 3
+
+[node name="CharacterPosition5" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 19.801983)
+character = 5
+id = 4
+
+[node name="CharacterPosition6" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 18.643044)
+character = 5
+id = 5
+
+[node name="CharacterPosition7" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 17.290426)
+character = 5
+id = 6
+
+[node name="CharacterPosition8" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 15.417221)
+character = 5
+id = 7
+
+[node name="CharacterPosition9" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 13.155209)
+character = 5
+id = 8
+
+[node name="CharacterPosition10" parent="MabelPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 0.5489533, 2.132916, 9.88621)
+character = 5
+id = 9
+
 [node name="Characters" type="Node3D" parent="."]
 
 [node name="Sleepy" parent="Characters" instance=ExtResource("6_52vuk")]
@@ -249,6 +302,10 @@ id = 6
 [node name="Puggo" parent="Characters" instance=ExtResource("8_60v3t")]
 
 [node name="Pursuer" parent="Characters" instance=ExtResource("9_rmay0")]
+
+[node name="Mabel" parent="Characters" instance=ExtResource("10_2pxta")]
+
+[node name="c00lkidd" parent="Characters" instance=ExtResource("11_l66n0")]
 
 [node name="Area3D" type="Area3D" parent="." groups=["Hallway"]]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -8, 0, -2.655516)
@@ -273,6 +330,15 @@ script = ExtResource("6_tk5m8")
 hallwayID = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(0.99996954, 0, 0, 0, 1, 0, 0, 0, 0.99996954, 0.6328552, 2.5935059, -10.071341)
+shape = SubResource("BoxShape3D_k5nrd")
+
+[node name="Area3D5" type="Area3D" parent="." groups=["Hallway"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.35139656, 0, 29.821646)
+script = ExtResource("6_tk5m8")
+hallwayID = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
 transform = Transform3D(0.99996954, 0, 0, 0, 1, 0, 0, 0, 0.99996954, 0.6328552, 2.5935059, -10.071341)
 shape = SubResource("BoxShape3D_k5nrd")
 

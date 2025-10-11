@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://7t5rm0e34k13"]
+
+[ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_1auxk"]
+
+[sub_resource type="GDScript" id="GDScript_1auxk"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Rooms/Gameplay.tscn\")
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -518.0
+offset_top = -128.0
+offset_right = 518.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="CharacterAiSlider" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Sleepy"
+
+[node name="CharacterAiSlider2" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Prototype"
+enemyID = 1
+
+[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Pomni"
+enemyID = 2
+
+[node name="CharacterAiSlider4" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "PUGGO"
+enemyID = 3
+
+[node name="CharacterAiSlider5" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Pursuer"
+enemyID = 4
+
+[node name="CharacterAiSlider6" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "Mabel"
+enemyID = 5
+
+[node name="CharacterAiSlider7" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+layout_mode = 2
+enemyName = "C00lkidd"
+enemyID = 6
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 968.0
+offset_right = 1088.0
+offset_bottom = 1032.0
+text = "Begin."
+script = SubResource("GDScript_1auxk")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
