@@ -6,9 +6,9 @@ var positions : Array = []
 
 @export var jumpscare : AnimationPlayer
 
-@export var movementRate = 5
+@export var movementRate : float = 5
 
-@export var killTime = 10
+@export var killTime : float = 10
 
 @export var enemy : EnemyAI.ENEMIES
 
@@ -45,7 +45,7 @@ func _move():
 
 func _start_kill():
 	if killTimer.is_stopped() && EnemyAI.enemyAiValues[enemy] != 0 && killTime != 0:
-		killTimer.start(killTime / (EnemyAI.enemyAiValues[enemy] / 10))
+		killTimer.start(killTime / (float(EnemyAI.enemyAiValues[enemy]) / 10))
 
 func _jumpscare():
 	if EnemyAI.playerKilled:
