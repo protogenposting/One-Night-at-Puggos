@@ -14,6 +14,9 @@ func _ready() -> void:
 func _pushback():
 	if player.currentHallway == currentHallway && currentHallway != -1:
 		progress -= 1
+		
+		if progress < 4:
+			progress = 0
 	
 	get_tree().create_timer(1).timeout.connect(_pushback)
 

@@ -306,6 +306,7 @@ id = 9
 [node name="Pursuer" parent="Characters" instance=ExtResource("9_rmay0")]
 
 [node name="Mabel" parent="Characters" instance=ExtResource("10_2pxta")]
+killTime = 10.0
 
 [node name="c00lkidd" parent="Characters" instance=ExtResource("11_l66n0")]
 
