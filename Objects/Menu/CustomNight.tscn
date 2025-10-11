@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://7t5rm0e34k13"]
 
-[ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_1auxk"]
+[ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_vpk8s"]
 
 [sub_resource type="GDScript" id="GDScript_1auxk"]
 script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Rooms/Gameplay.tscn\")
+	EnemyAI._start()
 "
 
 [node name="MainMenu" type="Control"]
@@ -33,36 +33,36 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="CharacterAiSlider" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Sleepy"
 
-[node name="CharacterAiSlider2" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider2" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Prototype"
 enemyID = 1
 
-[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Pomni"
 enemyID = 2
 
-[node name="CharacterAiSlider4" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider4" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "PUGGO"
 enemyID = 3
 
-[node name="CharacterAiSlider5" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider5" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Pursuer"
 enemyID = 4
 
-[node name="CharacterAiSlider6" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider6" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Mabel"
 enemyID = 5
 
-[node name="CharacterAiSlider7" parent="HBoxContainer" instance=ExtResource("1_1auxk")]
+[node name="CharacterAiSlider7" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "C00lkidd"
 enemyID = 6

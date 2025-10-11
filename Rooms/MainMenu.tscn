@@ -16,8 +16,6 @@ script/source = "extends Button
 
 func _on_pressed() -> void:
 	EnemyAI.nightScaling = false
-	
-	EnemyAI._start()
 "
 
 [node name="c00lkidd" type="Control"]
