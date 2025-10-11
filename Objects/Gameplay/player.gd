@@ -79,8 +79,10 @@ func _process(delta: float) -> void:
 		
 		print(camsAreUp)
 	
-	if ammoBoxSelected && Input.is_action_pressed("Click"):
-		ammo = 5
+	if ammoBoxSelected && Input.is_action_just_pressed("Click") && ammo < 5:
+		ammo += 1
+		
+		$SlingReload.play()
 		
 		canShoot = false
 		
