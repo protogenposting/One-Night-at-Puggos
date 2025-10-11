@@ -42,6 +42,8 @@ func _slingshot_shot(slingshotTier : int, hallwayID : int):
 		if damageTaken >= nextDamageIncrement:
 			progress -= 1
 			
+			killTimer.stop()
+			
 			nextDamageIncrement += 3
 		
 		if damageTaken >= 30:
@@ -58,6 +60,8 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		currentHallway = -1
 
 func _reset():
+	killTimer.stop()
+	
 	nextDamageIncrement = 3
 	
 	progress = 0

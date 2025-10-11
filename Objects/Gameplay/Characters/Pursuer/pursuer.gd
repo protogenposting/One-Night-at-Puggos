@@ -51,6 +51,8 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		currentHallway = -1
 
 func _reset():
+	killTimer.stop()
+	
 	progress = 0
 	
 	timer.stop()
