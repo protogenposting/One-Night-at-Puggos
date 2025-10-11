@@ -374,6 +374,8 @@ material = SubResource("StandardMaterial3D_60v3t")
 
 [node name="All20Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_r3naa")
+volume_db = -7.633
 
 [node name="NormalTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_uiipg")
+volume_db = -16.22

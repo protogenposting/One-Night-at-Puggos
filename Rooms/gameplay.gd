@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 	for i in EnemyAI.enemyAiValues:
 		if i < 20:
+			print(i)
 			all20 = false
 	
 	if !all20:

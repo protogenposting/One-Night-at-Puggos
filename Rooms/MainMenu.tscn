@@ -17,7 +17,7 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	EnemyAI.nightScaling = true
+	EnemyAI.nightScaling = false
 	
 	get_tree().change_scene_to_file(\"res://Objects/Menu/CustomNight.tscn\")
 "
