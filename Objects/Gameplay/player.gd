@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	if camsAreUp:
 		flashlightIsOn = false
 		
-		battery -= delta * 0.01
+		battery -= delta * 0.1
 		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
@@ -195,7 +195,7 @@ func _process(delta: float) -> void:
 		flashlightHoldTime = 0
 	
 	if flashlightIsOn:
-		battery -= delta * 0.01
+		battery -= delta * 0.4
 		
 		$Camera3D/SpotLight3D.visible = true
 	else:
