@@ -45,7 +45,7 @@ func _move():
 
 func _start_kill():
 	if killTimer.is_stopped():
-		killTimer.start(EnemyAI.enemyAiValues[enemy] / 10)
+		killTimer.start(killTime / (EnemyAI.enemyAiValues[enemy] / 10)
 
 func _jumpscare():
 	if EnemyAI.playerKilled:
