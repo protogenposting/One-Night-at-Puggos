@@ -27,7 +27,7 @@ func _move():
 			4:
 				progress = 5
 			5:
-				_jumpscare()
+				_start_kill()
 		
 		print("moved to " + str(progress))
 	

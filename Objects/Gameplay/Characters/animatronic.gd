@@ -8,6 +8,8 @@ var positions : Array = []
 
 @export var movementRate = 5
 
+@export var killTime = 10
+
 @export var enemy : EnemyAI.ENEMIES
 
 var visualNodes : Array[Node3D]
@@ -18,7 +20,15 @@ var currentHallway : int = -1
 
 @onready var timer : Timer = $Timer
 
+var killTimer : Timer
+
 func _ready() -> void:
+	killTimer = Timer.new()
+	
+	add_child(killTimer)
+	
+	killTimer.timeout.connect(_jumpscare)
+	
 	if jumpscare != null:
 		for i in jumpscare.get_children():
 			if i.get("visible") != null:
@@ -29,9 +39,15 @@ func _ready() -> void:
 	timer.start(movementRate)
 	
 	timer.timeout.connect(_move)
+	
+	killTime /= EnemyAI.enemyAiValues[enemy] / 10
 
 func _move():
 	timer.start(movementRate)
+
+func _start_kill():
+	if killTimer.is_stopped():
+		killTimer.start(killTime)
 
 func _jumpscare():
 	if EnemyAI.playerKilled:

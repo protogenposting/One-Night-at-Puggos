@@ -31,8 +31,9 @@ func _move():
 				progress = [1,3,4].pick_random()
 			3:
 				progress = 6
-			_:
-				_jumpscare()
+		
+		if progress >= 4:
+			_start_kill()
 		
 		print("moved to " + str(progress))
 	

@@ -24,12 +24,12 @@ func _move():
 				progress = 6
 				$SpriteParent/Pursuer/sfx.play()
 				health = 4
+				_start_kill()
 			4:
 				progress = 5
 				$SpriteParent/Pursuer/sfx.play()
 				health = 4
-			_:
-				_jumpscare()
+				_start_kill()
 	
 	super()
 
