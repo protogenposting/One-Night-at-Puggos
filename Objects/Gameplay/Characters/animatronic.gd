@@ -39,15 +39,13 @@ func _ready() -> void:
 	timer.start(movementRate)
 	
 	timer.timeout.connect(_move)
-	
-	killTime /= EnemyAI.enemyAiValues[enemy] / 10
 
 func _move():
 	timer.start(movementRate)
 
 func _start_kill():
 	if killTimer.is_stopped():
-		killTimer.start(killTime)
+		killTimer.start(EnemyAI.enemyAiValues[enemy] / 10)
 
 func _jumpscare():
 	if EnemyAI.playerKilled:
