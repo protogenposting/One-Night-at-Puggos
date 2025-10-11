@@ -33,20 +33,11 @@ func _move():
 	
 	super()
 
-var nextDamageIncrement = 3
-
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	if hallwayID == currentHallway:
 		damageTaken += slingshotTier
 		
-		if damageTaken >= nextDamageIncrement:
-			progress -= 1
-			
-			killTimer.stop()
-			
-			nextDamageIncrement += 3
-		
-		if damageTaken >= 30:
+		if damageTaken >= 20:
 			_reset()
 	
 	print(damageTaken)
@@ -61,8 +52,6 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _reset():
 	killTimer.stop()
-	
-	nextDamageIncrement = 3
 	
 	progress = 0
 	
