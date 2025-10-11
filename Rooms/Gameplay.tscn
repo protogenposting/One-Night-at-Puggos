@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=19 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bb8f4hatlsgr" path="res://Objects/Gameplay/Characters/Pursuer/Pursuer.tscn" id="9_rmay0"]
 [ext_resource type="PackedScene" uid="uid://5ha1bkq5yd5w" path="res://Objects/Gameplay/Characters/Mabel/Mabel.tscn" id="10_2pxta"]
 [ext_resource type="PackedScene" uid="uid://ceuq3ml6cqcrv" path="res://Objects/Gameplay/Characters/C00lkidd/C00lkidd.tscn" id="11_l66n0"]
+[ext_resource type="AudioStream" uid="uid://cpwuruhcsuj5w" path="res://Audio/Music/Shatter the Pantheon! [U4u3aCEAMks].mp3" id="13_r3naa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(3.998806, 6.9594727, 15.804199)
@@ -369,3 +370,9 @@ transform = Transform3D(0.35355332, 0, -0.35355332, 0, 0.5, 0, 0.35355332, 0, 0.
 cast_shadow = 0
 size = Vector3(2, 12, 16)
 material = SubResource("StandardMaterial3D_60v3t")
+
+[node name="All20Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_r3naa")
+
+[node name="NormalTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_r3naa")
