@@ -8,6 +8,8 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 
 func _move():
+	$SpriteParent/Pursuer.look_at(get_tree().get_first_node_in_group("Player").position)
+	
 	var roll = randi_range(1,20)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PURSUER]:

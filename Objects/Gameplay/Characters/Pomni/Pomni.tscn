@@ -197,6 +197,8 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="PomniJumpscare"]
 z_index = 4096
+position = Vector2(1073, 1803)
+rotation = 11.807153
 texture = ExtResource("6_hpch5")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="PomniJumpscare"]

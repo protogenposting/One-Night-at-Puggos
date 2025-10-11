@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	if camsAreUp:
 		flashlightIsOn = false
 		
-		battery -= delta * 0.1
+		battery -= delta * 0.04
 		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
@@ -195,16 +195,11 @@ func _process(delta: float) -> void:
 		flashlightHoldTime = 0
 	
 	if flashlightIsOn:
-		battery -= delta * 0.4
+		battery -= delta * 0.2
 		
 		$Camera3D/SpotLight3D.visible = true
 	else:
 		$Camera3D/SpotLight3D.visible = false
-	
-	if Input.is_action_just_pressed("Fullscreen"):
-		var mode := DisplayServer.window_get_mode()
-		var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _reset_slingshot():
 	canShoot = true

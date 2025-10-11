@@ -1,23 +1,115 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb8f4hatlsgr"]
+[gd_scene load_steps=9 format=3 uid="uid://bb8f4hatlsgr"]
 
 [ext_resource type="Script" uid="uid://nkqnikm3mtve" path="res://Objects/Gameplay/Characters/Pursuer/pursuer.gd" id="1_dn6e1"]
 [ext_resource type="Texture2D" uid="uid://bksfppa48gfsf" path="res://Objects/Gameplay/Characters/Pursuer/freshmeat.webp" id="2_wki8r"]
 [ext_resource type="AudioStream" uid="uid://dwa5v7tk8dtcy" path="res://Objects/Gameplay/Characters/Pursuer/ahhh.mp3" id="3_dn6e1"]
+[ext_resource type="AudioStream" uid="uid://d33v1l0teyr6e" path="res://Objects/Gameplay/Characters/Pursuer/PursuerHowl.mp3.mp3" id="4_wki8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
-[sub_resource type="Animation" id="Animation_dn6e1"]
-resource_name = "default"
+[sub_resource type="Animation" id="Animation_g2jjh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PursuerJumpscare/Freshmeat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1056, 512)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PursuerJumpscare/Freshmeat:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PursuerJumpscare/Freshmeat:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.0049999, 1)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
+[sub_resource type="Animation" id="Animation_wki8r"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PursuerJumpscare/PursuerHowl_mp3")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PursuerJumpscare/Freshmeat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.31, 0.46, 0.5, 0.57, 0.64, 0.72, 0.8, 1.77, 1.89, 2.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1010, 495), Vector2(383, 825), Vector2(1920, 361), Vector2(1293, 215), Vector2(850, 599), Vector2(1147, 875), Vector2(1414, 553), Vector2(240, 561), Vector2(382, 858), Vector2(1021, 369), Vector2(967, 1434), Vector2(971, 569)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PursuerJumpscare/Freshmeat:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.18, 0.31, 0.46, 0.5, 0.57, 0.64, 0.72, 0.8, 1.2403382, 1.77, 1.89, 2.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PursuerJumpscare/Freshmeat:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3.0049999, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcgk7"]
 _data = {
-&"default": SubResource("Animation_dn6e1")
+&"RESET": SubResource("Animation_g2jjh"),
+&"default": SubResource("Animation_wki8r")
 }
 
 [node name="Pursuer" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_dn6e1")
-jumpscare = NodePath("AnimationPlayer")
-movementRate = 6
+jumpscare = NodePath("PursuerJumpscare")
+movementRate = 7
 killTime = 12
 enemy = 4
 visuals = NodePath("SpriteParent")
@@ -25,7 +117,7 @@ visuals = NodePath("SpriteParent")
 [node name="SpriteParent" type="Node3D" parent="."]
 
 [node name="Pursuer" type="Sprite3D" parent="SpriteParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3008132, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.301, 0)
 pixel_size = 0.003
 billboard = 2
 shaded = true
@@ -42,10 +134,19 @@ stream = ExtResource("3_dn6e1")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="PursuerJumpscare" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_wki8r")
+&"": SubResource("AnimationLibrary_pcgk7")
 }
+
+[node name="PursuerHowl_mp3" type="AudioStreamPlayer" parent="PursuerJumpscare"]
+stream = ExtResource("4_wki8r")
+volume_db = 7.954
+
+[node name="Freshmeat" type="Sprite2D" parent="PursuerJumpscare"]
+position = Vector2(1056, 512)
+scale = Vector2(3.0049999, 1)
+texture = ExtResource("2_wki8r")
 
 [connection signal="area_entered" from="SpriteParent/Pursuer/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="SpriteParent/Pursuer/Area3D" to="." method="_on_area_3d_area_exited"]

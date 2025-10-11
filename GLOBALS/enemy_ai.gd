@@ -51,6 +51,11 @@ func _process(delta: float) -> void:
 			enemyAiValues[ENEMIES.PURSUER] = 20
 			
 			enemyAiValues[ENEMIES.MABEL] = 10
+	
+	if Input.is_action_just_pressed("Fullscreen"):
+		var mode := DisplayServer.window_get_mode()
+		var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _get_all_positions(character : ENEMIES) -> Array:
 	var returnArray : Array = []

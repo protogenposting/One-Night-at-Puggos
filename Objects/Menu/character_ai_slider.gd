@@ -4,6 +4,8 @@ extends Control
 
 @export var enemyID : EnemyAI.ENEMIES
 
+@onready var slider = $CharacterAiSlider/HSlider
+
 func _ready() -> void:
 	$CharacterAiSlider/Label.text = enemyName
 
@@ -12,6 +14,6 @@ func _process(delta: float) -> void:
 	
 	settings.shadow_offset = Vector2(randf_range(-3,3), randf_range(-3,3))
 	
-	$CharacterAiSlider/AILabel.text = "%.0f" % $CharacterAiSlider/HSlider.value
+	$CharacterAiSlider/AILabel.text = "%.0f" % slider.value
 	
-	EnemyAI.enemyAiValues[enemyID] = $CharacterAiSlider/HSlider.value
+	EnemyAI.enemyAiValues[enemyID] = slider.value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://7t5rm0e34k13"]
+[gd_scene load_steps=7 format=3 uid="uid://7t5rm0e34k13"]
 
 [ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_vpk8s"]
 
@@ -8,6 +8,33 @@ script/source = "extends Button
 
 func _on_pressed() -> void:
 	EnemyAI._start()
+"
+
+[sub_resource type="GDScript" id="GDScript_vpk8s"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	for character in get_parent().get_node(\"HBoxContainer\").get_children():
+		character.slider.value -= 1
+"
+
+[sub_resource type="GDScript" id="GDScript_5ggrp"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	for character in get_parent().get_node(\"HBoxContainer\").get_children():
+		character.slider.value += 1
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpk8s"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_7co3a"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	for character in get_parent().get_node(\"HBoxContainer\").get_children():
+		character.slider.value = 20
 "
 
 [node name="MainMenu" type="Control"]
@@ -76,4 +103,37 @@ offset_bottom = 1032.0
 text = "Begin."
 script = SubResource("GDScript_1auxk")
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 819.0
+offset_right = 958.0
+offset_bottom = 860.0
+text = "-1 to all"
+script = SubResource("GDScript_vpk8s")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 819.0
+offset_right = 1478.0
+offset_bottom = 860.0
+text = "+1 to all"
+script = SubResource("GDScript_5ggrp")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 880.0
+offset_right = 1088.0
+offset_bottom = 944.0
+theme_override_colors/font_color = Color(0.31881967, 0.01836937, 0.01560553, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpk8s")
+text = "ALL 20"
+script = SubResource("GDScript_7co3a")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
+[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]

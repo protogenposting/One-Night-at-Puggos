@@ -37,7 +37,7 @@ func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	if hallwayID == currentHallway:
 		damageTaken += slingshotTier
 		
-		if damageTaken >= 10:
+		if damageTaken >= 15:
 			_reset()
 	
 	print(damageTaken)
