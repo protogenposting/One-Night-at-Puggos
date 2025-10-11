@@ -24,7 +24,7 @@ func _move():
 		
 		$Button/Song.queue_free()
 		
-		progress = 0
+		progress = 9999999999999
 	else:
 		super()
 
