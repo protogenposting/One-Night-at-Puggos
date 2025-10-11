@@ -62,3 +62,8 @@ func _get_all_positions(character : ENEMIES) -> Array:
 	returnArray.sort_custom(func(a, b): return a.id < b.id)
 	
 	return returnArray
+
+func _start():
+	time = 0
+	
+	get_tree().change_scene_to_file("res://Rooms/Gameplay.tscn")

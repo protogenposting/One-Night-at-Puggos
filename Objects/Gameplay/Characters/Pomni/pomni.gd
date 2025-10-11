@@ -20,9 +20,13 @@ func _move():
 	progress -= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.POMNI] * 2
 	
 	if progress <= 0:
-		_jumpscare()
-	
-	super()
+		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
+		
+		$Button/Song.queue_free()
+		
+		progress = 0
+	else:
+		super()
 
 func _reset():
 	progress = 300

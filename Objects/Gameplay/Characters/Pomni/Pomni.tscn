@@ -197,10 +197,7 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="PomniJumpscare"]
 z_index = 4096
-position = Vector2(956.00006, 535)
-scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("6_hpch5")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="PomniJumpscare"]
 stream = ExtResource("7_uvqx3")
-stream_paused = true
