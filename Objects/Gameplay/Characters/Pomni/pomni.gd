@@ -22,9 +22,7 @@ func _move():
 	if progress <= 0:
 		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
 		
-		$Button/Song.queue_free()
-		
-		progress = 9999999999999
+		button.queue_free()
 	else:
 		super()
 
