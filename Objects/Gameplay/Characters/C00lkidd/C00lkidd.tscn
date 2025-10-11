@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_y6tvf"]
 resource_name = "attack"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,7 +35,7 @@ tracks/0/path = NodePath("SpriteParent:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 9.033334, 9.833333),
+"times": PackedFloat32Array(0, 10.433333, 11.2333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -100), Vector3(0, 0, -100), Vector3(0, 0, 0)]
@@ -75,7 +75,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(9.833333),
+"times": PackedFloat32Array(11.233334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -89,7 +89,7 @@ tracks/4/path = NodePath("C00KiddCharging")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(10.433333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
