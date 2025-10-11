@@ -18,6 +18,7 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.25, 0)
 script = ExtResource("1_wx5e5")
 jumpscare = NodePath("AnimationPlayer")
 movementRate = 8
+killTime = 16
 visuals = NodePath("Sleepy")
 
 [node name="Sleepy" type="Sprite3D" parent="."]

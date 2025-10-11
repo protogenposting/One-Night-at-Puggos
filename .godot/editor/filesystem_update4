@@ -4,3 +4,5 @@ res://Objects/Gameplay/Characters/Puggo/puggo.gd
 res://Objects/Gameplay/Characters/Pursuer/pursuer.gd
 res://Objects/Gameplay/Characters/Sleepy/sleepy.gd
 res://Objects/Gameplay/Characters/Puggo/Puggo.tscn
+res://Objects/Gameplay/Characters/Pursuer/Pursuer.tscn
+res://Objects/Gameplay/Characters/Sleepy/Sleepy.tscn
