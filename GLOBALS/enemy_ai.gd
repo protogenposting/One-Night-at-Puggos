@@ -45,12 +45,12 @@ func _process(delta: float) -> void:
 			enemyAiValues[ENEMIES.SLEEPY] = 6
 			
 			enemyAiValues[ENEMIES.PROTOTYPE] = 10
-			
-			enemyAiValues[ENEMIES.MABEL] = 10
 		else:
 			enemyAiValues.fill(0)
 			
-			enemyAiValues[ENEMIES.PURSUER] = 10
+			enemyAiValues[ENEMIES.PURSUER] = 20
+			
+			enemyAiValues[ENEMIES.MABEL] = 10
 
 func _get_all_positions(character : ENEMIES) -> Array:
 	var returnArray : Array = []

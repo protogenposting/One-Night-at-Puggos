@@ -15,15 +15,18 @@ func _ready() -> void:
 	
 	var all20 = true
 	
-	for i in EnemyAI.enemyAiValues:
-		if i < 20:
-			print(i)
-			all20 = false
-	
-	if !all20:
-		$NormalTheme.play()
+	if !EnemyAI.nightScaling:
+		for i in EnemyAI.enemyAiValues:
+			if i < 20:
+				print(i)
+				all20 = false
+		
+		if !all20:
+			$NormalTheme.play()
+		else:
+			$All20Theme.play()
 	else:
-		$All20Theme.play()
+		get_tree().create_timer(60).timeout.connect($NormalTheme.play)
 
 func _process(delta: float) -> void:
 	currentCamera = cameras[camID]
