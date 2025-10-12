@@ -38,6 +38,9 @@ func _move():
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	print(currentHallway)
 	
+	if slingshotTier < 2:
+		return
+	
 	if hallwayID == currentHallway:
 		health -= slingshotTier
 		

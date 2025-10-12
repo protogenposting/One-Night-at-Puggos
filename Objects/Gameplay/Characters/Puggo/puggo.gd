@@ -1,6 +1,6 @@
 extends "res://Objects/Gameplay/Characters/visual_animatronic.gd"
 
-var damageTaken = 0
+var damageTaken : float = 0
 
 func _ready() -> void:
 	super()
@@ -8,6 +8,8 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 
 func _move():
+	if EnemyAI.ultraMode:
+		damageTaken -= 3
 	var roll = randi_range(1,20)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PUGGO]:

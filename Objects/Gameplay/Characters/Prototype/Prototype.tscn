@@ -1021,7 +1021,6 @@ font_color = Color(0, 1, 0, 1)
 [node name="Prototype" type="Node3D" node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_3ubwf")
 jumpscare = NodePath("PrototypeJumpscare")
-movementRate = 14
 enemy = 1
 
 [node name="Timer" type="Timer" parent="."]

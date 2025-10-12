@@ -42,7 +42,7 @@ func _move():
 			
 			newIndicator.z_index = 998
 			
-			newPanel.get_node("Button").pressed.connect(_reset.bind(newPanel,newIndicator))
+			newPanel.get_node("Button").button_down.connect(_reset.bind(newPanel,newIndicator))
 	
 	super()
 

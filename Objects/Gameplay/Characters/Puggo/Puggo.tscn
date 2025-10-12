@@ -46,8 +46,6 @@ _data = {
 [node name="Puggo" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_xwcbg")
 jumpscare = NodePath("PuggoJumpscare")
-movementRate = 8
-killTime = 20
 enemy = 3
 visuals = NodePath("SpriteParent")
 

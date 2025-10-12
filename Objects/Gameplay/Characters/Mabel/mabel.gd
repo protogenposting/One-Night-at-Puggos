@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("Player")
 	
-	get_tree().create_timer(1).timeout.connect(_pushback)
+	get_tree().create_timer(0.5).timeout.connect(_pushback)
 
 func _pushback():
 	if player.currentHallway == currentHallway && currentHallway != -1 && player.flashlightIsOn && !player.camsAreUp:
@@ -18,7 +18,7 @@ func _pushback():
 		if progress < 4:
 			progress = 0
 	
-	get_tree().create_timer(1).timeout.connect(_pushback)
+	get_tree().create_timer(0.5).timeout.connect(_pushback)
 
 func _move():
 	var roll = randi_range(1,20)

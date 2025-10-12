@@ -8,6 +8,8 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").flash.connect(_reset)
 	
 	baseMovement = movementRate
+	
+	visualNodes[0].modulate = Color(0,0,0,0)
 
 func _move():
 	if currentHallway != -1:
