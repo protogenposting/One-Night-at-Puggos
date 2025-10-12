@@ -12,7 +12,7 @@ func _ready() -> void:
 	get_tree().create_timer(1).timeout.connect(_pushback)
 
 func _pushback():
-	if player.currentHallway == currentHallway && currentHallway != -1:
+	if player.currentHallway == currentHallway && currentHallway != -1 && player.flashlightIsOn && !player.camsAreUp:
 		progress -= 1
 		
 		if progress < 4:
