@@ -27,6 +27,9 @@ func _move():
 		
 		$Sprite3D.pixel_size = 0.02
 		
+		if EnemyAI.ultraMode:
+			_jumpscare()
+		
 		button.queue_free()
 		
 		alive = false

@@ -16,6 +16,8 @@ var enemyAiValues : Array = []
 
 var nightScaling : bool = false
 
+var ultraMode : bool = false
+
 var time : float = 0
 
 func _ready() -> void:

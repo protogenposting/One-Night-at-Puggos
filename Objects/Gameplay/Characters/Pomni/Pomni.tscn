@@ -160,7 +160,6 @@ _data = {
 [node name="Pomni" type="Node3D" node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_j5d0n")
 jumpscare = NodePath("PomniJumpscare")
-movementRate = 2
 enemy = 2
 
 [node name="Timer" type="Timer" parent="."]

@@ -130,7 +130,6 @@ _data = {
 [node name="c00lkidd" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_7gijv")
 jumpscare = NodePath("Jumpscare")
-movementRate = 20
 enemy = 5
 visuals = NodePath("SpriteParent")
 

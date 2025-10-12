@@ -11,7 +11,10 @@ func _move():
 	var roll = randi_range(1,20)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.C00LKIDD]:
-		$AnimationPlayer.play("attack")
+		if !EnemyAI.ultraMode:
+			$AnimationPlayer.play("attack")
+		else:
+			$AnimationPlayer.play_section("attack",10.4)
 	
 	super()
 
