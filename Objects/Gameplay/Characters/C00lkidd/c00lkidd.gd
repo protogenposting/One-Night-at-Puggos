@@ -13,10 +13,14 @@ func _move():
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.C00LKIDD]:
 		if !EnemyAI.ultraMode:
 			$AnimationPlayer.play("attack")
+			
+			super()
 		else:
 			$AnimationPlayer.play_section("attack",10.4)
-	
-	super()
+			
+			timer.start(15)
+	else:
+		super()
 
 func _kill_check():
 	if !player.maskUp:

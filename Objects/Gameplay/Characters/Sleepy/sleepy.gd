@@ -9,7 +9,8 @@ func _ready() -> void:
 	
 	baseMovement = movementRate
 	
-	visualNodes[0].modulate = Color(0,0,0,0)
+	if EnemyAI.ultraMode:
+		visualNodes[0].modulate = Color(0,0,0,0)
 
 func _move():
 	if currentHallway != -1:
