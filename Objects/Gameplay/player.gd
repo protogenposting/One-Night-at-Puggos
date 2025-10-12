@@ -160,7 +160,7 @@ func _process(delta: float) -> void:
 				if flashlightHoldTime >= 0.75 && !$FlashlightCharged.playing:
 					$FlashlightCharged.play()
 
-		elif Input.is_action_just_released("Flashlight"):
+		elif Input.is_action_just_released("Flashlight") && !maskUp && battery > 0:
 			$Light/AnimationPlayer.play("Idle")
 			
 			$Light.offset = Vector2.ZERO

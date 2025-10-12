@@ -22,7 +22,7 @@ size = Vector3(3.998806, 6.9594727, 15.804199)
 size = Vector3(9.055527, 6.9594727, 15.296875)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5nrd"]
-size = Vector3(8.754326, 6.9594727, 21.805298)
+size = Vector3(3.0533886, 3.1496582, 21.805298)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60v3t"]
 size = Vector3(3, 1, 1)
@@ -342,7 +342,7 @@ script = ExtResource("6_tk5m8")
 hallwayID = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
-transform = Transform3D(0.99996954, 0, 0, 0, 1, 0, 0, 0, 0.99996954, 0.6328552, 2.5935059, -10.071341)
+transform = Transform3D(0.99994135, 0, 0, 0, 1, 0, 0, 0, 0.99994135, 0.85699433, 3.5614014, -10.071341)
 shape = SubResource("BoxShape3D_k5nrd")
 
 [node name="Area3D4" type="Area3D" parent="." groups=["AmmoBox"]]
