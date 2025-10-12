@@ -16,7 +16,7 @@ _data = {
 [node name="Mabel" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_dlnc2")
 jumpscare = NodePath("AnimationPlayer")
-movementRate = 4.0
+movementRate = 2.0
 killTime = null
 enemy = 5
 visuals = NodePath("SpriteParent")
