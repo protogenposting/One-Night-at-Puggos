@@ -14,6 +14,9 @@ func _ready() -> void:
 	button.pressed.connect(_reset)
 	
 	progress = 300
+	
+	if EnemyAI.ultraMode:
+		progress = 1
 
 func _process(delta: float) -> void:
 	if alive:
@@ -26,9 +29,6 @@ func _move():
 		$Sprite3D.texture = load("res://Objects/Gameplay/Characters/Pomni/POMNIISFUCKINGDEAD.png")
 		
 		$Sprite3D.pixel_size = 0.02
-		
-		if EnemyAI.ultraMode:
-			_jumpscare()
 		
 		button.queue_free()
 		

@@ -38,14 +38,16 @@ func _move():
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	print(currentHallway)
 	
-	if slingshotTier < 2:
-		return
-	
 	if hallwayID == currentHallway:
 		health -= slingshotTier
 		
 		if health <= 0:
 			_reset()
+
+func _howl():
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property(AudioServer.volum)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):

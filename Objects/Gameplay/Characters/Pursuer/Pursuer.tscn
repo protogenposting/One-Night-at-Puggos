@@ -109,8 +109,8 @@ _data = {
 [node name="Pursuer" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_dn6e1")
 jumpscare = NodePath("PursuerJumpscare")
-movementRate = 7
-killTime = 12
+movementRate = null
+killTime = 12.0
 enemy = 4
 visuals = NodePath("SpriteParent")
 
@@ -133,6 +133,9 @@ shape = SubResource("BoxShape3D_igq1s")
 stream = ExtResource("3_dn6e1")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="PursuerHowl_mp3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wki8r")
 
 [node name="PursuerJumpscare" type="AnimationPlayer" parent="."]
 libraries = {
