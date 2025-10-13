@@ -490,7 +490,7 @@ material = SubResource("StandardMaterial3D_gp30h")
 transform = Transform3D(-0.3535534, 0, -0.35355335, 0, 0.5, 0, 0.35355335, 0, -0.3535534, 12.949748, 2.75, -8.156854)
 operation = 2
 size = Vector3(36, 11, 8)
-material = SubResource("StandardMaterial3D_bo5a5")
+material = SubResource("StandardMaterial3D_xwc8w")
 
 [node name="DOORCUTS6" type="CSGBox3D" parent="."]
 transform = Transform3D(0.35355338, 0, -0.35355338, 0, 0.5, 0, 0.35355338, 0, 0.35355338, -13.126525, 2.75, -8.3336315)

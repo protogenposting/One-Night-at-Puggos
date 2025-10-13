@@ -1,4 +1,1 @@
-res://GLOBALS/enemy_ai.gd
-res://Objects/Gameplay/Characters/Mabel/mabel.gd
-res://Objects/Gameplay/player.gd
-res://Objects/Gameplay/Characters/Prototype/Prototype.tscn
+res://Rooms/Map.tscn
