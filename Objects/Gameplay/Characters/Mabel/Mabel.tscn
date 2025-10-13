@@ -1,12 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://5ha1bkq5yd5w"]
+[gd_scene load_steps=7 format=3 uid="uid://5ha1bkq5yd5w"]
 
 [ext_resource type="Script" uid="uid://ccks1ckkeuo2v" path="res://Objects/Gameplay/Characters/Mabel/mabel.gd" id="1_dlnc2"]
-[ext_resource type="Texture2D" uid="uid://ch4ejeyniyos1" path="res://Objects/Gameplay/Characters/Mabel/PUGGO.png" id="2_2i8qd"]
+[ext_resource type="Texture2D" uid="uid://jnei3tptki63" path="res://Objects/Gameplay/Characters/Mabel/Toons31.png" id="2_wac0o"]
+[ext_resource type="AudioStream" uid="uid://cws7aposj0f8x" path="res://Objects/Gameplay/Characters/Mabel/kill.mp3" id="3_wac0o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
 [sub_resource type="Animation" id="Animation_dn6e1"]
 resource_name = "default"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MabelJumpscare/Kill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
 _data = {
@@ -15,7 +30,7 @@ _data = {
 
 [node name="Mabel" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 script = ExtResource("1_dlnc2")
-jumpscare = NodePath("AnimationPlayer")
+jumpscare = NodePath("MabelJumpscare")
 movementRate = 4.0
 enemy = 5
 visuals = NodePath("SpriteParent")
@@ -23,11 +38,11 @@ visuals = NodePath("SpriteParent")
 [node name="SpriteParent" type="Node3D" parent="."]
 
 [node name="Mabel" type="Sprite3D" parent="SpriteParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9523897, 0)
 pixel_size = 0.012
 billboard = 2
 shaded = true
-texture = ExtResource("2_2i8qd")
+texture = ExtResource("2_wac0o")
 
 [node name="Area3D" type="Area3D" parent="SpriteParent/Mabel"]
 collision_layer = 8
@@ -37,10 +52,19 @@ shape = SubResource("BoxShape3D_igq1s")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="MabelJumpscare" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wki8r")
 }
+
+[node name="Kill" type="AudioStreamPlayer" parent="MabelJumpscare"]
+stream = ExtResource("3_wac0o")
+
+[node name="Toons31" type="Sprite2D" parent="MabelJumpscare"]
+z_index = 4096
+position = Vector2(746, 590)
+scale = Vector2(44.566406, 4.9648438)
+texture = ExtResource("2_wac0o")
 
 [connection signal="area_entered" from="SpriteParent/Mabel/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="SpriteParent/Mabel/Area3D" to="." method="_on_area_3d_area_exited"]

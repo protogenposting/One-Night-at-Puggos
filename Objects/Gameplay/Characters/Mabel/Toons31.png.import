@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dhbj38oqt20"
-path.s3tc="res://.godot/imported/BALL1.png-171d8aa51b640e2b9bb92d49754d81e1.s3tc.ctex"
+uid="uid://jnei3tptki63"
+path.s3tc="res://.godot/imported/Toons31.png-0d75fa5ec36566ed9a60975c5addfa80.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Slingshot/BALL1.png"
-dest_files=["res://.godot/imported/BALL1.png-171d8aa51b640e2b9bb92d49754d81e1.s3tc.ctex"]
+source_file="res://Objects/Gameplay/Characters/Mabel/Toons31.png"
+dest_files=["res://.godot/imported/Toons31.png-0d75fa5ec36566ed9a60975c5addfa80.s3tc.ctex"]
 
 [params]
 

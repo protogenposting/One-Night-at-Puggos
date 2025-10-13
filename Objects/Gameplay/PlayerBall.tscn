@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn4iri557njwg"]
+
+[ext_resource type="Texture2D" uid="uid://d0dhbj38oqt20" path="res://Assets/Slingshot/BALL1.png" id="1_icm6l"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_icm6l"]
+bounce = 0.48
+
+[sub_resource type="GDScript" id="GDScript_icm6l"]
+script/source = "extends RigidBody3D
+
+@export var sprite : Texture2D
+
+func _ready() -> void:
+	$Sprite3D.texture = sprite
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3byaw"]
+
+[node name="PlayerBall" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_icm6l")
+script = SubResource("GDScript_icm6l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3byaw")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.03
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_icm6l")

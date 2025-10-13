@@ -12,6 +12,14 @@ var canShoot : bool = true
 
 var currentHallway : int = -1
 
+@export var slingshotBall : PackedScene
+
+var slingshotBallSprites : Array[Texture2D] = [
+	load("res://Assets/Slingshot/BALL1.png"),
+	load("res://Assets/Slingshot/BALL2.png"),
+	load("res://Assets/Slingshot/BALL3.png"),
+]
+
 var ammo = 5
 
 var ammoBoxSelected : bool = false
@@ -130,6 +138,14 @@ func _process(delta: float) -> void:
 				ammo -= 1
 				
 				get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
+				
+				var ball = slingshotBall.instantiate()
+				
+				ball.sprite = slingshotBallSprites[chargeLevel - 1]
+				
+				add_child(ball)
+				
+				ball.linear_velocity = -$Camera3D.global_basis.z * 100
 				
 				if currentHallway != -1:
 					shotSlingshot.emit(chargeLevel, currentHallway)

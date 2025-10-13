@@ -8,8 +8,8 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 
 func _move():
-	if EnemyAI.ultraMode && damageTaken > 3:
-		damageTaken -= 3
+	if EnemyAI.ultraMode && damageTaken > 1:
+		damageTaken -= 1
 	
 	var roll = randi_range(1,20)
 	

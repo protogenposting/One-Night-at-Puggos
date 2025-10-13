@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://c8856y456xj6i"]
+[gd_scene load_steps=50 format=3 uid="uid://c8856y456xj6i"]
 
 [ext_resource type="Script" uid="uid://c5pyvd503vytj" path="res://Objects/Gameplay/player.gd" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://dn4iri557njwg" path="res://Objects/Gameplay/PlayerBall.tscn" id="2_0yla3"]
 [ext_resource type="PackedScene" uid="uid://bkbgfr73ycufw" path="res://Objects/Gameplay/CurrentCamDisplay.tscn" id="2_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://3rbydro2kfed" path="res://Assets/Kingsley/ScaredCunt.png" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://dtomvubyse1fm" path="res://Assets/Slingshot/SLINGSHOT.png" id="4_3ilfp"]
@@ -512,6 +513,7 @@ _data = {
 [node name="Player" type="Node3D" node_paths=PackedStringArray("slingshot") groups=["Player"]]
 script = ExtResource("1_xhfnw")
 slingshot = NodePath("Slingshot")
+slingshotBall = ExtResource("2_0yla3")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 

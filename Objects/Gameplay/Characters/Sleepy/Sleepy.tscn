@@ -1,12 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bih4hs3qjmnq7"]
+[gd_scene load_steps=7 format=3 uid="uid://bih4hs3qjmnq7"]
 
 [ext_resource type="Texture2D" uid="uid://ubl7cnmx41jm" path="res://Objects/Gameplay/Characters/Sleepy/image.png" id="1_igq1s"]
 [ext_resource type="Script" uid="uid://wkbo5g283yy2" path="res://Objects/Gameplay/Characters/Sleepy/sleepy.gd" id="1_wx5e5"]
+[ext_resource type="AudioStream" uid="uid://xa4rjbs63yxw" path="res://Audio/Death_Sound.wav" id="3_wjs4q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
 [sub_resource type="Animation" id="Animation_dn6e1"]
 resource_name = "default"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SleepyJumpscare/DeathSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
 _data = {
@@ -16,7 +31,7 @@ _data = {
 [node name="Sleepy" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.25, 0)
 script = ExtResource("1_wx5e5")
-jumpscare = NodePath("AnimationPlayer")
+jumpscare = NodePath("SleepyJumpscare")
 movementRate = 18.0
 visuals = NodePath("Sleepy")
 
@@ -34,10 +49,20 @@ shape = SubResource("BoxShape3D_igq1s")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="SleepyJumpscare" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wki8r")
 }
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SleepyJumpscare"]
+stream = ExtResource("3_wjs4q")
+volume_db = -8.988
+
+[node name="Sprite2D" type="Sprite2D" parent="SleepyJumpscare"]
+z_index = 4096
+position = Vector2(1140, 617.49994)
+scale = Vector2(6.846154, 4.1666665)
+texture = ExtResource("1_igq1s")
 
 [connection signal="area_entered" from="Sleepy/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Sleepy/Area3D" to="." method="_on_area_3d_area_exited"]
