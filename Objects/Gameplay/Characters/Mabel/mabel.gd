@@ -29,7 +29,7 @@ func _move():
 		else:
 			progress += 1
 			
-			if EnemyAI.ultraMode:
+			if EnemyAI.ultraMode && progress < 9:
 				progress += 1
 			
 			if progress < 0:
