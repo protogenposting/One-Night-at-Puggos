@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c6g6ekq7skhxh"]
+[gd_scene load_steps=70 format=3 uid="uid://c6g6ekq7skhxh"]
 
 [ext_resource type="Texture2D" uid="uid://cl1e2002qfk7u" path="res://Assets/Blocking/ASSET_GRID.png" id="1_7ixeb"]
 [ext_resource type="Texture2D" uid="uid://biqcpau1fj70" path="res://Assets/Blocking/ASSET_GRID_CARPET.png" id="1_gp30h"]
@@ -12,12 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://dnb7dre2gfkiu" path="res://Assets/DECOR/BSR.png" id="9_bo5a5"]
 [ext_resource type="Texture2D" uid="uid://bmdpukciwjnyt" path="res://Assets/DECOR/CLOCK.png" id="10_d8rkd"]
 [ext_resource type="Texture2D" uid="uid://gin75fmemxud" path="res://Assets/DECOR/FUCK.png" id="10_lkben"]
+[ext_resource type="Texture2D" uid="uid://dw8ig05gvemat" path="res://Assets/DECOR/ASSET6.png" id="10_ycqhy"]
+[ext_resource type="Texture2D" uid="uid://cwfvrym61piai" path="res://Assets/DECOR/ASSET11.png" id="11_jhlv8"]
+[ext_resource type="Texture2D" uid="uid://dr4pv870p55nf" path="res://Assets/DECOR/ASSET7.png" id="11_ttorr"]
 [ext_resource type="Texture2D" uid="uid://cydm87n05c2qn" path="res://Assets/DECOR/SHAKE.png" id="12_nkds2"]
+[ext_resource type="Texture2D" uid="uid://ckgl4c8cxfxhm" path="res://Assets/DECOR/ASSET14.png" id="12_ueukr"]
+[ext_resource type="Texture2D" uid="uid://dju1ftkingvxr" path="res://Assets/DECOR/ASSET13.png" id="12_yo02r"]
 [ext_resource type="Texture2D" uid="uid://28nmxgdo4cq6" path="res://Assets/DECOR/PAPERBALL.png" id="13_1j2ns"]
+[ext_resource type="Texture2D" uid="uid://btxwpximrtb37" path="res://Assets/DECOR/ASSET1.png" id="13_6e7iq"]
+[ext_resource type="Texture2D" uid="uid://bxpngp675d0dh" path="res://Assets/DECOR/ASSET2.png" id="13_s24wb"]
+[ext_resource type="Texture2D" uid="uid://rwjj4l3raep" path="res://Assets/DECOR/ASSET20.png" id="14_b4nmg"]
 [ext_resource type="Texture2D" uid="uid://cp8tixldxit6w" path="res://Assets/DECOR/yaleokre.png" id="14_rx58r"]
+[ext_resource type="Texture2D" uid="uid://2levgaqqxomd" path="res://Assets/DECOR/ASSET8.png" id="14_wbk0j"]
+[ext_resource type="Texture2D" uid="uid://bnughh6615vrl" path="res://Assets/DECOR/ASSET22.png" id="15_b5afm"]
+[ext_resource type="Texture2D" uid="uid://cefg6u1mbea2t" path="res://Assets/DECOR/ASSET15.png" id="15_dl40a"]
 [ext_resource type="Texture2D" uid="uid://cur2shk1n34hl" path="res://Assets/DECOR/WEB.png" id="15_gjhfo"]
+[ext_resource type="Texture2D" uid="uid://dxnana28drhic" path="res://Assets/DECOR/ASSET3.png" id="15_ttorr"]
+[ext_resource type="Texture2D" uid="uid://uyufxw5uhvvr" path="res://Assets/DECOR/ASSET4.png" id="16_b4nmg"]
 [ext_resource type="Texture2D" uid="uid://cup566plbjqqm" path="res://Assets/DECOR/Spider.png" id="16_fuu7u"]
 [ext_resource type="Texture2D" uid="uid://bihnpk56ijcjh" path="res://Assets/DECOR/SPEAKER.png" id="17_1kaq5"]
+[ext_resource type="Texture2D" uid="uid://decmigf0jp6fo" path="res://Assets/DECOR/ASSET21.png" id="17_3qr20"]
+[ext_resource type="Texture2D" uid="uid://cgmdbit2tp5mr" path="res://Assets/DECOR/ASSET5.png" id="17_6ti75"]
 [ext_resource type="Texture2D" uid="uid://bmcny2xfddtoo" path="res://Assets/DECOR/STRING.png" id="18_cljtv"]
 [ext_resource type="Texture2D" uid="uid://dbu7w34f6e2d3" path="res://Assets/DECOR/SHRUB.png" id="18_d8rkd"]
 [ext_resource type="Texture2D" uid="uid://xx2d5yfngb6d" path="res://Assets/DECOR/BUSH.png" id="18_jxrgc"]
@@ -25,6 +40,12 @@
 [ext_resource type="Texture2D" uid="uid://cocnceul46hal" path="res://Assets/DECOR/TOOLBOX.png" id="22_1j2ns"]
 [ext_resource type="Texture2D" uid="uid://blfauct56h6hc" path="res://Assets/DECOR/TEETH.png" id="22_fuu7u"]
 [ext_resource type="Texture2D" uid="uid://bimb87j3ilemm" path="res://Assets/DECOR/PLATE.png" id="22_nkds2"]
+[ext_resource type="Texture2D" uid="uid://ddr631k8kjplf" path="res://Assets/DECOR/ASSET18.png" id="24_kxmmm"]
+[ext_resource type="Texture2D" uid="uid://bg8pvofa0qepv" path="res://Assets/DECOR/ASSET17.png" id="25_5npb5"]
+[ext_resource type="Texture2D" uid="uid://c44rniig6ckl1" path="res://Assets/DECOR/ASSET16.png" id="26_jgcjx"]
+[ext_resource type="Texture2D" uid="uid://ds5dvhgus5sfu" path="res://Assets/DECOR/ASSET24.png" id="28_b5afm"]
+[ext_resource type="Texture2D" uid="uid://bd20dxycb2ojb" path="res://Assets/DECOR/ASSET10.png" id="29_4ksyx"]
+[ext_resource type="Texture2D" uid="uid://cu8761ry1wo4b" path="res://Assets/DECOR/ASSET9.png" id="30_3qr20"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt4ob"]
 albedo_color = Color(0.16, 0.16, 0.16, 1)
@@ -165,37 +186,31 @@ use_collision = true
 
 [node name="ROOF" type="CSGBox3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 8.25, 1.5)
-visible = false
 size = Vector3(42, 1, 30)
 material = SubResource("StandardMaterial3D_pt4ob")
 
-[node name="ROOF2" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24, 8.25, -18.5)
-visible = false
+[node name="ROOF2" type="CSGBox3D" parent="ROOF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -40)
 size = Vector3(32, 1, 30)
 material = SubResource("StandardMaterial3D_xwc8w")
 
-[node name="ROOF4" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 8.25, -34)
-visible = false
+[node name="ROOF4" type="CSGBox3D" parent="ROOF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -71)
 size = Vector3(104, 1, 32)
 material = SubResource("StandardMaterial3D_pt4ob")
 
-[node name="ROOF3" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24, 8.25, -18.5)
-visible = false
+[node name="ROOF3" type="CSGBox3D" parent="ROOF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -40)
 size = Vector3(32, 1, 30)
 material = SubResource("StandardMaterial3D_bo5a5")
 
-[node name="ROOF5" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 30.5, 8.25, -60)
-visible = false
+[node name="ROOF5" type="CSGBox3D" parent="ROOF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0, -123)
 size = Vector3(38, 1, 32)
 material = SubResource("StandardMaterial3D_gp30h")
 
-[node name="ROOF7" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 57.5, 8.25, -60)
-visible = false
+[node name="ROOF7" type="CSGBox3D" parent="ROOF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, -123)
 size = Vector3(40, 1, 40)
 material = SubResource("StandardMaterial3D_1kaq5")
 
@@ -648,7 +663,7 @@ size = Vector3(8, 2, 66)
 material = SubResource("StandardMaterial3D_tk5m8")
 
 [node name="PIPES13" type="CSGBox3D" parent="PIPES"]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 41, 4.0000014, -11)
+transform = Transform3D(-4.371138e-08, 4.3711392e-08, 1, 1, -4.371139e-08, 4.3711385e-08, 4.3711392e-08, 1, -4.371139e-08, 41, 4.0000014, -11)
 size = Vector3(6, 26, 2)
 material = SubResource("StandardMaterial3D_tk5m8")
 
@@ -671,18 +686,206 @@ material = SubResource("StandardMaterial3D_tk5m8")
 environment = SubResource("Environment_7ixeb")
 
 [node name="POSTER3" type="Sprite3D" parent="."]
-transform = Transform3D(1.9318516, 0.36234665, 6.8633144e-15, -0.5176381, 1.3522961, -1.8390195e-15, -7.105426e-15, 0, 2, -8.4, 3.2999997, -27.099998)
+transform = Transform3D(1.9318516, 0.36234665, 6.8633144e-15, -0.5176381, 1.3522961, -1.8390195e-15, -7.105426e-15, 0, 2, 7.372524, 3.2999997, -27.099998)
 flip_h = true
-modulate = Color(1, 0, 0, 1)
 shaded = true
 texture = ExtResource("9_bo5a5")
 metadata/_edit_group_ = true
 
+[node name="POSTER6" type="Sprite3D" parent="."]
+transform = Transform3D(2.9702517e-07, -5.829296e-08, -4, 1.1920929e-07, 4, -5.829296e-08, 4, -1.1920929e-07, 2.9702517e-07, 17.05902, 4.2999997, -18.738894)
+flip_h = true
+shaded = true
+texture = ExtResource("10_ycqhy")
+metadata/_edit_group_ = true
+
+[node name="POSTER15" type="Sprite3D" parent="."]
+transform = Transform3D(-3.2783543e-09, -0.075, 3.2783543e-09, 0, -3.2783543e-09, -0.075, 0.075, -3.2783543e-09, 1.4330142e-16, 32.05902, 0.09999971, -55.83889)
+flip_h = true
+shaded = true
+texture = ExtResource("11_jhlv8")
+metadata/_edit_group_ = true
+
+[node name="POSTER16" type="Sprite3D" parent="."]
+transform = Transform3D(-0.07047694, -0.025651507, 1.1212629e-09, -4.2348144e-24, -3.2783538e-09, -0.074999996, 0.025651507, -0.07047694, 3.0806449e-09, 35.35902, 0.09999971, -60.53889)
+flip_h = true
+shaded = true
+texture = ExtResource("12_yo02r")
+metadata/_edit_group_ = true
+
+[node name="POSTER17" type="Sprite3D" parent="."]
+transform = Transform3D(0.49809736, 0.043577842, 8.433711e-08, -0.043577842, 0.49809736, -2.3025294e-08, -8.6022965e-08, 1.5587213e-08, 0.5, 33.459023, 4.2000003, -53.03889)
+flip_h = true
+shaded = true
+texture = ExtResource("13_6e7iq")
+metadata/_edit_group_ = true
+
+[node name="POSTER18" type="Sprite3D" parent="."]
+transform = Transform3D(3.1689673e-08, -1.5718113e-08, -0.4, -0.034862272, 0.39847788, -1.8420236e-08, 0.39847788, 0.034862272, 3.019916e-08, 22.059023, 4.2000003, -59.03889)
+flip_h = true
+shaded = true
+texture = ExtResource("14_b4nmg")
+metadata/_edit_group_ = true
+
+[node name="POSTER20" type="Sprite3D" parent="."]
+transform = Transform3D(3.1689673e-08, -1.5718113e-08, -0.4, -0.034862272, 0.39847788, -1.8420236e-08, 0.39847788, 0.034862272, 3.019916e-08, 22.059023, 6.3, -60.73889)
+flip_h = true
+shaded = true
+texture = ExtResource("15_b5afm")
+metadata/_edit_group_ = true
+
+[node name="POSTER21" type="Sprite3D" parent="."]
+transform = Transform3D(3.1689673e-08, -1.5718113e-08, -0.4, -0.034862272, 0.39847788, -1.8420236e-08, 0.39847788, 0.034862272, 3.019916e-08, 22.059023, 6.3, -64.33889)
+flip_h = true
+shaded = true
+texture = ExtResource("16_b4nmg")
+metadata/_edit_group_ = true
+
+[node name="POSTER19" type="Sprite3D" parent="."]
+transform = Transform3D(5.4735384e-08, -2.9340688e-08, -0.39999998, 0.11997226, 0.73532844, -9.976464e-09, 0.6803962, -0.1296583, 3.3937653e-08, 22.059023, 4.2000003, -62.438892)
+flip_h = true
+shaded = true
+texture = ExtResource("17_3qr20")
+metadata/_edit_group_ = true
+
 [node name="POSTER4" type="Sprite3D" parent="."]
-transform = Transform3D(0.74714595, -0.06536682, 0, 0.06536682, 0.74714595, 0, 0, 0, 0.7500001, -14.4, 3.2999997, -27.099998)
+transform = Transform3D(-1.0761828e-08, -1.897601e-09, 0.25, -0.043412052, 0.24620193, 0, -0.24620193, -0.043412052, -1.0927847e-08, 2.9959579, 3.26296, 6.5000014)
+flip_h = true
+shaded = true
+texture = ExtResource("11_ttorr")
+metadata/_edit_group_ = true
+
+[node name="POSTER9" type="Sprite3D" parent="."]
+transform = Transform3D(-2.1523656e-09, -3.795203e-10, 0.05, 0.004357783, 0.04980973, 5.65667e-10, -0.04980973, 0.004357783, -2.111098e-09, 9.495958, 5.26296, 1.5000014)
+flip_h = true
+shaded = true
+texture = ExtResource("12_ueukr")
+metadata/_edit_group_ = true
+
+[node name="POSTER8" type="Sprite3D" parent="."]
+transform = Transform3D(0.3939231, 0.06945928, 0, -0.06945928, 0.3939231, 0, 0, 0, 0.4, -5.4040422, 4.76296, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("13_s24wb")
+metadata/_edit_group_ = true
+
+[node name="POSTER10" type="Sprite3D" parent="."]
+transform = Transform3D(0.3939231, 0.06945928, 0, -0.06945928, 0.3939231, 0, 0, 0, 0.4, -13.504042, 6.2629604, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("14_wbk0j")
+metadata/_edit_group_ = true
+
+[node name="POSTER12" type="Sprite3D" parent="."]
+transform = Transform3D(0.49240386, 0.08682411, 0, -0.08682411, 0.49240386, 0, 0, 0, 0.5, 14.695958, 6.2629604, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("15_ttorr")
+metadata/_edit_group_ = true
+
+[node name="POSTER13" type="Sprite3D" parent="."]
+transform = Transform3D(0.50000006, 0, 0, 0, 0.50000006, 0, 0, 0, 0.5, 11.495958, 5.1629605, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("15_ttorr")
+metadata/_edit_group_ = true
+
+[node name="POSTER14" type="Sprite3D" parent="."]
+transform = Transform3D(0.49240386, 0.0868241, 0, -0.0868241, 0.49240386, 0, 0, 0, 0.5, 13.695958, 2.8629603, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("15_ttorr")
+metadata/_edit_group_ = true
+
+[node name="POSTER11" type="Sprite3D" parent="."]
+transform = Transform3D(0.68233126, 2.2351742e-08, 0, -2.9802322e-08, 0.72705775, 0, 0, 0, 0.39999998, -9.404041, 4.2629604, -27.099998)
+flip_h = true
+shaded = true
+texture = ExtResource("15_dl40a")
+metadata/_edit_group_ = true
+
+[node name="POSTER22" type="Sprite3D" parent="."]
+transform = Transform3D(-0.75, -3.2757907e-08, -1.13246855e-07, -3.2757907e-08, 0.75, 1.6961149e-15, 1.13246855e-07, 6.642421e-15, -0.75, -2.1040413, 4.2629604, -58.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("24_kxmmm")
+metadata/_edit_group_ = true
+
+[node name="POSTER25" type="Sprite3D" parent="."]
+transform = Transform3D(1.460304e-07, 8.0743145e-15, -0.75, -3.275791e-08, 0.75, 1.6961148e-15, 0.75, 3.275791e-08, 1.460304e-07, -20.904041, 4.2629604, -47.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("24_kxmmm")
+metadata/_edit_group_ = true
+
+[node name="POSTER26" type="Sprite3D" parent="."]
+transform = Transform3D(1.460304e-07, 8.0743145e-15, -0.75, -3.275791e-08, 0.75, 1.6961148e-15, 0.75, 3.275791e-08, 1.460304e-07, -20.904041, 4.2629604, -51.999996)
+flip_h = true
+shaded = true
+texture = ExtResource("24_kxmmm")
+metadata/_edit_group_ = true
+
+[node name="POSTER27" type="Sprite3D" parent="."]
+transform = Transform3D(1.460304e-07, 8.0743145e-15, -0.75, -3.275791e-08, 0.75, 1.6961148e-15, 0.75, 3.275791e-08, 1.460304e-07, -20.904041, 4.2629604, -56.099995)
+flip_h = true
+shaded = true
+texture = ExtResource("24_kxmmm")
+metadata/_edit_group_ = true
+
+[node name="POSTER23" type="Sprite3D" parent="."]
+transform = Transform3D(-0.75, -3.2757907e-08, -1.13246855e-07, -3.2757907e-08, 0.75, 1.6961149e-15, 1.13246855e-07, 6.642421e-15, -0.75, 2.8959587, 3.2629604, -58.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("25_5npb5")
+metadata/_edit_group_ = true
+
+[node name="POSTER24" type="Sprite3D" parent="."]
+transform = Transform3D(-0.25, -1.0919302e-08, -3.774895e-08, -1.0919302e-08, 0.25, 5.6537146e-16, 3.774895e-08, 2.2141403e-15, -0.25, 0.89595866, 6.2629604, -58.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("26_jgcjx")
+metadata/_edit_group_ = true
+
+[node name="POSTER7" type="Sprite3D" parent="."]
+transform = Transform3D(0.29885843, -0.026146729, 0, 0.026146729, 0.29885843, 0, 0, 0, 0.3, -14.404042, 2.26296, -27.099998)
 flip_h = true
 shaded = true
 texture = ExtResource("10_lkben")
+metadata/_edit_group_ = true
+
+[node name="POSTER28" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -2.6226832e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.29999998, -25.504044, 3.2629597, -25.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("28_b5afm")
+metadata/_edit_group_ = true
+
+[node name="POSTER29" type="Sprite3D" parent="."]
+transform = Transform3D(-0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, -29.004044, 2.5629597, -25.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("12_yo02r")
+metadata/_edit_group_ = true
+
+[node name="POSTER31" type="Sprite3D" parent="."]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -27.904043, 5.5629597, -25.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("29_4ksyx")
+metadata/_edit_group_ = true
+
+[node name="POSTER30" type="Sprite3D" parent="."]
+transform = Transform3D(-0.25, 0, -3.774895e-08, 0, 0.25, 0, 3.774895e-08, 0, -0.25, -20.904043, 6.7629595, -25.899998)
+flip_h = true
+shaded = true
+texture = ExtResource("30_3qr20")
+metadata/_edit_group_ = true
+
+[node name="POSTER5" type="Sprite3D" parent="."]
+transform = Transform3D(0.5657411, -0.3989598, 4.9518437, -0.22525752, 4.976664, 0.42669418, -4.96278, -0.27136832, 0.5451268, 23.636639, 3.3723207, -37.746178)
+flip_h = true
+shaded = true
+texture = ExtResource("17_6ti75")
 metadata/_edit_group_ = true
 
 [node name="CLOCK" type="Sprite3D" parent="."]
@@ -726,6 +929,26 @@ texture = ExtResource("13_1j2ns")
 
 [node name="PAPERBALL3" type="Sprite3D" parent="."]
 transform = Transform3D(-1.6398433, -0.6110019, 0.009534076, -0.3236224, 0.8451852, -1.4978088, 0.51834613, -1.4052896, -0.9049742, -3.8999996, 0.20000005, -4)
+shaded = true
+texture = ExtResource("13_1j2ns")
+
+[node name="PAPERBALL5" type="Sprite3D" parent="."]
+transform = Transform3D(1.2671402, 1.1476569, 0.3738178, -0.32362238, 0.84518504, -1.4978087, -1.1628089, 1.0154042, 0.82421434, -16.2, 0.20000017, -36.1)
+shaded = true
+texture = ExtResource("13_1j2ns")
+
+[node name="PAPERBALL8" type="Sprite3D" parent="."]
+transform = Transform3D(1.2671402, 1.1476569, 0.3738178, -0.32362238, 0.84518504, -1.4978087, -1.1628089, 1.0154042, 0.82421434, -16.2, 0.20000017, -36.1)
+shaded = true
+texture = ExtResource("13_1j2ns")
+
+[node name="PAPERBALL7" type="Sprite3D" parent="."]
+transform = Transform3D(1.2671402, 1.1476569, 0.3738178, -0.32362238, 0.84518504, -1.4978087, -1.1628089, 1.0154042, 0.82421434, 6.700001, 0.20000017, -32.9)
+shaded = true
+texture = ExtResource("13_1j2ns")
+
+[node name="PAPERBALL6" type="Sprite3D" parent="."]
+transform = Transform3D(1.248988, -0.3494786, -1.1749011, 1.2236027, 0.45532715, 1.1653212, 0.07297686, -1.6531913, 0.56932664, -7.5, 0.20000005, -40.1)
 shaded = true
 texture = ExtResource("13_1j2ns")
 
@@ -1024,6 +1247,5 @@ texture = ExtResource("22_nkds2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 94.85423, 1.0915871)
-visible = false
 omni_range = 206.0
 omni_attenuation = -0.503

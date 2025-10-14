@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb8f4hatlsgr"]
+[gd_scene load_steps=10 format=3 uid="uid://bb8f4hatlsgr"]
 
 [ext_resource type="Script" uid="uid://nkqnikm3mtve" path="res://Objects/Gameplay/Characters/Pursuer/pursuer.gd" id="1_dn6e1"]
+[ext_resource type="Texture2D" uid="uid://cxrrsoi45swb2" path="res://Objects/Gameplay/Characters/Pursuer/PURSUER.png" id="2_g2jjh"]
 [ext_resource type="Texture2D" uid="uid://bksfppa48gfsf" path="res://Objects/Gameplay/Characters/Pursuer/freshmeat.webp" id="2_wki8r"]
 [ext_resource type="AudioStream" uid="uid://dwa5v7tk8dtcy" path="res://Objects/Gameplay/Characters/Pursuer/ahhh.mp3" id="3_dn6e1"]
 [ext_resource type="AudioStream" uid="uid://d33v1l0teyr6e" path="res://Objects/Gameplay/Characters/Pursuer/PursuerHowl.mp3.mp3" id="4_wki8r"]
@@ -116,11 +117,11 @@ visuals = NodePath("SpriteParent")
 [node name="SpriteParent" type="Node3D" parent="."]
 
 [node name="Pursuer" type="Sprite3D" parent="SpriteParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.301, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.6010001, 0)
 pixel_size = 0.003
 billboard = 2
 shaded = true
-texture = ExtResource("2_wki8r")
+texture = ExtResource("2_g2jjh")
 
 [node name="Area3D" type="Area3D" parent="SpriteParent/Pursuer"]
 collision_layer = 8
