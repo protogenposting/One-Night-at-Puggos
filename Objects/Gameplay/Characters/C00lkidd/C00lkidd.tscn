@@ -1,12 +1,48 @@
-[gd_scene load_steps=15 format=3 uid="uid://ceuq3ml6cqcrv"]
+[gd_scene load_steps=20 format=3 uid="uid://ceuq3ml6cqcrv"]
 
 [ext_resource type="Script" uid="uid://df507slxuvp42" path="res://Objects/Gameplay/Characters/C00lkidd/c00lkidd.gd" id="1_7gijv"]
-[ext_resource type="Texture2D" uid="uid://06wget7wnmea" path="res://Objects/Gameplay/Characters/C00lkidd/c00l.webp" id="2_d1x70"]
+[ext_resource type="Texture2D" uid="uid://dco8suxim1fq4" path="res://Objects/Gameplay/Characters/C00lkidd/C00lKidd-Sheet.png" id="2_glgrt"]
 [ext_resource type="AudioStream" uid="uid://lwjojp66byk7" path="res://Audio/C00lkidd/C00kidd_Charging.wav" id="3_glgrt"]
 [ext_resource type="AudioStream" uid="uid://nowt737v2dso" path="res://Audio/C00lkidd/C00kidd_Ready.wav" id="4_h2w85"]
 [ext_resource type="AudioStream" uid="uid://db42tp7y45yku" path="res://Audio/C00lkidd/C00kidd_Preparing.wav" id="5_utxkc"]
 [ext_resource type="AudioStream" uid="uid://jjlxenx5o40p" path="res://Audio/C00lkidd/C00kidd_Killhit.wav" id="6_8a0up"]
 [ext_resource type="AudioStream" uid="uid://bdv0uily0wy7i" path="res://Audio/C00lkidd/C00kidd_KillFail.wav" id="7_2d1qa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2w85"]
+atlas = ExtResource("2_glgrt")
+region = Rect2(0, 0, 390, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utxkc"]
+atlas = ExtResource("2_glgrt")
+region = Rect2(390, 0, 390, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a0up"]
+atlas = ExtResource("2_glgrt")
+region = Rect2(780, 0, 390, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d1qa"]
+atlas = ExtResource("2_glgrt")
+region = Rect2(1170, 0, 390, 390)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6tvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2w85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utxkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a0up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d1qa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
@@ -135,17 +171,18 @@ visuals = NodePath("SpriteParent")
 
 [node name="SpriteParent" type="Node3D" parent="."]
 
-[node name="c00lkidd" type="Sprite3D" parent="SpriteParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
-pixel_size = 0.0035
+[node name="AnimatedSprite2D" type="AnimatedSprite3D" parent="SpriteParent"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 3, 0)
 billboard = 2
-shaded = true
-texture = ExtResource("2_d1x70")
+sprite_frames = SubResource("SpriteFrames_y6tvf")
+frame = 1
+frame_progress = 0.87596834
 
-[node name="Area3D" type="Area3D" parent="SpriteParent/c00lkidd"]
+[node name="Area3D" type="Area3D" parent="SpriteParent/AnimatedSprite2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 collision_layer = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteParent/c00lkidd/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteParent/AnimatedSprite2D/Area3D"]
 shape = SubResource("BoxShape3D_igq1s")
 
 [node name="Timer" type="Timer" parent="."]
@@ -176,5 +213,5 @@ stream = ExtResource("6_8a0up")
 [node name="C00KiddKillFail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2d1qa")
 
-[connection signal="area_entered" from="SpriteParent/c00lkidd/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="SpriteParent/c00lkidd/Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="area_entered" from="SpriteParent/AnimatedSprite2D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="SpriteParent/AnimatedSprite2D/Area3D" to="." method="_on_area_3d_area_exited"]
