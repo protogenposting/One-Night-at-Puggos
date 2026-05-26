@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://7t5rm0e34k13"]
+[gd_scene format=3 uid="uid://7t5rm0e34k13"]
 
 [ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_vpk8s"]
+[ext_resource type="Script" uid="uid://d4hap8rhscw1q" path="res://Objects/Menu/CordialNightStart.gd" id="2_5ggrp"]
 
 [sub_resource type="GDScript" id="GDScript_4wlhj"]
 script/source = "extends Control
@@ -190,7 +191,7 @@ font_size = 51
 outline_size = 25
 outline_color = Color(0, 0, 0, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=169229496]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -199,60 +200,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_4wlhj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=46347052]
 layout_mode = 0
 offset_left = 1616.0
 offset_right = 1917.0
 offset_bottom = 571.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=724033770]
 layout_mode = 2
 text = "CHALLENGES"
 label_settings = SubResource("LabelSettings_5ggrp")
 
-[node name="TripleTroubleCheck" type="CheckBox" parent="VBoxContainer"]
+[node name="TripleTroubleCheck" type="CheckBox" parent="VBoxContainer" unique_id=1560505686]
 layout_mode = 2
 tooltip_text = "Adds 2 more prototypes with a random offset."
 theme_override_font_sizes/font_size = 31
 text = "Megahack"
 script = SubResource("GDScript_dhg6o")
 
-[node name="FasterDrainCheck" type="CheckBox" parent="VBoxContainer"]
+[node name="FasterDrainCheck" type="CheckBox" parent="VBoxContainer" unique_id=779619464]
 layout_mode = 2
 tooltip_text = "Flashlight drains 5x faster."
 theme_override_font_sizes/font_size = 31
 text = "Faster Drain"
 script = SubResource("GDScript_3mkl3")
 
-[node name="GrinchVideo" type="CheckBox" parent="VBoxContainer"]
+[node name="GrinchVideo" type="CheckBox" parent="VBoxContainer" unique_id=1954785801]
 layout_mode = 2
 tooltip_text = "Puggo has a 0 second kill timer."
 theme_override_font_sizes/font_size = 31
 text = "The Grinch Video"
 script = SubResource("GDScript_2flak")
 
-[node name="WackyCharactersCheck" type="CheckBox" parent="VBoxContainer"]
+[node name="WackyCharactersCheck" type="CheckBox" parent="VBoxContainer" unique_id=28599538]
 layout_mode = 2
 tooltip_text = "Pursuer and phil both have a 0-10 second offset."
 theme_override_font_sizes/font_size = 31
 text = "Wacky Characters"
 script = SubResource("GDScript_8otfs")
 
-[node name="PursuingCheck" type="CheckBox" parent="VBoxContainer"]
+[node name="PursuingCheck" type="CheckBox" parent="VBoxContainer" unique_id=2141412127]
 layout_mode = 2
 tooltip_text = "Pursuer can move like phil."
 theme_override_font_sizes/font_size = 31
 text = "Pursuing"
 script = SubResource("GDScript_6qse1")
 
-[node name="BounceKiddCheck" type="CheckBox" parent="VBoxContainer"]
+[node name="BounceKiddCheck" type="CheckBox" parent="VBoxContainer" unique_id=1191177980]
 layout_mode = 2
 tooltip_text = "He bounces..."
 theme_override_font_sizes/font_size = 31
 text = "Bounce Kidd"
 script = SubResource("GDScript_buwwn")
 
-[node name="HBoxContainer" type="GridContainer" parent="."]
+[node name="HBoxContainer" type="GridContainer" parent="." unique_id=1489700907]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -267,46 +268,46 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="CharacterAiSlider" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider" parent="HBoxContainer" unique_id=1927647704 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Sleepy"
 
-[node name="CharacterAiSlider2" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider2" parent="HBoxContainer" unique_id=1970121783 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Prototype"
 enemyID = 1
 
-[node name="CharacterAiSlider3" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider3" parent="HBoxContainer" unique_id=1054133759 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Pomni"
 enemyID = 2
 
-[node name="CharacterAiSlider4" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider4" parent="HBoxContainer" unique_id=1370507468 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "PUGGO"
 enemyID = 3
 
-[node name="CharacterAiSlider5" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider5" parent="HBoxContainer" unique_id=193644077 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Pursuer"
 enemyID = 4
 
-[node name="CharacterAiSlider6" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider6" parent="HBoxContainer" unique_id=1960348177 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "Mabel"
 enemyID = 5
 
-[node name="CharacterAiSlider7" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider7" parent="HBoxContainer" unique_id=1897573172 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "C00lkidd"
 enemyID = 6
 
-[node name="CharacterAiSlider8" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+[node name="CharacterAiSlider8" parent="HBoxContainer" unique_id=1755480874 instance=ExtResource("1_vpk8s")]
 layout_mode = 2
 enemyName = "##### ####"
 enemyID = 7
 
-[node name="Button5" type="Button" parent="."]
+[node name="Button5" type="Button" parent="." unique_id=1477552394]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 80.0
@@ -315,7 +316,7 @@ offset_bottom = 144.0
 text = "Return to Safety"
 script = SubResource("GDScript_822us")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=128638055]
 layout_mode = 0
 offset_left = 832.0
 offset_top = 976.0
@@ -324,7 +325,7 @@ offset_bottom = 1040.0
 text = "BEGIN."
 script = SubResource("GDScript_1auxk")
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=1915852108]
 layout_mode = 0
 offset_left = 442.0
 offset_top = 819.0
@@ -333,7 +334,7 @@ offset_bottom = 860.0
 text = "-1 to all"
 script = SubResource("GDScript_vpk8s")
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." unique_id=614681445]
 layout_mode = 0
 offset_left = 962.0
 offset_top = 819.0
@@ -342,7 +343,7 @@ offset_bottom = 860.0
 text = "+1 to all"
 script = SubResource("GDScript_5ggrp")
 
-[node name="Button4" type="Button" parent="."]
+[node name="Button4" type="Button" parent="." unique_id=1443675475]
 layout_mode = 0
 offset_left = 832.0
 offset_top = 880.0
@@ -354,7 +355,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpk8s")
 text = "ALL 20"
 script = SubResource("GDScript_m8edw")
 
-[node name="HellModeToggle" type="Button" parent="."]
+[node name="HellModeToggle" type="Button" parent="." unique_id=197826072]
 layout_mode = 0
 offset_left = 1657.0
 offset_top = 1014.0
@@ -366,12 +367,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpk8s")
 text = "Hell Mode"
 script = SubResource("GDScript_7co3a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5ggrp")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1272371124]
+libraries/ = SubResource("AnimationLibrary_5ggrp")
 
-[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer" unique_id=374331313]
 offset_left = -104.0
 offset_top = -144.0
 offset_right = 2080.0
@@ -380,7 +379,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 
-[node name="HellMode" type="Label" parent="."]
+[node name="HellMode" type="Label" parent="." unique_id=1239541960]
 visible = false
 layout_mode = 0
 offset_top = 880.0
@@ -391,7 +390,7 @@ label_settings = SubResource("LabelSettings_vpk8s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UltraMode" type="Label" parent="."]
+[node name="UltraMode" type="Label" parent="." unique_id=445178974]
 visible = false
 layout_mode = 0
 offset_top = 976.0
@@ -402,9 +401,22 @@ label_settings = SubResource("LabelSettings_vpk8s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button6" type="Button" parent="." unique_id=1032465771]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.93900007
+anchor_right = 0.037
+anchor_bottom = 0.99500006
+offset_top = -0.12005615
+offset_right = -0.040000916
+offset_bottom = 0.39990234
+text = "???"
+script = ExtResource("2_5ggrp")
+
 [connection signal="pressed" from="Button5" to="Button5" method="_on_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
 [connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
 [connection signal="pressed" from="HellModeToggle" to="HellModeToggle" method="_on_pressed"]
+[connection signal="pressed" from="Button6" to="Button6" method="_on_pressed"]

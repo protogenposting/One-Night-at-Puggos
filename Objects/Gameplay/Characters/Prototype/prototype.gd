@@ -1,9 +1,13 @@
 extends "res://Objects/Gameplay/Characters/animatronic.gd"
 
+var spinSpeed : float = 0
+
 func _ready() -> void:
 	super()
 
 func _move():
+	spinSpeed = randf_range(-1,1)
+	
 	var roll = randi_range(1,20)
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PROTOTYPE]:
@@ -11,8 +15,6 @@ func _move():
 		
 		if progress == 1:
 			print("PROTOTYPE KILL")
-			
-			_jumpscare()
 		else:
 			$Arrive.play()
 			
@@ -30,11 +32,13 @@ func _move():
 			
 			display.add_child(newPanel)
 			
+			newPanel.speed = spinSpeed
+			
 			newPanel.position = Vector2(randf_range(-90,70),randf_range(-90,70))
 			
 			newPanel.z_index = 998
 			
-			newPanel.timeLeft = movementRate
+			newPanel.timeLeft = killTime
 			
 			var newIndicator : Sprite2D = $Indicator.duplicate()
 			
@@ -45,10 +49,14 @@ func _move():
 			newIndicator.z_index = 998
 			
 			newPanel.get_node("Button").button_down.connect(_reset.bind(newPanel,newIndicator))
+			
+			killTimer.start(killTime)
 	
 	super()
 
 func _reset(button,indicator):
+	killTimer.stop()
+	
 	button.queue_free()
 	
 	indicator.queue_free()

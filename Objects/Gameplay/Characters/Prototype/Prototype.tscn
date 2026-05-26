@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgfbjixt63hhq"]
+[gd_scene format=3 uid="uid://bgfbjixt63hhq"]
 
 [ext_resource type="Script" uid="uid://dts3ih4ybhpl4" path="res://Objects/Gameplay/Characters/Prototype/prototype.gd" id="1_3ubwf"]
 [ext_resource type="StyleBox" uid="uid://dm0a76ew8vw3h" path="res://Objects/Gameplay/Characters/Prototype/PrototypeUI.tres" id="2_nlkx4"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bi2x7ed6ux7jl" path="res://Objects/Gameplay/Characters/Prototype/Arrive.ogg" id="3_rg71w"]
 [ext_resource type="Texture2D" uid="uid://bmsr01i7lfp2y" path="res://Objects/Gameplay/Characters/Prototype/ERROR2.png" id="3_srblt"]
 [ext_resource type="StyleBox" uid="uid://b2iu0rcssbdxk" path="res://Objects/Gameplay/Characters/Prototype/PrototypeUIBUTTON.tres" id="4_7rhx1"]
+[ext_resource type="Script" uid="uid://craoobf38ibkq" path="res://Objects/Gameplay/Characters/Prototype/button.gd" id="5_7rhx1"]
 [ext_resource type="AudioStream" uid="uid://bw0fje6fu8kt0" path="res://Objects/Gameplay/Characters/Prototype/Pop-Up.ogg" id="5_i7nle"]
 [ext_resource type="AudioStream" uid="uid://bqg00cs53y1gn" path="res://Objects/Gameplay/Characters/Prototype/PopupAudio.ogg" id="7_y7qu1"]
 
@@ -1025,22 +1026,23 @@ func _on_button_pressed() -> void:
 font_size = 36
 font_color = Color(0, 1, 0, 1)
 
-[node name="Prototype" type="Node3D" node_paths=PackedStringArray("jumpscare")]
+[node name="Prototype" type="Node3D" unique_id=1420884504 node_paths=PackedStringArray("jumpscare")]
 script = ExtResource("1_3ubwf")
 jumpscare = NodePath("PrototypeJumpscare")
 movementRate = 14.0
+killTime = 14.0
 enemy = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1290314397]
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=540396236]
 visible = false
 offset_right = 512.0
 offset_bottom = 278.0
 theme_override_styles/panel = ExtResource("2_nlkx4")
 script = ExtResource("2_nu4hj")
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Button" type="Button" parent="Panel" unique_id=774827119]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 176.0
@@ -1048,8 +1050,9 @@ offset_right = 360.0
 offset_bottom = 240.0
 theme_override_styles/normal = ExtResource("4_7rhx1")
 text = "OK"
+script = ExtResource("5_7rhx1")
 
-[node name="d" type="Label" parent="Panel"]
+[node name="d" type="Label" parent="Panel" unique_id=93848087]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 32.0
@@ -1060,7 +1063,7 @@ label_settings = SubResource("LabelSettings_aj4tb")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="timer" type="Label" parent="Panel"]
+[node name="timer" type="Label" parent="Panel" unique_id=60447715]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 129.0
@@ -1071,40 +1074,38 @@ label_settings = SubResource("LabelSettings_nlkx4")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1630249029]
 position = Vector2(48, 40)
 texture = ExtResource("3_srblt")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Panel"]
+[node name="Sprite2D2" type="Sprite2D" parent="Panel" unique_id=193554393]
 position = Vector2(464, 40)
 texture = ExtResource("3_srblt")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Panel"]
+[node name="Sprite2D3" type="Sprite2D" parent="Panel" unique_id=1038534283]
 position = Vector2(464, 240)
 texture = ExtResource("3_srblt")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Panel"]
+[node name="Sprite2D4" type="Sprite2D" parent="Panel" unique_id=1104300863]
 position = Vector2(48, 240)
 texture = ExtResource("3_srblt")
 
-[node name="Indicator" type="Sprite2D" parent="."]
+[node name="Indicator" type="Sprite2D" parent="." unique_id=900599516]
 visible = false
 position = Vector2(1376, 1024)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_i7nle")
 script = SubResource("GDScript_i7nle")
 
-[node name="Arrive" type="AudioStreamPlayer" parent="."]
+[node name="Arrive" type="AudioStreamPlayer" parent="." unique_id=2098314402]
 stream = ExtResource("3_rg71w")
 volume_db = -17.174
 
-[node name="PrototypeJumpscare" type="AnimationPlayer" parent="."]
+[node name="PrototypeJumpscare" type="AnimationPlayer" parent="." unique_id=282342196]
 reset_on_save = false
-libraries = {
-&"": SubResource("AnimationLibrary_y7qu1")
-}
+libraries/ = SubResource("AnimationLibrary_y7qu1")
 
-[node name="Panel" type="Panel" parent="PrototypeJumpscare"]
+[node name="Panel" type="Panel" parent="PrototypeJumpscare" unique_id=511414372]
 z_index = 4096
 anchors_preset = -1
 anchor_right = 0.26700002
@@ -1114,7 +1115,7 @@ offset_bottom = 0.44000244
 theme_override_styles/panel = ExtResource("2_nlkx4")
 script = SubResource("GDScript_srblt")
 
-[node name="Label" type="Label" parent="PrototypeJumpscare/Panel"]
+[node name="Label" type="Label" parent="PrototypeJumpscare/Panel" unique_id=1788297256]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 146.0
@@ -1124,7 +1125,7 @@ label_settings = SubResource("LabelSettings_imcxq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PrototypeJumpscare/Panel"]
+[node name="Button" type="Button" parent="PrototypeJumpscare/Panel" unique_id=610402523]
 layout_mode = 0
 offset_left = 192.0
 offset_top = 168.0
@@ -1134,12 +1135,12 @@ theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = ExtResource("4_7rhx1")
 text = "TRY AGAIN!"
 
-[node name="PopUp" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel"]
+[node name="PopUp" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel" unique_id=1579183509]
 stream = ExtResource("5_i7nle")
 volume_db = -17.175
 max_polyphony = 5
 
-[node name="PopupAudio" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel"]
+[node name="PopupAudio" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel" unique_id=1003959476]
 stream = ExtResource("7_y7qu1")
 
 [connection signal="pressed" from="PrototypeJumpscare/Panel/Button" to="PrototypeJumpscare/Panel" method="_on_button_pressed"]

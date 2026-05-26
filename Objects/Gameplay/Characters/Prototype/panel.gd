@@ -12,6 +12,8 @@ var time = 0
 
 var timeLeft = 0
 
+var speed : float
+
 func _ready():
 	gameplay = get_tree().get_first_node_in_group("Gameplay")
 	
@@ -36,4 +38,4 @@ func _process(delta: float) -> void:
 		visible = false
 	
 	if EnemyAI.ultraMode:
-		global_position = center + Vector2(sin(time * 5) * 300,cos(time * 5) * 300)
+		global_position = center + Vector2(sin(time * 5 * speed) * 300,cos(time * 5) * 300)
