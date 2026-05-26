@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x2fpwdciwnmw"
+path="res://.godot/imported/THE FORSAKEN SONG - (Original Roblox song) - SCARIEST SONG IN DECADES!!!!!.mp3-02fce205317cf2e225fe06200ad57cc3.mp3str"
+
+[deps]
+
+source_file="res://Audio/THE FORSAKEN SONG - (Original Roblox song) - SCARIEST SONG IN DECADES!!!!!.mp3"
+dest_files=["res://.godot/imported/THE FORSAKEN SONG - (Original Roblox song) - SCARIEST SONG IN DECADES!!!!!.mp3-02fce205317cf2e225fe06200ad57cc3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

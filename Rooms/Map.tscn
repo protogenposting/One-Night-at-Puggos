@@ -162,7 +162,7 @@ script/source = "extends Label
 
 func _process(delta: float) -> void:
 	var min = floor(EnemyAI.time / 60.0)
-	var sec = int(round(EnemyAI.time)) % 60
+	var sec = int(floor(EnemyAI.time)) % 60
 	text = \"%02d : %02d\" % [min, sec]
 "
 
@@ -178,7 +178,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group(\"Player\")
 
 func _process(delta: float) -> void:
-	text = str(int(player.battery)) + \"%\"
+	if player != null:
+		text = str(int(player.battery)) + \"%\"
 "
 
 [node name="CSGCombiner3D" type="CSGCombiner3D"]
@@ -1247,5 +1248,6 @@ texture = ExtResource("22_nkds2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 94.85423, 1.0915871)
+visible = false
 omni_range = 206.0
 omni_attenuation = -0.503

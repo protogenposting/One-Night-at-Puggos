@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7t5rm0e34k13"]
+[gd_scene load_steps=21 format=3 uid="uid://7t5rm0e34k13"]
 
 [ext_resource type="PackedScene" uid="uid://drb7xj3kdlxnf" path="res://Objects/Menu/CharacterAiSlider.tscn" id="1_vpk8s"]
 
@@ -10,16 +10,91 @@ func _ready() -> void:
 		$AnimationPlayer.play(\"activate\")
 
 func _process(delta: float) -> void:
+	$HellMode.visible = EnemyAI.hellMode
+	
 	if !EnemyAI.ultraMode:
+		$UltraMode.visible = false
+		
 		if Input.is_action_just_pressed(\"UltraMode\"):
 			EnemyAI.ultraMode = true
 			
 			$AnimationPlayer.play(\"activate\")
 	else:
+		$UltraMode.visible = true
+		
 		if Input.is_action_just_pressed(\"UltraMode\"):
 			EnemyAI.ultraMode = false
 			
 			$AnimationPlayer.play(\"RESET\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ggrp"]
+font_size = 41
+
+[sub_resource type="GDScript" id="GDScript_dhg6o"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.tripleTrouble
+
+func _process(delta: float) -> void:
+	EnemyAI.tripleTrouble = button_pressed
+"
+
+[sub_resource type="GDScript" id="GDScript_3mkl3"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.fasterDrain
+
+func _process(delta: float) -> void:
+	EnemyAI.fasterDrain = button_pressed
+"
+
+[sub_resource type="GDScript" id="GDScript_2flak"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.grinchVideo
+
+func _process(delta: float) -> void:
+	EnemyAI.grinchVideo = button_pressed
+"
+
+[sub_resource type="GDScript" id="GDScript_8otfs"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.wackyCharacters
+
+func _process(delta: float) -> void:
+	EnemyAI.wackyCharacters = button_pressed
+"
+
+[sub_resource type="GDScript" id="GDScript_6qse1"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.pursuing
+
+func _process(delta: float) -> void:
+	EnemyAI.pursuing = button_pressed
+"
+
+[sub_resource type="GDScript" id="GDScript_buwwn"]
+script/source = "extends CheckBox
+
+
+func _ready() -> void:
+	button_pressed = EnemyAI.bounceKidd
+
+func _process(delta: float) -> void:
+	EnemyAI.bounceKidd = button_pressed
 "
 
 [sub_resource type="GDScript" id="GDScript_822us"]
@@ -58,12 +133,19 @@ func _on_pressed() -> void:
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpk8s"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="GDScript" id="GDScript_m8edw"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	for i in get_parent().get_node(\"HBoxContainer\").get_children():
+		i.slider.value = 20
+"
+
 [sub_resource type="GDScript" id="GDScript_7co3a"]
 script/source = "extends Button
 
 func _on_pressed() -> void:
-	for character in get_parent().get_node(\"HBoxContainer\").get_children():
-		character.slider.value = 20
+	EnemyAI.hellMode = !EnemyAI.hellMode
 "
 
 [sub_resource type="Animation" id="Animation_5ggrp"]
@@ -84,7 +166,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_vpk8s"]
 resource_name = "activate"
 length = 10.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,10 +173,10 @@ tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06666667, 5.1, 9.933333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.06666667, 1.4000001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.76862746), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.76862746)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ggrp"]
@@ -103,6 +184,11 @@ _data = {
 &"RESET": SubResource("Animation_5ggrp"),
 &"activate": SubResource("Animation_vpk8s")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpk8s"]
+font_size = 51
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -112,6 +198,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_4wlhj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1616.0
+offset_right = 1917.0
+offset_bottom = 571.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CHALLENGES"
+label_settings = SubResource("LabelSettings_5ggrp")
+
+[node name="TripleTroubleCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Adds 2 more prototypes with a random offset."
+theme_override_font_sizes/font_size = 31
+text = "Megahack"
+script = SubResource("GDScript_dhg6o")
+
+[node name="FasterDrainCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Flashlight drains 5x faster."
+theme_override_font_sizes/font_size = 31
+text = "Faster Drain"
+script = SubResource("GDScript_3mkl3")
+
+[node name="GrinchVideo" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Puggo has a 0 second kill timer."
+theme_override_font_sizes/font_size = 31
+text = "The Grinch Video"
+script = SubResource("GDScript_2flak")
+
+[node name="WackyCharactersCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Pursuer and phil both have a 0-10 second offset."
+theme_override_font_sizes/font_size = 31
+text = "Wacky Characters"
+script = SubResource("GDScript_8otfs")
+
+[node name="PursuingCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Pursuer can move like phil."
+theme_override_font_sizes/font_size = 31
+text = "Pursuing"
+script = SubResource("GDScript_6qse1")
+
+[node name="BounceKiddCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "He bounces..."
+theme_override_font_sizes/font_size = 31
+text = "Bounce Kidd"
+script = SubResource("GDScript_buwwn")
 
 [node name="HBoxContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -162,6 +301,11 @@ layout_mode = 2
 enemyName = "C00lkidd"
 enemyID = 6
 
+[node name="CharacterAiSlider8" parent="HBoxContainer" instance=ExtResource("1_vpk8s")]
+layout_mode = 2
+enemyName = "##### ####"
+enemyID = 7
+
 [node name="Button5" type="Button" parent="."]
 layout_mode = 0
 offset_left = 56.0
@@ -208,6 +352,18 @@ theme_override_colors/font_color = Color(0.31881967, 0.01836937, 0.01560553, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpk8s")
 text = "ALL 20"
+script = SubResource("GDScript_m8edw")
+
+[node name="HellModeToggle" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1657.0
+offset_top = 1014.0
+offset_right = 1913.0
+offset_bottom = 1078.0
+theme_override_colors/font_color = Color(0.31881967, 0.01836937, 0.01560553, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpk8s")
+text = "Hell Mode"
 script = SubResource("GDScript_7co3a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -222,9 +378,33 @@ offset_right = 2080.0
 offset_bottom = 1360.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="HellMode" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 880.0
+offset_right = 436.0
+offset_bottom = 975.0
+text = "Hell Mode active"
+label_settings = SubResource("LabelSettings_vpk8s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UltraMode" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 976.0
+offset_right = 288.0
+offset_bottom = 1071.0
+text = "Ultra Mode active"
+label_settings = SubResource("LabelSettings_vpk8s")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button5" to="Button5" method="_on_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
 [connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
+[connection signal="pressed" from="HellModeToggle" to="HellModeToggle" method="_on_pressed"]

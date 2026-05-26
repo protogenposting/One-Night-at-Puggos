@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://el8pmtmt32pr"]
+
+[ext_resource type="AudioStream" uid="uid://x2fpwdciwnmw" path="res://Audio/THE FORSAKEN SONG - (Original Roblox song) - SCARIEST SONG IN DECADES!!!!!.mp3" id="1_fqvjr"]
+
+[sub_resource type="GDScript" id="GDScript_wilij"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	EnemyAI.isInMenu = true
+	
+	get_tree().create_timer(6).timeout.connect(_leave)
+
+func _leave():
+	print(\"leaving\")
+	get_tree().change_scene_to_file(\"res://Rooms/MainMenu.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_wilij"]
+font_size = 186
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Win" type="Node2D" unique_id=102503324]
+script = SubResource("GDScript_wilij")
+
+[node name="Label" type="Label" parent="." unique_id=166131062]
+offset_left = 699.0
+offset_top = 333.0
+offset_right = 1181.0
+offset_bottom = 610.0
+text = "u win"
+label_settings = SubResource("LabelSettings_wilij")
+
+[node name="TheForsakenSong(originalRobloxSong)ScariestSongInDecades!!!!!" type="AudioStreamPlayer" parent="." unique_id=1862329996]
+stream = ExtResource("1_fqvjr")
+autoplay = true

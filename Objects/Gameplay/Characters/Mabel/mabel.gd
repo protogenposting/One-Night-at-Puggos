@@ -10,10 +10,17 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	
 	get_tree().create_timer(0.5).timeout.connect(_pushback)
+	
+	player.flash.connect(_flash)
+
+func _flash():
+	progress -= 2
 
 func _pushback():
 	if player.currentHallway == currentHallway && currentHallway != -1 && player.flashlightIsOn && !player.camsAreUp:
 		progress -= 1
+		
+		killTimer.stop()
 		
 		if progress < 4:
 			progress = 0
@@ -25,8 +32,10 @@ func _move():
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.MABEL]:
 		if progress == 9:
-			_jumpscare()
+			killTimer.start(0.3)
 		else:
+			$SpriteParent/Move.play(3)
+			
 			progress += 1
 			
 			if EnemyAI.ultraMode && progress < 9:
@@ -46,3 +55,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
 		currentHallway = -1
+
+func _jumpscare():
+	if !player.maskUp:
+		super()
+	else:
+		killTimer.start(0.1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c8856y456xj6i"]
+[gd_scene load_steps=53 format=3 uid="uid://c8856y456xj6i"]
 
 [ext_resource type="Script" uid="uid://c5pyvd503vytj" path="res://Objects/Gameplay/player.gd" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://dn4iri557njwg" path="res://Objects/Gameplay/PlayerBall.tscn" id="2_0yla3"]
@@ -7,10 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dtomvubyse1fm" path="res://Assets/Slingshot/SLINGSHOT.png" id="4_3ilfp"]
 [ext_resource type="Texture2D" uid="uid://c611us2hmwlsf" path="res://Assets/Slingshot/FLASHLIGHT.png" id="5_178h0"]
 [ext_resource type="Texture2D" uid="uid://d0dhbj38oqt20" path="res://Assets/Slingshot/BALL1.png" id="5_ro3es"]
+[ext_resource type="Texture2D" uid="uid://dxwg5x3vs0ekm" path="res://Assets/DECOR/AAANNIE.png" id="8_b1e8r"]
 [ext_resource type="AudioStream" uid="uid://dt8ml22r3gn8w" path="res://Audio/ITEMS/Flashlight_Trigger.wav" id="8_hfxaj"]
 [ext_resource type="Texture2D" uid="uid://cqu6daucmou6r" path="res://Assets/Slingshot/BALL3.png" id="8_vo0td"]
 [ext_resource type="Texture2D" uid="uid://hsomkss0e4jj" path="res://Assets/MASK.png" id="9_hfxaj"]
 [ext_resource type="AudioStream" uid="uid://dgqrpm3o18u18" path="res://Audio/ITEMS/Sling_Reload.wav" id="10_qfpbj"]
+[ext_resource type="AudioStream" uid="uid://cqd8qmvlbvlui" path="res://Audio/CAMERA/Camera_ScreenEnter.wav" id="12_b1e8r"]
+[ext_resource type="AudioStream" uid="uid://baqm82ujs68cj" path="res://Audio/CAMERA/Camera_ScreenExit.wav" id="13_2etov"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0rwas"]
 height = 20.0
@@ -596,6 +599,15 @@ texture = ExtResource("5_ro3es")
 layout_mode = 2
 texture = ExtResource("5_ro3es")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1404.0
+offset_top = 668.0
+offset_right = 1491.0
+offset_bottom = 764.0
+step = 0.01
+fill_mode = 4
+texture_progress = ExtResource("8_b1e8r")
+
 [node name="Light" type="AnimatedSprite2D" parent="."]
 position = Vector2(1594, 866.00006)
 scale = Vector2(4.4008265, 4.4008265)
@@ -607,10 +619,6 @@ reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_qfpbj")
 }
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 
 [node name="Flash" type="OmniLight3D" parent="."]
 light_energy = 0.0
@@ -645,5 +653,10 @@ stream = ExtResource("8_hfxaj")
 [node name="SlingReload" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_qfpbj")
 
-[connection signal="area_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_area_exited"]
+[node name="sfx" type="Node" parent="."]
+
+[node name="CameraScreenEnter" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("12_b1e8r")
+
+[node name="CameraScreenExit" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("13_2etov")

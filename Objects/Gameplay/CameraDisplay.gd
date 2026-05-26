@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 func _change_cam(id):
 	gameplay.camID = id
 	
+	$CameraScreenSwitch.play()
+	
 	$AnimationPlayer.play("move")
 
 func _open():

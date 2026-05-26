@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgfbjixt63hhq"]
+[gd_scene load_steps=17 format=3 uid="uid://bgfbjixt63hhq"]
 
 [ext_resource type="Script" uid="uid://dts3ih4ybhpl4" path="res://Objects/Gameplay/Characters/Prototype/prototype.gd" id="1_3ubwf"]
 [ext_resource type="StyleBox" uid="uid://dm0a76ew8vw3h" path="res://Objects/Gameplay/Characters/Prototype/PrototypeUI.tres" id="2_nlkx4"]
@@ -12,6 +12,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_aj4tb"]
 font_size = 39
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlkx4"]
+font_size = 174
 font_color = Color(0, 1, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_i7nle"]
@@ -1011,6 +1015,10 @@ func _clone():
 	add_sibling(child)
 	
 	child.visible = true
+
+
+func _on_button_pressed() -> void:
+	queue_free()
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_imcxq"]
@@ -1028,7 +1036,7 @@ enemy = 1
 [node name="Panel" type="Panel" parent="."]
 visible = false
 offset_right = 512.0
-offset_bottom = 280.0
+offset_bottom = 278.0
 theme_override_styles/panel = ExtResource("2_nlkx4")
 script = ExtResource("2_nu4hj")
 
@@ -1041,7 +1049,7 @@ offset_bottom = 240.0
 theme_override_styles/normal = ExtResource("4_7rhx1")
 text = "OK"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="d" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 32.0
@@ -1049,6 +1057,17 @@ offset_right = 464.0
 offset_bottom = 233.0
 text = "CLICK BELOW TO NOT BE HACKED!"
 label_settings = SubResource("LabelSettings_aj4tb")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="timer" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 129.0
+offset_right = 457.0
+offset_bottom = 330.0
+text = "10"
+label_settings = SubResource("LabelSettings_nlkx4")
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -1122,3 +1141,5 @@ max_polyphony = 5
 
 [node name="PopupAudio" type="AudioStreamPlayer" parent="PrototypeJumpscare/Panel"]
 stream = ExtResource("7_y7qu1")
+
+[connection signal="pressed" from="PrototypeJumpscare/Panel/Button" to="PrototypeJumpscare/Panel" method="_on_button_pressed"]

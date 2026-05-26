@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://qwdi221nhbw3"]
+
+[ext_resource type="PackedScene" uid="uid://c6g6ekq7skhxh" path="res://Rooms/Map.tscn" id="1_7lc1f"]
+
+[sub_resource type="Animation" id="Animation_7lc1f"]
+resource_name = "play"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.73, 7.623903, 14.566667, 14.58),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(34.30844, 2.7855234, -65.930084), Vector3(3.9705358, 2.7855234, -50.41259), Vector3(0.17336321, 2.7855234, -18.822048), Vector3(0.17336273, 2.7855234, -1.4545174), Vector3(0.17336273, 2.7855234, -1.4545174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.6790805, 0), Vector3(0, 3.0544834, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_big2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(34.30844, 2.7855234, -65.930084)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.9345889, 2.679953, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qbgh"]
+_data = {
+&"RESET": SubResource("Animation_big2f"),
+&"play": SubResource("Animation_7lc1f")
+}
+
+[node name="Trailer" type="Node3D"]
+
+[node name="CSGCombiner3D" parent="." instance=ExtResource("1_7lc1f")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5qbgh")
+}
+autoplay = "play"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.8953234, -0.35827306, 0.2646439, 0, 0.5941491, 0.8043549, -0.44541663, 0.72015774, -0.5319556, 34.30844, 2.7855234, -65.930084)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+spot_range = 15.487

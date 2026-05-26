@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dd147onvpx8hs"]
+[gd_scene load_steps=25 format=3 uid="uid://dd147onvpx8hs"]
 
 [ext_resource type="PackedScene" uid="uid://c8856y456xj6i" path="res://Objects/Gameplay/Player.tscn" id="1_inlal"]
 [ext_resource type="Script" uid="uid://d24s1gtlcr10k" path="res://Rooms/gameplay.gd" id="1_vrd06"]
@@ -12,8 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bb8f4hatlsgr" path="res://Objects/Gameplay/Characters/Pursuer/Pursuer.tscn" id="9_rmay0"]
 [ext_resource type="PackedScene" uid="uid://5ha1bkq5yd5w" path="res://Objects/Gameplay/Characters/Mabel/Mabel.tscn" id="10_2pxta"]
 [ext_resource type="PackedScene" uid="uid://ceuq3ml6cqcrv" path="res://Objects/Gameplay/Characters/C00lkidd/C00lkidd.tscn" id="11_l66n0"]
-[ext_resource type="AudioStream" uid="uid://cpwuruhcsuj5w" path="res://Audio/Music/Shatter the Pantheon! [U4u3aCEAMks].mp3" id="13_r3naa"]
+[ext_resource type="PackedScene" uid="uid://cyw6n3em8wdgp" path="res://Objects/Gameplay/Characters/BrownPhil/BrownPhil.tscn" id="12_0jm5f"]
+[ext_resource type="AudioStream" uid="uid://cwbblvomdeaav" path="res://Audio/Music/ONAPmaxmode.ogg" id="14_eatwt"]
 [ext_resource type="AudioStream" uid="uid://p6052eo3x8sg" path="res://Audio/Music/mus_escape.ogg" id="14_uiipg"]
+[ext_resource type="AudioStream" uid="uid://ba1uuf6b0hpsu" path="res://Audio/Music/HellModeONAP.ogg" id="15_eatwt"]
+[ext_resource type="AudioStream" uid="uid://dl8v0wvp57q8r" path="res://Audio/intro.mp3" id="16_agm4a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52vuk"]
 size = Vector3(3.998806, 6.9594727, 15.804199)
@@ -22,15 +25,29 @@ size = Vector3(3.998806, 6.9594727, 15.804199)
 size = Vector3(9.055527, 6.9594727, 15.296875)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5nrd"]
-size = Vector3(3.0533886, 3.1496582, 21.805298)
+size = Vector3(10, 8, 21.805298)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60v3t"]
 size = Vector3(3, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_agm4a"]
+text = "BIG GAY AMMO BOX
+CLICK FOR AMMO"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60v3t"]
 disable_ambient_light = true
 albedo_color = Color(0, 0, 0, 1)
 disable_receive_shadows = true
+
+[sub_resource type="GDScript" id="GDScript_eatwt"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if !EnemyAI.nightScaling:
+		queue_free()
+"
 
 [node name="Gameplay" type="Node3D" groups=["Gameplay"]]
 script = ExtResource("1_vrd06")
@@ -295,6 +312,27 @@ transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7
 character = 5
 id = 9
 
+[node name="BrownPhilPositions" type="Node3D" parent="."]
+
+[node name="CharacterPosition" parent="BrownPhilPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -5.3545914, 0.8730928, 2.082903)
+character = 7
+
+[node name="CharacterPosition2" parent="BrownPhilPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -8.354591, 0.8730928, -3.917097)
+character = 7
+id = 1
+
+[node name="CharacterPosition3" parent="BrownPhilPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, -0.35459137, 0.8730928, -8.917097)
+character = 7
+id = 2
+
+[node name="CharacterPosition4" parent="BrownPhilPositions" instance=ExtResource("3_blq5q")]
+transform = Transform3D(-0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, -0.7071066, 8.645409, 0.8730928, -3.917097)
+character = 7
+id = 3
+
 [node name="Characters" type="Node3D" parent="."]
 
 [node name="Sleepy" parent="Characters" instance=ExtResource("6_52vuk")]
@@ -308,6 +346,8 @@ id = 9
 [node name="Mabel" parent="Characters" instance=ExtResource("10_2pxta")]
 
 [node name="c00lkidd" parent="Characters" instance=ExtResource("11_l66n0")]
+
+[node name="BrownPhil" parent="Characters" instance=ExtResource("12_0jm5f")]
 
 [node name="Area3D" type="Area3D" parent="." groups=["Hallway"]]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -8, 0, -2.655516)
@@ -332,7 +372,7 @@ script = ExtResource("6_tk5m8")
 hallwayID = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(0.99996954, 0, 0, 0, 1, 0, 0, 0, 0.99996954, 0.6328552, 2.5935059, -10.071341)
+transform = Transform3D(0.9999542, 0, 0, 0, 1, 0, 0, 0, 0.9999542, 0.15955868, 3.0186768, -10.071323)
 shape = SubResource("BoxShape3D_k5nrd")
 
 [node name="Area3D5" type="Area3D" parent="." groups=["Hallway"]]
@@ -344,15 +384,19 @@ hallwayID = 10
 transform = Transform3D(0.99994135, 0, 0, 0, 1, 0, 0, 0, 0.99994135, 0.85699433, 3.5614014, -10.071341)
 shape = SubResource("BoxShape3D_k5nrd")
 
-[node name="Area3D4" type="Area3D" parent="." groups=["AmmoBox"]]
+[node name="AmmoBox" type="Area3D" parent="." groups=["AmmoBox"]]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.35139656, 0, -0.97999144)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AmmoBox"]
 transform = Transform3D(0.99994415, 0, 0, 0, 1, 0, 0, 0, 0.99994415, 2.5100236, 1.6137695, 8.330947)
 shape = SubResource("BoxShape3D_60v3t")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Area3D4/CollisionShape3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="AmmoBox/CollisionShape3D"]
 size = Vector3(3, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AmmoBox/CollisionShape3D/CSGBox3D"]
+transform = Transform3D(-0.9133537, 0, -0.40716714, 0, 1, 0, 0.40716714, 0, -0.9133537, 0, 0.70263195, 0)
+mesh = SubResource("TextMesh_agm4a")
 
 [node name="SHADOW" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.9802322e-08, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, -2.9802322e-08, 1.296401e-06, 3, -26)
@@ -373,9 +417,18 @@ size = Vector3(2, 12, 16)
 material = SubResource("StandardMaterial3D_60v3t")
 
 [node name="All20Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_r3naa")
+stream = ExtResource("14_eatwt")
 volume_db = -7.633
+
+[node name="HellTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_eatwt")
+volume_db = -3.816
 
 [node name="NormalTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_uiipg")
 volume_db = -16.22
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_agm4a")
+autoplay = true
+script = SubResource("GDScript_eatwt")

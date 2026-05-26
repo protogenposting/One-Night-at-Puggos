@@ -23,6 +23,9 @@ var currentHallway : int = -1
 var killTimer : Timer
 
 func _ready() -> void:
+	if EnemyAI.hellMode:
+		movementRate /= 2
+	
 	killTimer = Timer.new()
 	
 	add_child(killTimer)

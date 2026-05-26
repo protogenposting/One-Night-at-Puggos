@@ -33,6 +33,9 @@ func _move():
 		button.queue_free()
 		
 		alive = false
+		
+		if EnemyAI.killerPomni:
+			_jumpscare()
 	else:
 		super()
 

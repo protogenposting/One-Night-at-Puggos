@@ -30,9 +30,11 @@ func _move():
 			
 			display.add_child(newPanel)
 			
-			newPanel.position = Vector2(randf_range(-70,70),randf_range(-70,70))
+			newPanel.position = Vector2(randf_range(-90,70),randf_range(-90,70))
 			
 			newPanel.z_index = 998
+			
+			newPanel.timeLeft = movementRate
 			
 			var newIndicator : Sprite2D = $Indicator.duplicate()
 			
@@ -50,6 +52,8 @@ func _reset(button,indicator):
 	button.queue_free()
 	
 	indicator.queue_free()
+	
+	get_tree().get_first_node_in_group("Player").battery += 5
 	
 	progress = 0
 	

@@ -54,6 +54,8 @@ func _input(event: InputEvent) -> void:
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x,deg_to_rad(-70),deg_to_rad(70))
 
 func _ready() -> void:
+	EnemyAI.isInMenu = false
+	
 	EnemyAI.playerKilled = false
 	
 	$Light.play("off")
@@ -66,10 +68,21 @@ func _process(delta: float) -> void:
 	if EnemyAI.playerKilled:
 		return
 	
+	currentHallway = -1
+	
+	ammoBoxSelected = false
+	
+	for area in $Camera3D/Area3D.get_overlapping_areas():
+		if area.is_in_group("Hallway"):
+			currentHallway = area.hallwayID
+		
+		if area.is_in_group("AmmoBox"):
+			ammoBoxSelected = true
+	
 	if camsAreUp:
 		flashlightIsOn = false
 		
-		battery -= delta * 0.04
+		battery -= delta * 0.1
 		
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
@@ -79,11 +92,17 @@ func _process(delta: float) -> void:
 		
 		$Crosshair.visible = true
 	
-	if Input.is_action_just_pressed("Cameras") && !maskUp:
+	if Input.is_action_just_pressed("Cameras"):
+		maskUp = false
+		
 		camsAreUp = !camsAreUp
 		
 		if camsAreUp:
+			$sfx/CameraScreenEnter.play()
+			
 			$Cams/CurrentCamDisplay._open()
+		else:
+			$sfx/CameraScreenExit.play()
 		
 		$Cams/CurrentCamDisplay.camsAreUp = camsAreUp
 		
@@ -137,7 +156,7 @@ func _process(delta: float) -> void:
 				
 				ammo -= 1
 				
-				get_tree().create_timer(0.2).timeout.connect(_reset_slingshot)
+				get_tree().create_timer(0.01).timeout.connect(_reset_slingshot)
 				
 				var ball = slingshotBall.instantiate()
 				
@@ -158,7 +177,11 @@ func _process(delta: float) -> void:
 				
 				$Light/AnimationPlayer.play("Shake")
 				
+				$TextureProgressBar.value = (flashlightHoldTime / 0.75) * 100
+				
 				if flashlightHoldTime > 0.75:
+					$TextureProgressBar.value = 0
+					
 					flashLightShouldShake = false
 					
 					flashlightHoldTime = -2
@@ -199,11 +222,13 @@ func _process(delta: float) -> void:
 						$Light.play("off")
 			
 			flashlightHoldTime = 0
+	
+	if Input.is_action_just_pressed("Mask"):
+		camsAreUp = false
 		
-		if Input.is_action_just_pressed("Mask"):
-			maskUp = !maskUp
-			
-			flashlightIsOn = false
+		maskUp = !maskUp
+		
+		flashlightIsOn = false
 	
 	if battery <= 0:
 		flashlightIsOn = false
@@ -211,7 +236,10 @@ func _process(delta: float) -> void:
 		flashlightHoldTime = 0
 	
 	if flashlightIsOn:
-		battery -= delta * 0.2
+		battery -= delta * 0.25
+		
+		if EnemyAI.fasterDrain:
+			battery -= delta * 2
 		
 		$Camera3D/SpotLight3D.visible = true
 	else:
@@ -230,19 +258,3 @@ func _on_flash():
 	$Light.play("shake")
 	
 	flashLightShouldShake = true
-
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.is_in_group("Hallway"):
-		currentHallway = area.hallwayID
-		
-		print(currentHallway)
-	
-	if area.is_in_group("AmmoBox"):
-		ammoBoxSelected = true
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.is_in_group("Hallway"):
-		currentHallway = -1
-	
-	if area.is_in_group("AmmoBox"):
-		ammoBoxSelected = false

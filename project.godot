@@ -8,16 +8,20 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="One Night At Puggos"
 run/main_scene="uid://cp07ulj888x7l"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-EnemyAI="*res://GLOBALS/enemy_ai.gd"
+EnemyAI="*res://Objects/enemy_ai.gd"
 
 [display]
 
@@ -25,6 +29,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="/home/protogenposting/Documents/GitHub/one-night-at-puggos/funny.avi"
 
 [global_group]
 

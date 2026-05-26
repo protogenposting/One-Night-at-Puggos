@@ -50,6 +50,9 @@ collision_layer = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteParent/Mabel/Area3D"]
 shape = SubResource("BoxShape3D_igq1s")
 
+[node name="Move" type="AudioStreamPlayer3D" parent="SpriteParent"]
+stream = ExtResource("3_wac0o")
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MabelJumpscare" type="AnimationPlayer" parent="."]

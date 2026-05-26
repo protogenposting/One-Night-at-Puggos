@@ -2,8 +2,13 @@ extends "res://Objects/Gameplay/Characters/animatronic.gd"
 
 var player : Node3D
 
+var animation = "attack"
+
 func _ready() -> void:
 	super()
+	
+	if EnemyAI.bounceKidd:
+		animation = "attack_bounce"
 	
 	player = get_tree().get_first_node_in_group("Player")
 
@@ -12,22 +17,23 @@ func _move():
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.C00LKIDD]:
 		if !EnemyAI.ultraMode:
-			$AnimationPlayer.play("attack")
+			$AnimationPlayer.play(animation)
 			
 			super()
 		else:
-			$AnimationPlayer.play_section("attack",10.4)
+			$AnimationPlayer.play_section(animation,10.3)
 			
 			timer.start(15)
 	else:
 		super()
 
-func _kill_check():
+func _kill_check(reset : bool = true):
 	if !player.maskUp:
 		_jumpscare()
 		
 		$C00KiddKillhit.play()
 	else:
-		$AnimationPlayer.play("idle")
+		if reset:
+			$AnimationPlayer.play("idle")
 		
 		$C00KiddKillFail.play()

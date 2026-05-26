@@ -5,6 +5,9 @@ var health = 4
 func _ready() -> void:
 	super()
 	
+	if EnemyAI.wackyCharacters:
+		timer.wait_time += randf_range(0,10)
+	
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 
 func _move():
@@ -39,7 +42,17 @@ func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	print(currentHallway)
 	
 	if hallwayID == currentHallway:
+		if EnemyAI.pursuing:
+			var oldProgress = progress
+			
+			progress = randi_range(5,6)
+			
+			if progress != oldProgress:
+				$Stalk3.play()
+		
 		health -= slingshotTier
+		
+		$SndPop.play()
 		
 		if health <= 0:
 			_reset()
@@ -47,10 +60,6 @@ func _slingshot_shot(slingshotTier : int, hallwayID : int):
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Hallway"):
 		currentHallway = area.hallwayID
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.is_in_group("Hallway"):
-		currentHallway = -1
 
 func _reset():
 	killTimer.stop()
@@ -60,3 +69,5 @@ func _reset():
 	timer.stop()
 	
 	timer.start(1)
+	
+	currentHallway = -1

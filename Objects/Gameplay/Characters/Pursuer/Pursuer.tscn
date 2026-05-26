@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb8f4hatlsgr"]
+[gd_scene load_steps=12 format=3 uid="uid://bb8f4hatlsgr"]
 
 [ext_resource type="Script" uid="uid://nkqnikm3mtve" path="res://Objects/Gameplay/Characters/Pursuer/pursuer.gd" id="1_dn6e1"]
 [ext_resource type="Texture2D" uid="uid://cxrrsoi45swb2" path="res://Objects/Gameplay/Characters/Pursuer/PURSUER.png" id="2_g2jjh"]
 [ext_resource type="Texture2D" uid="uid://bksfppa48gfsf" path="res://Objects/Gameplay/Characters/Pursuer/freshmeat.webp" id="2_wki8r"]
 [ext_resource type="AudioStream" uid="uid://dwa5v7tk8dtcy" path="res://Objects/Gameplay/Characters/Pursuer/ahhh.mp3" id="3_dn6e1"]
 [ext_resource type="AudioStream" uid="uid://d33v1l0teyr6e" path="res://Objects/Gameplay/Characters/Pursuer/PursuerHowl.mp3.mp3" id="4_wki8r"]
+[ext_resource type="AudioStream" uid="uid://bih8rh7hwom2j" path="res://Objects/Gameplay/Characters/Pursuer/Stalk3.ogg" id="5_pcgk7"]
+[ext_resource type="AudioStream" uid="uid://bhhwm67wvmkv3" path="res://Objects/Gameplay/Characters/BrownPhil/snd_pop.mp3" id="6_305ga"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igq1s"]
 
@@ -131,11 +133,19 @@ shape = SubResource("BoxShape3D_igq1s")
 
 [node name="sfx" type="AudioStreamPlayer3D" parent="SpriteParent/Pursuer"]
 stream = ExtResource("3_dn6e1")
+volume_db = 7.339
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="PursuerHowl_mp3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wki8r")
+
+[node name="Stalk3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pcgk7")
+volume_db = -3.628
+
+[node name="SndPop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_305ga")
 
 [node name="PursuerJumpscare" type="AnimationPlayer" parent="."]
 libraries = {

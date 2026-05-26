@@ -5,6 +5,9 @@ var damageTaken : float = 0
 func _ready() -> void:
 	super()
 	
+	if EnemyAI.grinchVideo:
+		killTime = 0.1
+	
 	get_tree().get_first_node_in_group("Player").shotSlingshot.connect(_slingshot_shot)
 
 func _move():
@@ -15,6 +18,8 @@ func _move():
 	
 	if roll <= EnemyAI.enemyAiValues[EnemyAI.ENEMIES.PUGGO]:
 		_flash()
+		
+		$SpriteParent/Puggo/AudioStreamPlayer3D.pitch_scale = 0.9 + progress / 5
 		
 		$SpriteParent/Puggo/AudioStreamPlayer3D.play()
 		
@@ -39,6 +44,8 @@ func _move():
 func _slingshot_shot(slingshotTier : int, hallwayID : int):
 	if hallwayID == currentHallway:
 		damageTaken += slingshotTier
+		
+		$SndPop.play()
 		
 		if damageTaken >= 15:
 			_reset()

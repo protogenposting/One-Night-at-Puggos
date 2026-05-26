@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ceuq3ml6cqcrv"]
+[gd_scene load_steps=22 format=3 uid="uid://ceuq3ml6cqcrv"]
 
 [ext_resource type="Script" uid="uid://df507slxuvp42" path="res://Objects/Gameplay/Characters/C00lkidd/c00lkidd.gd" id="1_7gijv"]
 [ext_resource type="Texture2D" uid="uid://dco8suxim1fq4" path="res://Objects/Gameplay/Characters/C00lkidd/C00lKidd-Sheet.png" id="2_glgrt"]
@@ -60,6 +60,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteParent/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_y6tvf"]
 resource_name = "attack"
@@ -71,7 +83,7 @@ tracks/0/path = NodePath("SpriteParent:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10.433333, 11.2333),
+"times": PackedFloat32Array(0, 10.433333, 11.6933),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -100), Vector3(0, 0, -100), Vector3(0, 0, 0)]
@@ -111,7 +123,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(11.233334),
+"times": PackedFloat32Array(11.6933),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -133,6 +145,96 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_h2w85"]
+resource_name = "attack_bounce"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10.433333, 11.66, 12.54, 13.8),
+"transitions": PackedFloat32Array(1, 1, 0.23325826, 4.141059, 1),
+"update": 0,
+"values": [Vector3(0, 0, -100), Vector3(0, 0, -100), Vector3(0, 0, 0), Vector3(0, 0, -19.484), Vector3(0, 0, -0.169)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("C00KiddPreparing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("C00KiddReady")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11.66, 13.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"_kill_check"
+}, {
+"args": [true],
+"method": &"_kill_check"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("C00KiddCharging")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.4, 12.54),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.04],
+"method": &"play"
+}, {
+"args": [0.04],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteParent/AnimatedSprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11.666667, 12.566667, 13.8),
+"transitions": PackedFloat32Array(1.0352654, 3.8637443, 1),
+"update": 0,
+"values": [Vector3(0, 3, 0), Vector3(26.405, 3, 0), Vector3(4.625, 3, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_glgrt"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -152,14 +254,43 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_cvulh"),
 &"attack": SubResource("Animation_y6tvf"),
+&"attack_bounce": SubResource("Animation_h2w85"),
 &"idle": SubResource("Animation_glgrt")
+}
+
+[sub_resource type="Animation" id="Animation_utxkc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jumpscare/AnimatedSprite2D2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_dn6e1"]
 resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jumpscare/AnimatedSprite2D2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wki8r"]
 _data = {
+&"RESET": SubResource("Animation_utxkc"),
 &"default": SubResource("Animation_dn6e1")
 }
 
@@ -170,13 +301,14 @@ enemy = 5
 visuals = NodePath("SpriteParent")
 
 [node name="SpriteParent" type="Node3D" parent="."]
+transform = Transform3D(1, -1.7484555e-07, 0, 1.7484555e-07, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite3D" parent="SpriteParent"]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 3, 0)
 billboard = 2
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_y6tvf")
-frame = 1
-frame_progress = 0.87596834
+frame = 3
 
 [node name="Area3D" type="Area3D" parent="SpriteParent/AnimatedSprite2D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
@@ -197,6 +329,13 @@ autoplay = "idle"
 libraries = {
 &"": SubResource("AnimationLibrary_wki8r")
 }
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite3D" parent="Jumpscare"]
+transform = Transform3D(1.75, -3.059797e-07, 0, 3.059797e-07, 1.75, 0, 0, 0, 1.75, -5.2453663e-07, 4, 2)
+visible = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_y6tvf")
+frame = 2
 
 [node name="C00KiddCharging" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_glgrt")

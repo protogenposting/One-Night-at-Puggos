@@ -10,6 +10,8 @@ var basePosition : Vector2
 
 var time = 0
 
+var timeLeft = 0
+
 func _ready():
 	gameplay = get_tree().get_first_node_in_group("Gameplay")
 	
@@ -18,6 +20,14 @@ func _ready():
 	basePosition = position
 
 func _process(delta: float) -> void:
+	var center = Vector2(0,0)
+	
+	timeLeft -= delta
+	
+	$timer.text = str(round(int(timeLeft)))
+	
+	$timer.global_position = center + Vector2(randf_range(-5,5),randf_range(-5,5))
+	
 	time += delta
 	
 	if gameplay.camID == camID && player.camsAreUp:
@@ -26,4 +36,4 @@ func _process(delta: float) -> void:
 		visible = false
 	
 	if EnemyAI.ultraMode:
-		position = basePosition + Vector2(sin(time * 2) * 500,cos(time) * 500)
+		global_position = center + Vector2(sin(time * 5) * 300,cos(time * 5) * 300)

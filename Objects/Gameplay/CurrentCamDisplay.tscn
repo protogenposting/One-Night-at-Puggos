@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkbgfr73ycufw"]
+[gd_scene format=3 uid="uid://bkbgfr73ycufw"]
 
 [ext_resource type="Script" uid="uid://cf63uikwccju2" path="res://Objects/Gameplay/CameraDisplay.gd" id="1_d0xth"]
 [ext_resource type="Texture2D" uid="uid://c5feseuoj4f5v" path="res://Assets/CAMERA.png" id="3_oucug"]
 [ext_resource type="Script" uid="uid://di4r0nay0ji0y" path="res://Objects/Gameplay/camera_button.gd" id="4_oucug"]
 [ext_resource type="Texture2D" uid="uid://7ya25lfke6kv" path="res://Assets/CAMERA_SELECTED.png" id="5_sshr3"]
+[ext_resource type="AudioStream" uid="uid://cmevcwfkxhnyi" path="res://Audio/CAMERA/Camera_ScreenSwitch.wav" id="5_y4g0f"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xml2b"]
 
@@ -17,6 +18,21 @@ width = 1920
 height = 1080
 generate_mipmaps = false
 noise = SubResource("FastNoiseLite_g0lc5")
+
+[sub_resource type="Animation" id="Animation_sshr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:targetColor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_oucug"]
 resource_name = "move"
@@ -32,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sshr3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:targetColor")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_y4g0f"]
@@ -71,16 +72,16 @@ _data = {
 &"start": SubResource("Animation_y4g0f")
 }
 
-[node name="CurrentCamDisplay" type="Node2D" node_paths=PackedStringArray("animator") groups=["CamDisplay"]]
+[node name="CurrentCamDisplay" type="Node2D" unique_id=1817362394 node_paths=PackedStringArray("animator") groups=["CamDisplay"]]
 script = ExtResource("1_d0xth")
 animator = NodePath("AnimationPlayer")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=631243725]
 texture = SubResource("ViewportTexture_xml2b")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=638797965]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2110794448]
 modulate = Color(1, 1, 1, 0)
 z_index = 999
 offset_left = -960.0
@@ -89,12 +90,12 @@ offset_right = 960.0
 offset_bottom = 544.0
 texture = SubResource("NoiseTexture2D_1ow7x")
 
-[node name="Puggos" type="Sprite2D" parent="."]
+[node name="Puggos" type="Sprite2D" parent="." unique_id=1693750785]
 position = Vector2(576, 160)
 scale = Vector2(2.5, 2.5)
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button" type="Button" parent="." unique_id=891214696 groups=["CameraButton"]]
 offset_left = 744.0
 offset_top = -103.0
 offset_right = 844.0
@@ -108,7 +109,7 @@ cameraID = "6_REPAIRS"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button2" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button2" type="Button" parent="." unique_id=2138800805 groups=["CameraButton"]]
 offset_left = 320.0
 offset_top = -175.0
 offset_right = 420.0
@@ -122,7 +123,7 @@ cameraID = "5_ENTERTAINMENT"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button3" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button3" type="Button" parent="." unique_id=465381827 groups=["CameraButton"]]
 offset_left = 563.0
 offset_top = 46.0
 offset_right = 663.0
@@ -136,7 +137,7 @@ cameraID = "1_CENTRE"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button4" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button4" type="Button" parent="." unique_id=1518540255 groups=["CameraButton"]]
 offset_left = 375.0
 offset_top = 150.0
 offset_right = 475.0
@@ -150,7 +151,7 @@ cameraID = "2_LEFT"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button5" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button5" type="Button" parent="." unique_id=1449508470 groups=["CameraButton"]]
 offset_left = 259.0
 offset_top = 282.0
 offset_right = 359.0
@@ -164,7 +165,7 @@ cameraID = "7_POMNI"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button6" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button6" type="Button" parent="." unique_id=654928438 groups=["CameraButton"]]
 offset_left = 400.0
 offset_top = 447.0
 offset_right = 500.0
@@ -178,7 +179,7 @@ cameraID = "4_VENTS"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="Button7" type="Button" parent="." groups=["CameraButton"]]
+[node name="Button7" type="Button" parent="." unique_id=727674093 groups=["CameraButton"]]
 offset_left = 716.0
 offset_top = 150.0
 offset_right = 816.0
@@ -192,7 +193,8 @@ cameraID = "3_RIGHT"
 onIcon = ExtResource("5_sshr3")
 offIcon = ExtResource("3_oucug")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y4g0f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2048079546]
+libraries/ = SubResource("AnimationLibrary_y4g0f")
+
+[node name="CameraScreenSwitch" type="AudioStreamPlayer" parent="." unique_id=2114572681]
+stream = ExtResource("5_y4g0f")

@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=3 uid="uid://cyw6n3em8wdgp"]
+
+[ext_resource type="Script" uid="uid://dsqinrnm2725o" path="res://Objects/Gameplay/Characters/BrownPhil/brownphil.gd" id="1_yu126"]
+[ext_resource type="Texture2D" uid="uid://c50hlb84a3te5" path="res://Objects/Gameplay/Characters/BrownPhil/Toons46.png" id="2_h63lj"]
+[ext_resource type="AudioStream" uid="uid://dqoli6afdfgd3" path="res://Objects/Gameplay/Characters/BrownPhil/brown.mp3" id="3_h63lj"]
+[ext_resource type="AudioStream" uid="uid://bhhwm67wvmkv3" path="res://Objects/Gameplay/Characters/BrownPhil/snd_pop.mp3" id="4_yu126"]
+[ext_resource type="AudioStream" uid="uid://jckj2i5b5q1" path="res://Objects/Gameplay/Characters/BrownPhil/snd_dead.wav" id="5_yu126"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yu126"]
+size = Vector3(0.575, 0.555, 0.455)
+
+[sub_resource type="Animation" id="Animation_1f0m8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yu126"]
+resource_name = "Warp"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pop")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [16.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1f0m8"]
+_data = {
+&"RESET": SubResource("Animation_1f0m8"),
+&"Warp": SubResource("Animation_yu126")
+}
+
+[sub_resource type="Animation" id="Animation_g2jjh"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wki8r"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BrownJumpscare/PursuerHowl_mp3")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcgk7"]
+_data = {
+&"RESET": SubResource("Animation_g2jjh"),
+&"default": SubResource("Animation_wki8r")
+}
+
+[node name="BrownPhil" type="Node3D" node_paths=PackedStringArray("jumpscare", "visuals")]
+script = ExtResource("1_yu126")
+jumpscare = NodePath("BrownJumpscare")
+movementRate = 2.0
+enemy = 7
+visuals = NodePath("SpriteParent")
+
+[node name="SpriteParent" type="Node3D" parent="."]
+
+[node name="BrownPhil" type="Sprite3D" parent="SpriteParent"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.9010001, 0)
+modulate = Color(1, 0.46669412, 0.33994877, 1)
+pixel_size = 0.003
+billboard = 2
+shaded = true
+texture = ExtResource("2_h63lj")
+
+[node name="Area3D" type="Area3D" parent="SpriteParent/BrownPhil"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteParent/BrownPhil/Area3D"]
+shape = SubResource("BoxShape3D_yu126")
+
+[node name="sfx" type="AudioStreamPlayer3D" parent="SpriteParent/BrownPhil"]
+stream = ExtResource("3_h63lj")
+volume_db = 8.807
+pitch_scale = 1.7
+
+[node name="pop" type="AudioStreamPlayer3D" parent="SpriteParent/BrownPhil"]
+transform = Transform3D(0.33333334, 0, 0, 0, 0.33333334, 0, 0, 0, 0.33333334, 0, -0.30033338, 0)
+stream = ExtResource("4_yu126")
+volume_db = 27.89
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SpriteParent/BrownPhil"]
+light_energy = 0.0
+
+[node name="Warp" type="AnimationPlayer" parent="SpriteParent/BrownPhil"]
+libraries = {
+&"": SubResource("AnimationLibrary_1f0m8")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BrownJumpscare" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pcgk7")
+}
+
+[node name="PursuerHowl_mp3" type="AudioStreamPlayer" parent="BrownJumpscare"]
+stream = ExtResource("5_yu126")
+volume_db = 7.954
+pitch_scale = 0.46
+
+[node name="Freshmeat" type="Sprite2D" parent="BrownJumpscare"]
+position = Vector2(1009.5, 601.49994)
+scale = Vector2(9.85547, 6.886719)
+texture = ExtResource("2_h63lj")
+
+[connection signal="area_entered" from="SpriteParent/BrownPhil/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="SpriteParent/BrownPhil/Area3D" to="." method="_on_area_3d_area_exited"]

@@ -1,6 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp07ulj888x7l"]
+[gd_scene format=3 uid="uid://cp07ulj888x7l"]
 
 [ext_resource type="Script" uid="uid://dkj3pit2u4bi4" path="res://Rooms/button_2.gd" id="1_1auxk"]
+
+[sub_resource type="GDScript" id="GDScript_kw4ua"]
+script/source = "extends Control
+
+func _process(delta: float) -> void:
+	EnemyAI.isInMenu = true
+	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+"
 
 [sub_resource type="GDScript" id="GDScript_xsd1b"]
 script/source = "extends Button
@@ -25,11 +34,12 @@ func _on_pressed() -> void:
 [sub_resource type="LabelSettings" id="LabelSettings_xsd1b"]
 font_size = 22
 
-[node name="c00lkidd" type="Control"]
+[node name="c00lkidd" type="Control" unique_id=1956167986]
 layout_mode = 3
 anchors_preset = 0
+script = SubResource("GDScript_kw4ua")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1083748191]
 layout_mode = 0
 offset_right = 334.0
 offset_bottom = 136.0
@@ -37,7 +47,7 @@ theme_override_font_sizes/font_size = 67
 text = "Start"
 script = SubResource("GDScript_xsd1b")
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." unique_id=741840471]
 layout_mode = 0
 offset_top = 136.0
 offset_right = 283.0
@@ -45,7 +55,7 @@ offset_bottom = 197.0
 text = "Custom Night"
 script = SubResource("GDScript_1auxk")
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=2140414173]
 layout_mode = 0
 offset_top = 197.0
 offset_right = 283.0
@@ -53,7 +63,7 @@ offset_bottom = 258.0
 text = "How To Play"
 script = ExtResource("1_1auxk")
 
-[node name="Label" type="Label" parent="Button2"]
+[node name="Label" type="Label" parent="Button2" unique_id=16027186]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -73,6 +83,14 @@ Press Space to open cameras
 
 Press shift to use the mask (blocks c00lkidd)"
 label_settings = SubResource("LabelSettings_xsd1b")
+
+[node name="Label" type="Label" parent="." unique_id=1451028547]
+layout_mode = 0
+offset_left = 1352.0
+offset_right = 1919.0
+offset_bottom = 288.0
+text = "Patch 1.1"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
